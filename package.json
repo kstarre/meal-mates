@@ -1,0 +1,22 @@
+{
+  "name": "meal-mates",
+  "version": "1.0.0",
+  "description": "Meal-mates is an application that lets smaller groups of users (from  work places, apartment complexes, university areas) focus on sharing meals.  Not only will this provide a convienience and a cost savings, it will lead to a greater feeling of camaraderie amongst people living in close proximity to one another.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickmalakar/meal-mates.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickmalakar/meal-mates/issues"
+  },
+  "homepage": "https://github.com/nickmalakar/meal-mates#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
