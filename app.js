@@ -1,5 +1,11 @@
 // Dependencies
 let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let session = require('express-session');
 
 // Route files
 let index = require('./routes/index');
@@ -20,8 +26,9 @@ let app = express();
 
 
 // Authentication
-
-
+let authentication = require('./authentication/passport')(app);
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // Global variables
 
