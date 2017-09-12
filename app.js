@@ -23,6 +23,7 @@ let db = require('./models');
 let app = express();
 
 // View engine setup
+require('dotenv').config();
 
 
 // Authentication
@@ -35,7 +36,6 @@ let authentication = require('./authentication/passport')(app);
 
 
 // Middleware
-
 
 
 // Routing
