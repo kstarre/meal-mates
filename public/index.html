@@ -67,7 +67,7 @@
                             <h4 class="modal-title" id="myModalLabel">Login form</h4>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="form-login" name="signin" method="post" action="/signin" class="form container">
                                 <div class="form-group">
                                     <label for="email">Email address</label>
                                     <div class="input-group pb-modalreglog-input-group">
@@ -82,7 +82,6 @@
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -90,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm" role="document">
@@ -101,7 +101,7 @@
                             <h4 class="modal-title" id="myModalLabel">Registration form</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="pb-modalreglog-form-reg" id="register" name="register" method="post" action="/editprofile.html">
+                           <form id="form-signup" name="signup" method="post" action="/signup" class="form container">
                                 <div class="form-group">
                                     <div id="pb-modalreglog-progressbar"></div>
                                 </div>
@@ -131,7 +131,6 @@
                                     <input type="checkbox" id="ch" name="chs">
                                     I agree with <a href="#">terms and conditions.</a>
                                 </div>
-                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -139,6 +138,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div> <!-- end modal -->
 </body>
    
