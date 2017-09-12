@@ -23,6 +23,10 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "morgan": "^1.8.2",
+<<<<<<< HEAD
+=======
+    "path": "^0.12.7",
+>>>>>>> e58a1f808a0af7495e8ef724ac7ffda341a367bb
     "serve-favicon": "^2.4.4"
   }
 }
