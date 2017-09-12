@@ -24,6 +24,7 @@ var PORT = process.env.NODE_ENV || 3000;
 let app = express();
 
 // View engine setup
+require('dotenv').config();
 
 
 // Authentication
@@ -36,7 +37,6 @@ let app = express();
 
 
 // Middleware
-
 
 
 // Routing
