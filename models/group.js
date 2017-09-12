@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataType) {
 			type: DataType.STRING,
 			allowNull: false,
 			len: [1]
-		}
+		},
 		groupRules: {
 			type: DataType.TEXT
 		}
@@ -23,8 +23,9 @@ module.exports = function(sequelize, DataType) {
 
 	//Associations
 	Group.associate = function(models) {
-		// assoicates Group with User
-		Group.hasMany(models.Users);
+	console.log(typeof models.User);		
+	// assoicates Group with User
+		Group.hasMany(models.User);
 	};
 
 	return Group;
