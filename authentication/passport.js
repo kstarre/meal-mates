@@ -6,7 +6,7 @@ const express = require('express');
 const session = require('express-session');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
-const bcyrpt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 let salt = bcrypt.genSaltSync(10);
 
 const db = require('../models');
