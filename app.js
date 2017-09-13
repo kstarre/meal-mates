@@ -37,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 
+
 // Authentication
 //let authentication = require('./authentication/passport')(app);
 // uncomment after placing your favicon in /public
