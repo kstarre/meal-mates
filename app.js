@@ -8,6 +8,9 @@ let bodyParser = require('body-parser');
 let session = require('express-session');
 require('dotenv').config();
 
+// View engine setup
+require('dotenv').config();
+
 // Route files
 let index = require('./routes/index.js');
 let login = require('./routes/login.js');
@@ -23,10 +26,6 @@ let db = require('./models');
 // Initialize Express
 var PORT = process.env.NODE_ENV || 3000;
 let app = express();
-
-// View engine setup
-
-
 
 // Authentication
 //let authentication = require('./authentication/passport')(app);
