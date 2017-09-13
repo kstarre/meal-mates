@@ -25,6 +25,6 @@ VALUES ("Michael", "Symon", "th3L@nd", "lola@cleveland.com", 2165555555, "none",
 
 
 
-INSERT INTO group (groupName, groupSize, admin, groupRules) VALUES ("Lunch Party", 4, "Martha Stewart", "No rules, just right");
+INSERT INTO lunchgroup (groupName, groupSize, admin, groupRules) VALUES ("Lunch Party", 4, "Martha Stewart", "No rules, just right");
 
-INSERT INTO group (firstName, groupSize, admin, groupRules) VALUES ("Bad Meals for Work", 4, "Donald Glover", "We will allow one vegetarian meal a week.  Try not to poison us.");
+INSERT INTO lunchgroup (firstName, groupSize, admin, groupRules) VALUES ("Bad Meals for Work", 4, "Donald Glover", "We will allow one vegetarian meal a week.  Try not to poison us.");
