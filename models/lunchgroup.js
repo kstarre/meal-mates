@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataType) {
-	var Group = sequelize.define("Group", {
+	var Lunchgroup = sequelize.define("Lunchgroup", {
 		groupName: {
 			type: DataType.STRING,
 			allowNull: false,
@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataType) {
 	});
 
 	//Associations
-	Group.associate = function(models) {
+	Lunchgroup.associate = function(models) {
 	console.log(typeof models.User);		
 	// assoicates Group with User
-		Group.hasMany(models.User);
+		Lunchgroup.hasMany(models.User);
 	};
 
-	return Group;
+	return Lunchgroup;
 };
