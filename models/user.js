@@ -50,7 +50,7 @@ module.exports = function(sequelize, DataType) {
 	// Associations
 	User.associate = function(models) {
 		// associates User with Group
-		User.belongsTo(models.Groups);
+		User.belongsTo(models.Lunchgroups);
 	};
 
 	// Creates Secure Password with bcryptjs
