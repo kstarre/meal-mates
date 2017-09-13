@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataType) {
 			}
 		},
 		phoneNumber: {
-			type: DataType.INTEGER,
+			type: DataType.STRING,
 			allowNull: false,
 			len: [10]
 		},
