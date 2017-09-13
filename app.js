@@ -6,6 +6,7 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
+require('dotenv').config();
 
 // Route files
 let index = require('./routes/index.js');
@@ -24,7 +25,7 @@ var PORT = process.env.NODE_ENV || 3000;
 let app = express();
 
 // View engine setup
-require('dotenv').config();
+
 
 
 // Authentication
