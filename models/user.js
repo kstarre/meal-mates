@@ -31,9 +31,9 @@ module.exports = function(sequelize, DataType) {
 			}
 		},
 		phoneNumber: {
-			type: DataType.INTEGER,
+			type: DataType.STRING,
 			allowNull: false,
-			len: [10]
+			len: [11]
 		},
 		foodAllergies: {
 			type: DataType.TEXT
