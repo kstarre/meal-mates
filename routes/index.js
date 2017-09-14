@@ -1,1 +1,1 @@
-// Consists of login, logout and signup
+// Consists of main page, login, signup, post signup, post signin - 5
