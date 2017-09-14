@@ -6,9 +6,7 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
-require('dotenv').config();
-
-// View engine setup
+let methodOverride = require('method-override')
 require('dotenv').config();
 
 // Route files
@@ -19,6 +17,8 @@ let signup = require('./routes/signup.js');
 let group = require('./routes/group.js');
 let user = require('./routes/user.js');
 let invite = require('./routes/invite.js');
+let htmlroutes = require('./routes/htmlroutes.js')
+
 
 // Models
 let db = require('./models');
@@ -26,6 +26,17 @@ let db = require('./models');
 // Initialize Express
 var PORT = process.env.PORT || 3000;
 let app = express();
+
+//view engine
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'),{index:false,extensions:['html']}));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+
+
 
 // Authentication
 //let authentication = require('./authentication/passport')(app);
