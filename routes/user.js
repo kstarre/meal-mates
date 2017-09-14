@@ -1,34 +1,13 @@
-const express = require('express');
-const router = express.Router;
+let express = require('express');
+let router = express.Router();
 
-const db = require("../models");
-
-// This file will consist of looking at and editing your profile page - 2
-
-// GET user by name
-/*router.get('/user/:id', function(req, res, next) {
-	// Search DB for a User
-	db.User.findOne({
-		where: {
-			id: req.params.id
-		},
-		include: {
-			model: db.Lunchgroup
-		}
-	}).then((user) => {
-		console.log(user)
-		// Get the user's group
-
-		res.render('viewprofile',
-			{
-				title: "Meal-Mates",
-				user: user, 
-				lunchgroup: lunchgroup
-			});
-		// if user doesn't exist
-	}).catch((err) => {
-		res.redirect('/');
-	});
+router.get("/viewprofile", function(req, res) {
+  res.sendFile(__dirname + "/public/viewprofile.html");
 });
 
-module.exports = router;*/
+router.get("/editprofile", function(req, res) {
+  res.sendFile(__dirname + "/public/editprofile.html");
+});
+
+module.exports = router;
+
