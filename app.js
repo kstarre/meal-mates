@@ -21,7 +21,7 @@ let invite = require('./routes/invite.js');
 let db = require('./models');
 
 // Initialize Express
-var PORT = process.env.NODE_ENV || 3000;
+var PORT = process.env.PORT || 3000;
 let app = express();
 
 // View engine setup
