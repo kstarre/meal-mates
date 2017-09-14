@@ -80,7 +80,7 @@ app.use(function(err, req, res, next) {
 
 
 // Sync sequelize for database
-db.sequelize.sync({ force: true }// will reset db each time app begins
+db.sequelize.sync({}// will reset db each time app begins
 	).then(function() {
 		app.listen(PORT, function() {
 			console.log("Listening on port " + PORT);
