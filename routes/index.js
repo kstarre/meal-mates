@@ -1,7 +1,8 @@
 let express = require('express');
 let router = express.Router();
-let indexController = require('../controllers/indexController');
+let indexController = require("../controllers/indexController");
 let passport = require('passport');
+
 
 // Get routes
 router.get("/", function(req, res) {
@@ -13,6 +14,7 @@ router.get("/signup", indexController.signup);
 router.get("/signin", indexController.signin);
 
 router.get("/signout", indexController.signout);
+
 
 // Post routes
 router.post("/signup", passport.authenticate('local-signup', {
