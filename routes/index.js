@@ -13,7 +13,8 @@ router.get("/signup", indexController.signup);
 
 router.get("/signin", indexController.signin);
 
-router.get("/signout", indexController.logout);
+router.get("/signout", indexController.signout);
+
 
 // Post routes
 router.post("/signup", passport.authenticate('local-signup', {
