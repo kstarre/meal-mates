@@ -17,7 +17,6 @@ require('dotenv').config();
 // Route files
 let index = require('./routes/index.js');
 let group = require('./routes/group.js');
-let user = require('./routes/user.js');
 let invite = require('./routes/invite.js');
 
 
