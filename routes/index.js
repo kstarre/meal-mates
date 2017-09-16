@@ -13,7 +13,7 @@ router.get("/signup", indexController.signup);
 
 router.get("/signin", indexController.signin);
 
-router.get("/signout", indexController.signout);
+//router.get("/signout", indexController.signout);
 
 
 // Post routes
