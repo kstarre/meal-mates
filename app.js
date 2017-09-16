@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 
-// Passport 
+// Passport Authentication
 app.use(session({
 	secret: process.env.SECRET,
 	resave: true,
@@ -46,9 +46,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+require('./config/passport/passport.js')(passport, db.user);
 
-// Authentication
-//let authentication = require('./authentication/passport')(app);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
