@@ -1,21 +1,24 @@
 /*let express = require('express');
 let router = express.Router();
+let groupController = require("../controllers/groupController");
 
-// create new group
-router.get("/group", function(req, res) {
-  res.sendFile(__dirname + "/public/group.html");
-});
+const db = require("../models");
 
-// put admin/edit group route
+// get group page
+router.get("/group", groupController.group);
+
+// create new group page
+router.get("/group/new", groupController.groupNew); 
+
+// edit group page
 router.get("/group/edit", groupController.groupEdit);
 
-// group query saving
-router.get("/group/save", groupController.save);
-
-// delete group
-router.get("/group/delete", groupController.groupDelete);
+// delete group page
+router.get("/group/edit", groupController.groupDelete);
 
 // calendar route
 router.get("/group/calendar", groupController.calendar);
 
-module.exports = router;*/
+module.exports = router;
+
+

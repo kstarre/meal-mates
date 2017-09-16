@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let indexController = require("../controllers/indexController");
+//let indexController = require("../controllers/indexController");
 let passport = require('passport');
 
 
@@ -16,7 +16,8 @@ router.post("/signup", passport.authenticate('local-signup', {
 	successRedirect: '/editprofile/:id',
 	failureRedirect: '/',
 	failureFlash: true
-}));
+ }));
+
 
 router.post('/signin', passport.authenticate('local-signin', {
 	successRedirect: '/editprofile/:id',

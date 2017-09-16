@@ -1,25 +1,77 @@
 module.exports = {
 
-	// put admin/edit group route
-	groupEdit = function(req, res) {
-		res.render("group");
+	// GET group
+	group: function(req, res) {  
+	  db.Lunchgroup.findOne({
+	  	where: {
+	  		groupName: req.param.name
+	  	},
+	  	include: {
+	  		model: db.User
+	  	}
+	  }).then(function(lunchgroup) {
+	  	console.log(lunchgroup);
+
+	  	res.sendFile(__dirname + "/public/group.html");
+	  	// if group does not exist
+	  }).catch(function(err) {
+	  	res.sendFile("/");
+	  });
 	},
 
-	// group query saving
-	groupSave = function(req, res) {
-		
-	}
-
-	// delete group
-	groupDelete = function(req, res) {
-		res.session.destroy(function(err) {
-			res.redirect("/");
+	// create/POST new group 
+	groupNew: function(req, res, next) {
+		db.Lunchgroup.findOrCreate({
+			where: {
+				groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+			}
+		}).spread(function(lunchgroup, created) {
+			res.sendFile(__dirname + "public/editgroup.html");
 		});
 	},
 
-	// calendar route
-	calendar = function() {
+	// edit/POST group
+	groupEdit: function(req, res, next) {
+		db.Lunchgroup.update({
+			where: {
+				groupName: groupName,
+				groupSize: groupSize,
+				admin: admin,
+				groupRules: groupRules
+			}
+		},{
+			where: {
+				groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+			}
+		}).then(function(lunchgroup) {
+			res.sendFile(__dirname + "/public/group.html");
+		});
+	},
 
-	}
+	
+	// DELETE group
+	groupDelete: function(req, res) {
+		db.Lunchgroup.Destroy({
+			where: {
+		      groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+		    }
+    	}).then(function() {
+    		res.sendFile(__dirName + "public/editprofile.html");
+    	});		
+	},
+
+	// GET calendar route
+	calendar: function(req, res) {
+		res.sendFile(__dirname + "public/calendar.html");
+	};
 
 };
