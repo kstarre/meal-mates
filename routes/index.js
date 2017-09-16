@@ -5,24 +5,23 @@ let passport = require('passport');
 
 
 // Get routes
-router.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+router.get("/", indexController.home);
 
-router.get("/signout", indexController.signout);
+router.get("/viewprofile/:id", indexController.isLoggedIn, indexController.viewProfile);
 
+router.get("/editprofile/:id", indexController.isLoggedIn, indexController.editProfile);
 
 // Post routes
 router.post("/signup", passport.authenticate('local-signup', {
 	successRedirect: '/editprofile/:id',
-	failureRedirect: '/signup',
+	failureRedirect: '/',
 	failureFlash: true
  }));
 
 
 router.post('/signin', passport.authenticate('local-signin', {
 	successRedirect: '/editprofile/:id',
-	failureRedirect: '/signin',
+	failureRedirect: '/',
 	failureFlash: true
 }));
 

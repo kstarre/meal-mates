@@ -31,7 +31,7 @@ module.exports = function(passport, user) {
         },
 
         //hashed password generating function inside the callback function
-        function(req, username, password, done) {
+        function(req, email, password, done) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
@@ -39,22 +39,21 @@ module.exports = function(passport, user) {
             //ensuring username isn't already taken 
             User.findOne({
                 where: {
-                    username : username
+                    email : email
                 }
             }).then(function(user) {
                 if (user)
                 {
                     return done(null, false, {
-                        message: 'That username is already taken'
+                        message: 'That e-mail is already registered.'
                     });
                 } 
                 else {
                     var userPassword = generateHash(password);
                     var data =
                         {
-                            username: username,
-                            password: userPassword,
-                            name: req.body.name,
+                            email: email,
+                            password: userPassword
                         };
                     
                   // Sequelize method for adding new entries to the database
@@ -75,28 +74,28 @@ module.exports = function(passport, user) {
     passport.use('local-signin', new LocalStrategy(
     {
         // by default, local strategy uses username and password
-        usernameField: 'username', 
+        usernameField: 'email', 
         passwordField: 'password', 
         passReqToCallback: true // allows us to pass back the entire request to the callback 
     },
-    function(req, username, password, done) {
+    function(req, email, password, done) {
         var User = user;
         var isValidPassword = function(userpass, password) {
             return bCrypt.compareSync(password, userpass);
         }
         User.findOne({
             where: {
-                username: username
+                email: email
             }
         }).then(function(user) {
             if (!user) {
                 return done(null, false, {
-                    message: 'account does not exist'
+                    message: 'E-mail does not exist.'
                 });
             }
             if (!isValidPassword(user.password, password)) {
                 return done(null, false, {
-                    message: 'Incorrect password.'
+                    message: 'Invalid password.'
                 });
             }
             var userinfo = user.get();
@@ -105,7 +104,7 @@ module.exports = function(passport, user) {
         }).catch(function(err) {
             console.log("Error:", err);
             return done(null, false, {
-                message: 'Something went wrong with your Signin'
+                message: 'Something went wrong with your Sign-in.'
             });
         });
     }

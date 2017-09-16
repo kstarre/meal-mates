@@ -6,13 +6,17 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
-let methodOverride = require('method-override')
+let methodOverride = require('method-override');
+let passport = require('passport');
+let moment = require('moment');
+let fullCalendar = require('fullcalendar');
+// see if you're using it below
+//let flash = require("connect-flash");
 require('dotenv').config();
 
 // Route files
-let index = require('./routes/index.js');;
+let index = require('./routes/index.js');
 let group = require('./routes/group.js');
-let user = require('./routes/user.js');
 let invite = require('./routes/invite.js');
 
 
@@ -33,9 +37,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 
+// Passport Authentication
+app.use(session({
+	secret: process.env.SECRET,
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport/passport.js')(passport, db.user);
 
-// Authentication
-//let authentication = require('./authentication/passport')(app);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 

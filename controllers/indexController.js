@@ -1,20 +1,18 @@
 module.exports = {
 
-	signup = function(req, res) {
-		res.render("signup");
+	home: function(req, res) {
+		res.sendFile(__dirname + "/public/index.html");
 	},
-	signin = function(req, res) {
-		res.render('signin', {loginMessage: req.flash('loginMessage')});
+	viewProfile: function(req, res) {
+		res.sendFile(__dirname + "/public/viewprofile.html");
 	},
-	logout = function(req, res) {
-		res.session.destroy(function(err) {
-			res.redirect("/");
-		})
+	editProfile: function(req, res) {
+		res.sendFile(__dirname + "/public/editprofile.html");
 	},
-	isLoggedIn = function(req, res, next) {
+	isLoggedIn: function(req, res, next) {
 		if ( req.isAuthenticated() ) {
 			return next();
 		}
-		res.redirect("/signin");
+		res.redirect("/");
 	}
 };

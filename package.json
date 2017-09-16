@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/nickmalakar/meal-mates#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -25,7 +25,9 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
+    "fullcalendar": "^3.5.1",
     "method-override": "^2.3.9",
+    "moment": "^2.18.1",
     "morgan": "^1.8.2",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.2",
