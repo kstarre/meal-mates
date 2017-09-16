@@ -9,7 +9,6 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-let fullCalendar = require('fullcalendar');
 // see if you're using it below
 //let flash = require("connect-flash");
 require('dotenv').config();

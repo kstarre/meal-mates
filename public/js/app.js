@@ -16,6 +16,27 @@ header: {
 },
 
     })
+
+
+
+//get user profile info
+
+function getUser() {
+	$.get("/user/:id", function(data){
+		console.log("user", data);
+		user = data;
+
+	})
+};
+
+
+
+
+//get group profile info
+
+
+
+
 });
 
 
