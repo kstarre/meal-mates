@@ -5,7 +5,7 @@ let passport = require('passport');
 
 
 // Get routes
-router.get("/", indexController.home;
+router.get("/", indexController.home);
 
 router.get("/viewprofile/:id", indexController.isLoggedIn, indexController.viewProfile);
 
