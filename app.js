@@ -86,13 +86,11 @@ app.use(function(err, req, res, next) {
 
 
 // Sync sequelize for database
-db.sequelize.sync(
-	//{ force: true }
-	// will reset db each time app begins
-	).then(function() {
-		app.listen(PORT, function() {
-			console.log("Listening on port " + PORT);
+db.sequelize.sync().then(function() {
+	app.listen(PORT, function() {
+		console.log("App is listening on PORT " + PORT);
 	});
 });
 
+// What are we exporting app for?
 module.exports = app;

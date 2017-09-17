@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-//let indexController = require("../controllers/indexController");
+let indexController = require("../controllers/indexController");
 let passport = require('passport');
 
 
