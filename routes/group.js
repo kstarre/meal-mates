@@ -1,4 +1,4 @@
-/*let express = require('express');
+let express = require('express');
 let router = express.Router();
 let groupController = require("../controllers/groupController");
 
@@ -20,5 +20,3 @@ router.get("/group/edit", groupController.groupDelete);
 router.get("/group/calendar", groupController.calendar);
 
 module.exports = router;
-
-

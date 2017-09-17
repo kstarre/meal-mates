@@ -72,6 +72,6 @@ module.exports = {
 	// GET calendar route
 	calendar: function(req, res) {
 		res.sendFile(__dirname + "public/calendar.html");
-	};
+	}
 
 };
