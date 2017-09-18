@@ -28,5 +28,11 @@ module.exports = function(sequelize, DataType) {
 		Lunchgroup.hasMany(models.User);
 	};
 
+	Lunchgroup.associate = function(models) {
+	console.log(typeof models.Eventdate);		
+	// assoicates Group with Eventdate
+		Lunchgroup.hasMany(models.Eventdate);
+	};
+
 	return Lunchgroup;
 };

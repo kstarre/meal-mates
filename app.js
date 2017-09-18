@@ -9,16 +9,16 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-let fullCalendar = require('fullcalendar');
+// let fullCalendar = require('fullcalendar');
 // see if you're using it below
 //let flash = require("connect-flash");
 require('dotenv').config();
 
 // Route files
-let index = require('./routes/index.js');
-let group = require('./routes/group.js');
-let user = require('./routes/user.js');
-let invite = require('./routes/invite.js');
+// let index = require('./routes/index.js');
+// let group = require('./routes/group.js');
+// let user = require('./routes/user.js');
+// let invite = require('./routes/invite.js');
 
 
 // Models

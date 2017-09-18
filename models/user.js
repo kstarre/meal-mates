@@ -53,6 +53,11 @@ module.exports = function(sequelize, DataType) {
 		User.belongsTo(models.Lunchgroups);
 	};
 
+	User.associate = function(models) {
+		//associate User with eventdate
+		User.belongsTo(models.Eventdates);
+	}
+
 	// Creates Secure Password with bcryptjs
 	User.hashPassword = (userPassword) => {
 		let salt = bcrypt.genSaltSync(10);
