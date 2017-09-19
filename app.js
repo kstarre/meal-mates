@@ -9,32 +9,32 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-// see if you're using it below
-//let flash = require("connect-flash");
+let flash = require("connect-flash");
 require('dotenv').config();
-
-// Route files
-let index = require('./routes/index.js');
-let group = require('./routes/group.js');
-let invite = require('./routes/invite.js');
-
-
-// Models
-let db = require('./models');
 
 // Initialize Express
 var PORT = process.env.PORT || 3000;
 let app = express();
 
-//view engine
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public'),{index:false,extensions:['html']}));
-app.use(bodyParser.urlencoded({ extended: false }));
+// Models
+let db = require('./models');
 
+// Route files
+let index = require('./routes/index.js')(app, passport);
+let group = require('./routes/group.js')(app);
+let invite = require('./routes/invite.js');
 
-// Override with POST having ?_method=DELETE
+// Middleware
+//-----------------------------------------------------------------------------------------------------
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('./public'));
+app.use(cookieParser);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(logger('dev'));
+
+// Override with POST 
 app.use(methodOverride("_method"));
-
 
 // Passport Authentication
 app.use(session({
@@ -44,27 +44,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 require('./config/passport/passport.js')(passport, db.user);
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-
-// Global variables
-
-
-
-// Middleware
-
-
-// Routing
-/*app.use('/', index);
-app.use('/login', login);
-app.use('/logout', logout);
-app.use('/signup', signup);
-app.use('/group/:id', group);
-app.use('/user/:id', user);
-app.use('/invite/group/:id/user/:id', invite);*/
-
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -83,6 +64,14 @@ app.use(function(err, req, res, next) {
 	res.status(err.status || 500);
 	res.render('error');
 });
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+//-----------------------------------------------------------------------------------------------------
+
+
+// Routing
 
 
 // Sync sequelize for database

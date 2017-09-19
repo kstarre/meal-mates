@@ -1,28 +1,21 @@
-let express = require('express');
-let router = express.Router();
 let indexController = require("../controllers/indexController");
-let passport = require('passport');
 
 
-// Get routes
-router.get("/", indexController.home);
+module.exports = function(app, passport) {
+	// HTML routes
+	app.get("/", indexController.home),
+	app.get("/viewprofile", indexController.viewProfile),
+	app.get("/editprofile", indexController.editProfile),
 
-router.get("/viewprofile/:id", indexController.isLoggedIn, indexController.viewProfile);
-
-router.get("/editprofile/:id", indexController.isLoggedIn, indexController.editProfile);
-
-// Post routes
-router.post("/signup", passport.authenticate('local-signup', {
-	successRedirect: '/editprofile/:id',
-	failureRedirect: '/',
-	failureFlash: true
- }));
-
-
-router.post('/signin', passport.authenticate('local-signin', {
-	successRedirect: '/editprofile/:id',
-	failureRedirect: '/',
-	failureFlash: true
-}));
-
-module.exports = router;
+	// API routes
+	app.post("/signup", passport.authenticate('local-signup', {
+		successRedirect: '/editprofile',
+		failureRedirect: '/',
+		failureFlash: true
+	 }));
+	app.post('/signin', passport.authenticate('local-signin', {
+		successRedirect: '/viewprofile',
+		failureRedirect: '/',
+		failureFlash: true
+	}));
+};
