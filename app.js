@@ -9,7 +9,6 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-let flash = require("connect-flash");
 require('dotenv').config();
 
 // Initialize Express
@@ -26,9 +25,9 @@ let invite = require('./routes/invite.js');
 
 // Middleware
 //-----------------------------------------------------------------------------------------------------
-//app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('./public'));
-app.use(cookieParser);
+app.use(favicon(path.join(__dirname, './public', 'favicon.ico')));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
@@ -44,8 +43,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
-require('./config/passport/passport.js')(passport, db.user);
+require('./config/passport/passport.js')(passport, db.User);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,13 +58,12 @@ app.use(function(err, req, res, next) {
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+	console.log(err);
 	// render to the error page
 	res.status(err.status || 500);
-	res.render('error');
+	//res.render('error');
 });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 //-----------------------------------------------------------------------------------------------------
 

@@ -11,6 +11,9 @@ module.exports = {
 	editProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
 	},
+	error: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/error.html"));
+	},
 	isLoggedIn: function(req, res, next) {
 		if ( req.isAuthenticated() ) {
 			return next();

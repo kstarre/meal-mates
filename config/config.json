@@ -1,7 +1,7 @@
 {
   "development": {
     "use_env_variable" : "MYSQL_CONNECTION",
-    "dialect" : "mysql"
+    "dialect": "mysql"
   },
   "test": {
     "use_env_variable" : "MYSQL_CONNECTION",
