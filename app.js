@@ -70,10 +70,6 @@ app.use(function(err, req, res, next) {
 
 //-----------------------------------------------------------------------------------------------------
 
-
-// Routing
-
-
 // Sync sequelize for database
 db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
