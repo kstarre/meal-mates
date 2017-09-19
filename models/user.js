@@ -1,17 +1,13 @@
-const bcrypt = require('bcryptjs');
-
 module.exports = function(sequelize, DataType) {
 	var User = sequelize.define("User", {
 		firstName: {
 			type: DataType.STRING,
-			allowNull: false,
 			validate: {
 				len: [1]
 			}
 		},
 		lastName: {
 			type: DataType.STRING,
-			allowNull: false,
 			validate: {
 				len: [1]
 			}
@@ -32,7 +28,6 @@ module.exports = function(sequelize, DataType) {
 		},
 		phoneNumber: {
 			type: DataType.STRING,
-			allowNull: false,
 			len: [11]
 		},
 		foodAllergies: {
@@ -42,30 +37,15 @@ module.exports = function(sequelize, DataType) {
 			type: DataType.TEXT
 		},
 		admin: {
-			type: DataType.BOOLEAN,
-			allowNull: true
+			type: DataType.BOOLEAN
 		}
 	});
 
 	// Associations
 	User.associate = function(models) {
 		// associates User with Group
-		User.belongsTo(models.Lunchgroups);
+		User.belongsTo(models.Lunchgroup);
 	}
-	
-/*	// Creates Secure Password with bcryptjs
-	User.hashPassword = (userPassword) => {
-		let salt = bcrypt.genSaltSync(10);
-		let hashedPassword = bcrypt.hasSync(userPassword, salt);
-
-		return hashedPassword;
-	}
-
-	// Check entered password with db, return boolean
-	User.checkPassword = (enteredPassword, dbHash) => {
-
-		return bcrypt.compareSync(enteredPassword, dbHash);
-	}*/
 
 	return User;
 };
