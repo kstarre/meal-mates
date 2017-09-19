@@ -1,13 +1,15 @@
+const path = require("path");
+
 module.exports = {
 
 	home: function(req, res) {
-		res.sendFile(__dirname + "/public/index.html");
+		res.sendFile(path.join(__dirname, "../public/index.html"));
 	},
 	viewProfile: function(req, res) {
-		res.sendFile(__dirname + "/public/viewprofile.html");
+		res.sendFile(path.join(__dirname, "../public/viewprofile.html"));
 	},
 	editProfile: function(req, res) {
-		res.sendFile(__dirname + "/public/editprofile.html");
+		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
 	},
 	isLoggedIn: function(req, res, next) {
 		if ( req.isAuthenticated() ) {

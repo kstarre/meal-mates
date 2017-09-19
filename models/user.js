@@ -51,9 +51,9 @@ module.exports = function(sequelize, DataType) {
 	User.associate = function(models) {
 		// associates User with Group
 		User.belongsTo(models.Lunchgroups);
-	};
-
-	// Creates Secure Password with bcryptjs
+	}
+	
+/*	// Creates Secure Password with bcryptjs
 	User.hashPassword = (userPassword) => {
 		let salt = bcrypt.genSaltSync(10);
 		let hashedPassword = bcrypt.hasSync(userPassword, salt);
@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataType) {
 	User.checkPassword = (enteredPassword, dbHash) => {
 
 		return bcrypt.compareSync(enteredPassword, dbHash);
-	}
+	}*/
 
 	return User;
 };

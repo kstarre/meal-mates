@@ -1,3 +1,6 @@
+const path = require("path");
+const db = require("../models");
+
 module.exports = {
 
 	// GET group
@@ -12,10 +15,10 @@ module.exports = {
 	  }).then(function(lunchgroup) {
 	  	console.log(lunchgroup);
 
-	  	res.sendFile(__dirname + "/public/group.html");
+	  	res.sendFile(path.join(__dirname, "../public/group.html"));
 	  	// if group does not exist
 	  }).catch(function(err) {
-	  	res.sendFile("/");
+	  	res.redirect("/");
 	  });
 	},
 
@@ -29,7 +32,7 @@ module.exports = {
 				groupRules: req.body.groupRules
 			}
 		}).spread(function(lunchgroup, created) {
-			res.sendFile(__dirname + "public/editgroup.html");
+			res.sendFile(path.join(__dirname, "../public/editgroup.html"));
 		});
 	},
 
@@ -50,7 +53,7 @@ module.exports = {
 				groupRules: req.body.groupRules
 			}
 		}).then(function(lunchgroup) {
-			res.sendFile(__dirname + "/public/group.html");
+			res.sendFile(path.join(__dirname, "../public/group.html"));
 		});
 	},
 
@@ -65,13 +68,13 @@ module.exports = {
 				groupRules: req.body.groupRules
 		    }
     	}).then(function() {
-    		res.sendFile(__dirName + "public/editprofile.html");
+    		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
     	});		
 	},
 
 	// GET calendar route
 	calendar: function(req, res) {
-		res.sendFile(__dirname + "public/calendar.html");
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
 	}
 
 };
