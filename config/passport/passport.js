@@ -31,7 +31,7 @@ module.exports = function(passport, user) {
         },
 
         //hashed password generating function inside the callback function
-        function(req, email, password, done) {
+        function(req, username, password, done) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
@@ -78,7 +78,7 @@ module.exports = function(passport, user) {
         passwordField: 'password', 
         passReqToCallback: true // allows us to pass back the entire request to the callback 
     },
-    function(req, email, password, done) {
+    function(req, username, password, done) {
         var User = user;
         var isValidPassword = function(userpass, password) {
             return bCrypt.compareSync(password, userpass);
