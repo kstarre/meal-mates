@@ -5,6 +5,7 @@
   margin: 0;
 }
 
+
 .jumbotron {
   /*position: relative;*/
   /*padding-top: 100px;
@@ -21,6 +22,9 @@
   margin-top: -27px;*/
 }
 
+#logout {
+  float: right;
+}
 
 
 
