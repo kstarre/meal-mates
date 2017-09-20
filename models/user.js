@@ -41,12 +41,5 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	});
 
-
-	// // Associations
-	// User.associate = function(models) {
-	// 	// associates User with Group
-	// 	User.belongsTo(models.Lunchgroup);
-	// }
-
 	return User;
 };
