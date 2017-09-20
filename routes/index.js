@@ -12,10 +12,10 @@ module.exports = function(app, passport) {
 	// API routes
 	app.post("/signup", passport.authenticate('local-signup', {
 		successRedirect: '/editprofile',
-		failureRedirect: '/error'
+		failureRedirect: '/'
 	 }));
 	app.post('/signin', passport.authenticate('local-signin', {
 		successRedirect: '/viewprofile',
-		failureRedirect: '/error'
+		failureRedirect: '/'
 	}));
 };
