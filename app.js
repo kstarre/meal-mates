@@ -17,12 +17,6 @@ let app = express();
 
 // Models
 let db = require('./models');
-
-// Route files
-let index = require('./routes/index.js')(app, passport);
-let group = require('./routes/group.js')(app);
-let invite = require('./routes/invite.js');
-
 // Middleware
 //-----------------------------------------------------------------------------------------------------
 app.use(express.static('./public'));
@@ -45,6 +39,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport/passport.js')(passport, db.User);
 
+// Route files
+let index = require('./routes/index.js')(app, passport);
+let group = require('./routes/group.js')(app);
+let invite = require('./routes/invite.js');
+
+
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	let err = new Error('Not Found');
@@ -61,14 +61,14 @@ app.use(function(err, req, res, next) {
 	console.log(err);
 	// render to the error page
 	res.status(err.status || 500);
-	//res.render('error');
+	console.log('error');
 });
 
 
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-db.sequelize.sync({force:true}).then(function() {
+db.sequelize.sync({force: true}).then(function() {
 	app.listen(PORT, function() {
 		console.log("App is listening on PORT " + PORT);
 	});
