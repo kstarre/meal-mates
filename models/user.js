@@ -41,11 +41,11 @@ module.exports = function(sequelize, DataType) {
 		}
 	});
 
-	// Associations
-	User.associate = function(models) {
-		// associates User with Group
-		User.belongsTo(models.Lunchgroup);
-	}
+	// // Associations
+	// User.associate = function(models) {
+	// 	// associates User with Group
+	// 	User.belongsTo(models.Lunchgroup);
+	// }
 
 	return User;
 };

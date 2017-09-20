@@ -21,10 +21,10 @@ module.exports = function(sequelize, DataType) {
 		}
 	});
 
-	//Associations
-	Lunchgroup.associate = function(models) {
-		Lunchgroup.hasMany(models.User);
-	};
+	// //Associations
+	// Lunchgroup.associate = function(models) {
+	// 	Lunchgroup.hasMany(models.User);
+	// };
 
 	return Lunchgroup;
 };
