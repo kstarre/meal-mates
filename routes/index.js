@@ -6,8 +6,6 @@ module.exports = function(app, passport) {
 	app.get("/", indexController.home),
 	app.get("/viewprofile", indexController.viewProfile),
 	app.get("/editprofile", indexController.editProfile),
-	app.get("/error", indexController.error),
-	app.get("/signup", indexController.signup),
 
 	// API routes
 	app.post("/signup", passport.authenticate('local-signup', {

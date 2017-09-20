@@ -64,14 +64,13 @@ app.use(function(err, req, res, next) {
 	console.log(err);
 	// render to the error page
 	res.status(err.status || 500);
-	console.log('error');
 });
 
 
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force : true}).then(function() {
 	app.listen(PORT, function() {
 		console.log("App is listening on PORT " + PORT);
 	});
