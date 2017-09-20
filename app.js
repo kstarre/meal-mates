@@ -9,6 +9,8 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
+var sequelize = require('sequelize');
+
 // let fullCalendar = require('fullcalendar');
 // see if you're using it below
 //let flash = require("connect-flash");
@@ -90,7 +92,7 @@ app.use(function(err, req, res, next) {
 
 // Sync sequelize for database
 db.sequelize.sync(
-	//{ force: true }
+	{ force: true }
 	// will reset db each time app begins
 	).then(function() {
 		app.listen(PORT, function() {
