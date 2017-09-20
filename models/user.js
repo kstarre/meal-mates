@@ -1,24 +1,24 @@
-module.exports = function(sequelize, DataType) {
+module.exports = function(sequelize, DataTypes) {
 	var User = sequelize.define("User", {
 		firstName: {
-			type: DataType.STRING,
+			type: DataTypes.STRING,
 			validate: {
 				len: [1]
 			}
 		},
 		lastName: {
-			type: DataType.STRING,
+			type: DataTypes.STRING,
 			validate: {
 				len: [1]
 			}
 		},
 		password: {
-			type: DataType.STRING,
+			type: DataTypes.STRING,
 			allowNull: false,
 			len: [6,12]
 		},
 		email: {
-			type: DataType.STRING,
+			type: DataTypes.STRING,
 			allowNull: false,
 			len: [1],
 			unique: true,
@@ -27,24 +27,24 @@ module.exports = function(sequelize, DataType) {
 			}
 		},
 		phoneNumber: {
-			type: DataType.STRING,
+			type: DataTypes.STRING,
 			len: [11]
 		},
 		foodAllergies: {
-			type: DataType.TEXT
+			type: DataTypes.TEXT
 		},
 		dietaryRestrictions: {
-			type: DataType.TEXT
+			type: DataTypes.TEXT
 		},
 		admin: {
-			type: DataType.BOOLEAN
+			type: DataTypes.BOOLEAN
 		}
 	});
 
 	// Associations
 	User.associate = function(models) {
-		// associates User with Group
-		User.belongsTo(models.Lunchgroup);
+		// associates User with Lunchgroup
+		User.belongsTo(models.Lunchgroup, {});
 	}
 
 	return User;
