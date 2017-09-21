@@ -9,10 +9,16 @@ module.exports = function(app, passport) {
 
 	// API routes
 	app.get("/logout", indexController.logout),
-	app.post("/signup", passport.authenticate('local-signup', {
-		successRedirect: '/editprofile',
-		failureRedirect: '/'
-	})),
+	app.post("/signup", function(req, res, next) {
+  		passport.authenticate('local-signup', function(err, user, info) {
+    		if (err) { return next(err); }
+    		if (!user) { return res.redirect('/'); }
+    		req.logIn(user, function(err) {
+      			if (err) { return next(err); }
+      			return res.redirect('/editprofile?user_id=' + user.id);
+    		});
+  		})(req, res, next);
+	}),
 	app.post('/signin', function(req, res, next) {
   		passport.authenticate('local-signin', function(err, user, info) {
     		if (err) { return next(err); }

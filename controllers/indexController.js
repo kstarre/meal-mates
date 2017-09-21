@@ -30,11 +30,12 @@ module.exports = {
 		}).then( results => {
 			res.json(results);
 		});
-	},
-	signin: function(req, res) {
+	}
+};
+
+/*	signin: function(req, res) {
 	  passport.authenticate('local-signin',  {
 	  	successRedirect: '/viewprofile?user_id=' + req.user.id,
 	  	failureRedirect: '/'
 	  })
-	}
-};
+	}*/
