@@ -4,6 +4,8 @@ $( document ).ready(function() {
     var emailInput = $("#group-info");
     var groupSize = $("#group-size-select");
 
+
+
 // full calendar js
 var date = new Date();
 var d = date.getDate();

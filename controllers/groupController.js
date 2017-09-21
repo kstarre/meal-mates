@@ -1,72 +1,86 @@
+const path = require("path");
+const db = require("../models");
+
 module.exports = {
 
-    // put admin/edit group route
-    groupEdit = function(req, res) {
+  
+	// GET group
+	group: function(req, res) {  
+	  db.Lunchgroup.findOne({
+	  	where: {
+	  		groupName: req.param.name
+	  	},
+	  	include: {
+	  		model: db.User
+	  	}
+	  }).then(function(lunchgroup) {
+	  	console.log(lunchgroup);
 
-        db.Post.update(req.body, {
-                where: {
-                    id: req.body.id
-                }
-            })
-            .then(function(data) {
-                res.json(data);
-            });
-    });
-},
+	  	res.sendFile(path.join(__dirname, "../public/group.html"));
+	  	// if group does not exist
+	  }).catch(function(err) {
+	  	res.redirect("/");
+	  });
+	},
 
-// group query saving
-groupSave = function(req, res) {
+	// create/POST new group 
+	groupNew: function(req, res, next) {
+		db.Lunchgroup.findOrCreate({
+			where: {
+				groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+			}
+		}).spread(function(lunchgroup, created) {
+			res.sendFile(path.join(__dirname, "../public/editgroup.html"));
+		});
+	},
 
-}
+	// edit/POST group
+	groupEdit: function(req, res, next) {
+		db.Lunchgroup.update({
+			where: {
+				groupName: groupName,
+				groupSize: groupSize,
+				admin: admin,
+				groupRules: groupRules
+			}
+		},{
+			where: {
+				groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+			}
+		}).then(function(lunchgroup) {
+			res.sendFile(path.join(__dirname, "../public/group.html"));
+		});
+	},
 
-// delete group
-groupDelete = function(req, res) {
-        res.session.destroy(function(err) {
-            res.redirect("/");
-        });
-    },
+	
+	// DELETE group
+	groupDelete: function(req, res) {
+		db.Lunchgroup.Destroy({
+			where: {
+		      groupName: req.body.groupName,
+				groupSize: req.body.groupSize, 
+				admin: req.body.admin,
+				groupRules: req.body.groupRules
+		    }
+    	}).then(function() {
+    		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
+    	});		
+	},
+
+	// GET calendar route
+	calendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	}
+
 
     // calendar route
     calendar = function() {
 
     }
-
-//find a group by id
-groupFind = function(req, res) {
-
-    db.Lunchgroup.findAll({
-
-        where: {
-            id: req.params.id
-        }
-
-    }).then(function(data) {
-
-        res.json(data);
-    }).catch(function(error) {
-
-        res.send(error);
-    })
-
 }
-
-};
-
-/*app.get("/getgroup", function(req, res) {
-
-        db.Lunchgroup.findAll({
-
-                 where: {
-                id: req.params.id
-            }
-
-            }).then(function(data) {
-
-                res.json(data);
-            }).catch(function(error) {
-
-                res.send(error);
-            })
-          
-    });
-*/

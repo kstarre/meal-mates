@@ -9,42 +9,31 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-var sequelize = require('sequelize');
 
-// let fullCalendar = require('fullcalendar');
-// see if you're using it below
-//let flash = require("connect-flash");
 require('dotenv').config();
 
-// Route files
-// let index = require('./routes/index.js');
-// let group = require('./routes/group.js');
-// let user = require('./routes/user.js');
-// let invite = require('./routes/invite.js');
-
-
-// Models
-let db = require('./models');
 
 // Initialize Express
 var PORT = process.env.PORT || 3000;
 let app = express();
 
-//view engine
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public'),{index:false,extensions:['html']}));
-app.use(bodyParser.urlencoded({ extended: false }));
+// Models
+let db = require('./models');
+// Middleware
+//-----------------------------------------------------------------------------------------------------
+app.use(express.static('./public'));
+app.use(favicon(path.join(__dirname, './public', 'favicon.ico')));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(logger('dev'));
 
-
-// Override with POST having ?_method=DELETE
+// Override with POST 
 app.use(methodOverride("_method"));
 
 
-//set a static view engine to use until things change added 9/20 for testing issues.
-app.use(express.static("app/public"));
-
-
 // Passport 
+// Passport Authentication
 app.use(session({
 	secret: process.env.SECRET,
 	resave: true,
@@ -52,27 +41,12 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+require('./config/passport/passport.js')(passport, db.User);
 
-// Authentication
-//let authentication = require('./authentication/passport')(app);
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-
-// Global variables
-
-
-
-// Middleware
-
-
-// Routing
-/*app.use('/', index);
-app.use('/login', login);
-app.use('/logout', logout);
-app.use('/signup', signup);
-app.use('/group/:id', group);
-app.use('/user/:id', user);
-app.use('/invite/group/:id/user/:id', invite);*/
+// Route files
+let index = require('./routes/index.js')(app, passport);
+let group = require('./routes/group.js')(app);
+let invite = require('./routes/invite.js');
 
 
 // conncet to api-routes folder - added by Greg 9/20
@@ -92,20 +66,21 @@ app.use(function(err, req, res, next) {
 	res.locals.message = err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+	console.log(err);
 	// render to the error page
 	res.status(err.status || 500);
-	res.render('error');
+	console.log('error');
 });
 
 
+//-----------------------------------------------------------------------------------------------------
+
 // Sync sequelize for database
-db.sequelize.sync(
-	{ force: true }
-	// will reset db each time app begins
-	).then(function() {
-		app.listen(PORT, function() {
-			console.log("Listening on port " + PORT);
+db.sequelize.sync({force: true}).then(function() {
+	app.listen(PORT, function() {
+		console.log("App is listening on PORT " + PORT);
 	});
 });
 
+// What are we exporting app for?
 module.exports = app;
