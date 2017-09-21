@@ -30,6 +30,17 @@ module.exports = {
 		}).then( results => {
 			res.json(results);
 		});
+	},
+	updateUserInfo: function(req, res) {
+		db.User.update(
+			req.body, 
+			{
+				where: {
+					id: req.body.id
+				}
+			}).then(function(results) {
+				res.json(results);
+			});
 	}
 };
 

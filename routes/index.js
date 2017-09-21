@@ -29,5 +29,6 @@ module.exports = function(app, passport) {
     		});
   		})(req, res, next);
 	}),
-	app.get("/api/user/:id", indexController.getUserInfo)
+	app.get("/api/user/:id", indexController.getUserInfo),
+  app.put("/api/user/edit", indexController.updateUserInfo)
 };
