@@ -45,7 +45,7 @@ module.exports = function(sequelize, DataTypes) {
     // Associations
     User.associate = function(models) {
         // associates User with Group
-        User.belongsTo(models.Lunchgroup, {tragetKey: "id"});
+        User.belongsTo(models.Lunchgroup, {targetKey: "id"});
     }
 
     return User;

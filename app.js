@@ -40,6 +40,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 
+//set a static view engine to use until things change added 9/20 for testing issues.
+app.use(express.static("app/public"));
+
+
 // Passport 
 app.use(session({
 	secret: process.env.SECRET,
@@ -69,6 +73,10 @@ app.use('/signup', signup);
 app.use('/group/:id', group);
 app.use('/user/:id', user);
 app.use('/invite/group/:id/user/:id', invite);*/
+
+
+// conncet to api-routes folder - added by Greg 9/20
+require("./routes/api-routes.js")(app);
 
 
 // Catch 404 and forward to error handler
