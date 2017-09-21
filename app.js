@@ -19,11 +19,11 @@ let app = express();
 
 // Models
 let db = require('./models');
+
 // Middleware
 //-----------------------------------------------------------------------------------------------------
-console.log(path.join(__dirname, './public'));
-app.use(express.static(path.join(__dirname, './public')));
-app.use(favicon(path.join(__dirname, './public', 'favicon.ico')));
+app.use(express.static('./public'));
+app.use(favicon(path.join(__dirname, './public/img', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -65,14 +65,13 @@ app.use(function(err, req, res, next) {
 	console.log(err);
 	// render to the error page
 	res.status(err.status || 500);
-	console.log('error');
 });
 
 
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
 		console.log("App is listening on PORT " + PORT);
 	});
