@@ -50,6 +50,7 @@ let invite = require('./routes/invite.js');
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
+	console.log(req);
 	let err = new Error('Not Found');
 	err.status = 404;
 	next(err);
