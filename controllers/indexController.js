@@ -1,7 +1,7 @@
 const path = require("path");
+const db = require("../models");
 
 module.exports = {
-
 	home: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/index.html"));
 	},
@@ -16,5 +16,25 @@ module.exports = {
 			return next();
 		}
 		res.redirect("/");
+	},
+	logout: function(req, res) {
+		req.session.destroy(function(err) {
+			res.redirect("/");
+		})
+	},
+	getUserInfo: function(req, res) {
+		db.User.findOne({
+			where: {
+				id: req.params.id
+			}
+		}).then( results => {
+			res.json(results);
+		});
+	},
+	signin: function(req, res) {
+	  passport.authenticate('local-signin',  {
+	  	successRedirect: '/viewprofile?user_id=' + req.user.id,
+	  	failureRedirect: '/'
+	  })
 	}
 };
