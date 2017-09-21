@@ -6,7 +6,6 @@ var userIdRetrnVar = {};
 
 module.exports = function(passport, user) {
     var User = user;
-
     var LocalStrategy = require('passport-local').Strategy;
 
     //serialize
@@ -34,7 +33,7 @@ module.exports = function(passport, user) {
         },
 
         //hashed password generating function inside the callback function
-        function(req, username, password, done) {
+        function(req, email, password, done) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
