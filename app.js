@@ -21,7 +21,8 @@ let app = express();
 let db = require('./models');
 // Middleware
 //-----------------------------------------------------------------------------------------------------
-app.use(express.static('./public'));
+console.log(path.join(__dirname, './public'));
+app.use(express.static(path.join(__dirname, './public')));
 app.use(favicon(path.join(__dirname, './public', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,6 +50,7 @@ let invite = require('./routes/invite.js');
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
+	console.log(req);
 	let err = new Error('Not Found');
 	err.status = 404;
 	next(err);
