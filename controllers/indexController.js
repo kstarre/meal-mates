@@ -42,6 +42,9 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
+	},
+	getPassportInfo: function(req, res) {
+		res.json(req.user);
 	}
 };
 
