@@ -1,5 +1,8 @@
 const path = require("path");
 const db = require("../models");
+var userObj = require("../config/passport/passport");
+
+console.log(userObj);
 
 module.exports = {
 
@@ -8,7 +11,9 @@ module.exports = {
 	group: function(req, res) {  
 	  db.Lunchgroup.findOne({
 	  	where: {
-	  		groupName: req.param.name
+	  		// groupName: req.param.name,
+	  		//added id search in case of groups sharing names
+	  		id: req.param.id
 	  	},
 	  	include: {
 	  		model: db.User
@@ -80,7 +85,7 @@ module.exports = {
 
 
     // calendar route
-    calendar = function() {
+    // calendar = function() {
 
-    }
+    // }
 }

@@ -18,6 +18,8 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/signup.html"));
 	},
 	isLoggedIn: function(req, res, next) {
+		console.log("loook here!!!");
+		console.log(req.user);
 		if ( req.isAuthenticated() ) {
 			return next();
 		}
