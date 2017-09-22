@@ -2,6 +2,7 @@ const path = require("path");
 const db = require("../models");
 
 module.exports = {
+	// HTML Routes
 	home: function(req, res) {
 		res.sendFile(path.join(__dirname, "/public/index.html"));
 	},
@@ -12,6 +13,8 @@ module.exports = {
 	editProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
 	},
+
+	// API Routes
 	isLoggedIn: function(req, res, next) {
 		if ( req.isAuthenticated() ) {
 			return next();
