@@ -1,7 +1,7 @@
 let groupController = require("../controllers/groupController");
 let indexController = require("../controllers/indexController");
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
 	// HTML Routes
 	app.get("/group", indexController.isLoggedIn, groupController.groupView),
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
@@ -15,7 +15,7 @@ module.exports = function(app) {
 	app.get("/api/group", groupController.getGroup),
 
 	// create new group page
-	app.get("/api/group/new", groupController.groupNewGroup),
+	app.get("/api/group/new", groupController.createNewGroup),
 
 	// edit group page
 	app.get("/api/group/edit", groupController.groupEdit),
@@ -24,5 +24,5 @@ module.exports = function(app) {
 	app.get("/api/group/delete", groupController.groupDelete),
 
 	// calendar route
-	app.get("/group/calendar", groupController.calendar)
+	app.get("/group/calendar", groupController.getCalendarInfo)
 };
