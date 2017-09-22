@@ -19,62 +19,62 @@
 </head>
 
 <body>
- <header>
-    <!-- navbar -->
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <a class="navbar-brand" href="/">Meal Mates</a>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="btn btn-secondary" role="button" id="logout" href="/logout">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-    <div class="card">
-        <div class="card-block">
-            <h4 class="card-title">Edit Profile Information</h4>
-            <form id="edit-profile">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">First Name</label>
-                <div class="col-10">
-                    <input type="text" id="first-name" name="firstName" class="form-control" placeholder="First Name">
-                </div>
+    <header>
+        <!-- navbar -->
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <a class="navbar-brand" href="/">Meal Mates</a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" role="button" id="logout" href="/logout">Logout</a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Last Name </label>
-  <div class="col-10">
-     <input type="text" id="last-name" name="lastName" class="form-control" placeholder="Last Name">
-</div>
-</div>
-<div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Phone Number</label>
-  <div class="col-10">
-    <input type="tel" id="phone-number" name="phoneNumber" class="form-control" placeholder="1-(555)-555-5555">
-</div>
-</div>
-<div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Food Allergies</label>
-  <div class="col-10">
-    <input type="text" id="food-allergies" name="foodAllergies" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
-    </div>
-</div>
-<div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Dietary Restrictions</label>
-  <div class="col-10">
-  <input type="text" id="dietary-restrictions" name="dietaryRestrictions" class="form-control" placeholder="e.g. Vegetarian or Kosher">
-</div>
-</div>
-            <input class="btn btn-primary" id="update-user-btn" type="submit" value="Submit">
+        </nav>
+    </header>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-block">
+                            <h4 class="card-title">Edit Profile Information</h4>
+                            <br>
+                            <form id="form-edit-profile" name="editProfile" method="post" action="/api/user" class="form container">
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Phone Number</label>
+                                    <div class="col-10">
+                                        <input type="tel" id="phone-number" name="phoneNumber" class="form-control" placeholder="1-(555)-555-5555">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Food Allergies</label>
+                                    <div class="col-10">
+                                        <input type="text" id="food-allergies" name="foodAllergies" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-2 col-form-label">Dietary Restrictions</label>
+                                    <div class="col-10">
+                                        <input type="text" id="dietary-restrictions" name="dietaryRestrictions" class="form-control" placeholder="e.g. Vegetarian or Kosher">
+                                    </div>
+                                </div>
+                                <input class="btn btn-primary" id="update-user-btn" type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-md-8 -->
+                <div class="col-md-2"></div>
+            </div>
+            <!-- end row -->
         </div>
-        </form>
+        <!-- end container -->
+    </body>
+    <footer>
+        <div class="container">
+            Copyright &copy; 2017 Meal Mates
         </div>
-</body>
-<footer>
-    <div class="container">
-  
-      Copyright &copy; 2017 Meal Mates
-    </div>
-  </footer>
+    </footer>
