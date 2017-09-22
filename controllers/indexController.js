@@ -7,7 +7,6 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "/public/index.html"));
 	},
 	viewProfile: function(req, res) {
-		console.log(req.user);
 		res.sendFile(path.join(__dirname, "../public/viewprofile.html"));
 	},
 	editProfile: function(req, res) {
