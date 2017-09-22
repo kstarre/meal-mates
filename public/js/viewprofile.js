@@ -1,14 +1,15 @@
 $(document).ready(function() {
 
-	// Looking for id param
-	let url = window.location.search;
 	let userID;
-	if (url.indexOf("?user_id=") !== -1) {
-		userID = url.split("=")[1];
-		getUser(userID);
-	}
-	else {
-		console.log("Something went wrong! No id parameter found.");
+	getID();
+
+	// Function for getting user ID
+	function getID() {
+		$.get("/api/user", function(data) {
+			userID = data.id;
+		}).done(function() {
+			getUser(userID);
+		});
 	}
 
 	// Function for retrieving user info
