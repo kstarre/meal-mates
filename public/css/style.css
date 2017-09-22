@@ -89,3 +89,10 @@
 #pb-modalreglog-progressbar {
     border-radius: 2px;
 }
+
+/*card styling*/
+
+#welcome-card {
+    padding: 20px;
+    margin-top: 100px;
+}
