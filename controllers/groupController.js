@@ -77,9 +77,18 @@ module.exports = {
 		// not complete
 		db.Eventdate.findOne({
 			where: {
-				g
+				groupName: req.body.name
+			}, 
+			include: {
+				model: db.Lunchgroup,
+				model: db.User
 			}
-		})
+		}).then(function(calendar))
+		res.json(calendar);
+	  	// if group does not exist
+		}).catch(function(err) {
+			res.redirect("/");
+		});
 	},
 
 	calendarEdit: function(req, res) {
