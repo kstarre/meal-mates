@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Meal Mates</title>
+
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -12,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     
     <!-- css -->
-    <link rel="stylesheet" type= "text/css" href="css/style.css">
+    <link rel="stylesheet" type= "text/css" href="/css/style.css">
 
     <!-- jquery -->
 
@@ -21,7 +23,7 @@
 
     <!-- javascript -->
 
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="/js/creategroup.js"></script>
 
 </head>
 <body>
@@ -45,19 +47,17 @@
                 <div class="col-md-8">
       <!-- form to create group with group name, member limit size, group rules -->
           <div class="card">
+
         <div class="card-block">
             <h4 class="card-title">Create Group</h4>
-            <form method="POST" action= "" id="create-group">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
-                <div class="col-10">
-                    <input type="text" id="first-name" name="groupName" class="form-control" placeholder="Group Name">
+            <form id="create-group">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
+                    <input type="text" id="group-name" name="groupName" class="form-control" placeholder="Group Name">
                 </div>
-            </div>
-             <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Group Information</label>
-                <div class="col-10">
-                    <input type="text" id="first-name" name="groupRules" class="form-control" placeholder="Group Information">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Group Information</label>
+                    <input type="text" id="group-info" name="groupRules" class="form-control" placeholder="Group Information">
                 </div>
             </div>
        <div class="form-group row">
@@ -79,3 +79,4 @@
                         <div class="col-md-2"></div>
                     </div> <!-- end row -->
                 </div><!-- end container -->
+
