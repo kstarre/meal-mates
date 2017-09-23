@@ -16,6 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
     <script type="text/javascript" src="js/app.js"></script>
+    <!--added by greg js for mailer-->
+    <script type="text/javascript" src="js/mailfrontend.js"></script>
 </head>
 
 <body>
@@ -50,6 +52,15 @@
     </ul>
      <h6 class="card-subtitle mb-2 text-muted">Group Information</h6>
     <p class="card-text" id = "group-info">This group has these stipulations and this other really important information that will be rendered here and is integral to the functioning and purpose of this application</p>
+
+    <div id="container">
+<h1>Mailer In Node.JS</h1>
+<input id="to" type="text" placeholder="Enter E-mail ID where you want to send" />
+<input id="subject" type="text" placeholder="Write Subject" />
+<textarea id="content" cols="40" rows="5" placeholder="Write what you want to send"></textarea>
+<button id="send_email">Send Email</button>
+<span id="message"></span>
+</div>
     </body>
    
     <!-- footer -->

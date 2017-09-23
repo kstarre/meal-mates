@@ -1,24 +1,37 @@
 const path = require("path");
 const db = require("../models");
-var userObj = require("../config/passport/passport");
 
-console.log(userObj);
 
 module.exports = {
 
+	groupView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/group.html"));
+	},
+	groupAdmin: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/group.html"));
+	},
+	groupCalendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	},
+	groupAdminCal: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	},
   
 	// GET group
-	group: function(req, res) {  
+	group: function(req, res) {
+		console.log("\nreq.params.id");
+		console.log(req.params.id);
+		
 	  db.Lunchgroup.findOne({
+
 	  	where: {
 	  		// groupName: req.param.name,
 	  		//added id search in case of groups sharing names
 	  		id: req.param.id
-	  	},
-	  	include: {
-	  		model: db.User
 	  	}
 	  }).then(function(lunchgroup) {
+
+	  	console.log("\n\n^^^^^^^^^^^^^^^^^^^^^Lunchgroup^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
 	  	console.log(lunchgroup);
 
 	  	res.sendFile(path.join(__dirname, "../public/group.html"));
@@ -79,9 +92,9 @@ module.exports = {
 	},
 
 	// GET calendar route
-	calendar: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	}
+	// calendar: function(req, res) {
+	// 	res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	// }
 
 
     // calendar route

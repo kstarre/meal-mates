@@ -12,7 +12,6 @@ let moment = require('moment');
 
 require('dotenv').config();
 
-
 // Initialize Express
 var PORT = process.env.PORT || 3000;
 let app = express();
@@ -36,9 +35,9 @@ app.use(methodOverride("_method"));
 // Passport 
 // Passport Authentication
 app.use(session({
-	secret: process.env.SECRET,
-	resave: true,
-	saveUninitialized: true
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,42 +47,42 @@ require('./config/passport/passport.js')(passport, db.User);
 let index = require('./routes/index.js')(app, passport);
 let group = require('./routes/group.js')(app);
 let invite = require('./routes/invite.js');
+let mail = require('./routes/mail.js')(app);
+
 
 
 // conncet to api-routes folder - added by Greg 9/20
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
 
 
 // Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-	let err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-});
+// app.use(function(req, res, next) {
+//     let err = new Error('Not Found');
+//     err.status = 404;
+//     next(err);
+// });
 
 // Error handler
 app.use(function(err, req, res, next) {
-	// set locals, only providing error in development
-	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-	console.log(err);
-	// render to the error page
-	res.status(err.status || 500);
+    console.log(err);
+    // render to the error page
+    res.status(err.status || 500);
 });
+
 
 
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-<<<<<<< HEAD
-db.sequelize.sync({/*force: true*/}).then(function() {
-=======
+// db.sequelize.sync({/*force: true*/}).then(function() {
 db.sequelize.sync().then(function() {
->>>>>>> 6cb9942098ae20e5763bb053108dc77720746250
-	app.listen(PORT, function() {
-		console.log("App is listening on PORT " + PORT);
-	});
+    app.listen(PORT, function() {
+        console.log("App is listening on PORT " + PORT);
+    });
 });
 
 // What are we exporting app for?
