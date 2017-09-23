@@ -48,26 +48,6 @@ let group = require('./routes/group.js')(app);
 let invite = require('./routes/invite.js');
 
 
-// Catch 404 and forward to error handler
-app.use(function(req, res, next) {
-	console.log(req);
-	let err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-});
-
-// Error handler
-app.use(function(err, req, res, next) {
-	// set locals, only providing error in development
-	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-	console.log(err);
-	// render to the error page
-	res.status(err.status || 500);
-});
-
-
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
