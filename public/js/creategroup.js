@@ -15,7 +15,7 @@ $(document).ready(function() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		var groupData = {
-			groupName: $("#first-name").val().trim(),
+			groupName: $("#group-name").val().trim(),
 			groupSize: parseInt( $("#group-size-select").val() ),
 			groupRules: $("#group-info").val().trim(),
 			admin: userID
