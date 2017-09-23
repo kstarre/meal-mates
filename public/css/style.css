@@ -5,25 +5,40 @@
     margin: 0;
 }
 
-/*.navbar {
-  background-color: #7EB348;
-}*/
+.navbar {
+    /*background: transparent;*/
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    /*font-family: 'Pacifico', cursive;*/
+    /*font-family: 'Rochester', cursive;*/
+    font-size: 20px;
+}
+
+#signed-in {
+    margin-right: 30px;
+}
 
 
 .jumbotron {
     /*position: relative;*/
-    /*padding-top: 100px;
-  padding-bottom: 50px;*/
     opacity: 0.75;
     color: #fff;
-    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  text-align: center;*/
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    /*text-align: center;*/
     background: url('../img/foodshare4.jpg') center center no-repeat;
     background-size: cover;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    /*margin-bottom: 0px;
-  margin-top: -27px;*/
+    padding-top: 20%;
+    padding-bottom: 20%;
+    margin-bottom: 0px;
+    margin-top: -70px;
+}
+
+.display-3 {
+    font-weight: bold;
+    font-size: 100px;
 }
 
 #logout {
@@ -52,14 +67,42 @@
     -webkit-transition: all 0.3s ease-in-out 0s;
 }
 
+.btn-primary {
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #7EB348;
+    background-image: none;
+    border: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-decoration: none ! important;
+    text-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+}
+
 #indexbtn:hover {
-    background: #333;
+    background: #587c32;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #587c32;
     color: #fff;
 }
 
 
 
+
 /*main page login/sign up modals*/
+
+#register-modal {
+    width: 500px;
+}
 
 .pb-modalreglog-container {
     margin-top: 100px;
@@ -88,4 +131,26 @@
 
 #pb-modalreglog-progressbar {
     border-radius: 2px;
+}
+
+
+/*card styling*/
+
+.card {
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    border-width: 0;
+    box-shadow: none;
+    /*background-color: #f3f8ee;*/
+}
+
+.card-group {
+    display: flex;
+}
+#footer {
+    background: #7EB348;
+    color: white;
+    font-weight: bold;
 }

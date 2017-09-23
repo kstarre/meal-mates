@@ -2,8 +2,9 @@ const path = require("path");
 const db = require("../models");
 
 module.exports = {
+	// HTML Routes
 	home: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/index.html"));
+		res.sendFile(path.join(__dirname, "/public/index.html"));
 	},
 	viewProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/viewprofile.html"));
@@ -11,6 +12,8 @@ module.exports = {
 	editProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
 	},
+
+	// API Routes
 	isLoggedIn: function(req, res, next) {
 		console.log("loook here!!!");
 		console.log(req.user);
@@ -43,6 +46,9 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
+	},
+	getPassportInfo: function(req, res) {
+		res.json(req.user);
 	}
 };
 

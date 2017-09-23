@@ -50,11 +50,6 @@ let invite = require('./routes/invite.js');
 let mail = require('./routes/mail.js')(app);
 
 
-
-// conncet to api-routes folder - added by Greg 9/20
-// require("./routes/api-routes.js")(app);
-
-
 // Catch 404 and forward to error handler
 // app.use(function(req, res, next) {
 //     let err = new Error('Not Found');
@@ -72,7 +67,6 @@ app.use(function(err, req, res, next) {
     // render to the error page
     res.status(err.status || 500);
 });
-
 
 
 //-----------------------------------------------------------------------------------------------------

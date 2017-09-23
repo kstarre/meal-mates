@@ -3,6 +3,23 @@ const db = require("../models");
 
 
 module.exports = {
+	// HTML Routes
+	createGroupView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/creategroup.html"));
+	},
+	adminGroupView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/admingroup.html"));
+	},
+	groupView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/group.html"));
+	},
+	viewCalendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	},
+	adminCalendarView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
+	},
+
 
 	groupView: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/group.html"));
@@ -22,6 +39,10 @@ module.exports = {
 		console.log("\nreq.params.id");
 		console.log(req.params.id);
 		
+
+	// API Routes
+	// GET group
+	getGroup: function(req, res) {  
 	  db.Lunchgroup.findOne({
 
 	  	where: {
@@ -31,10 +52,8 @@ module.exports = {
 	  	}
 	  }).then(function(lunchgroup) {
 
-	  	console.log("\n\n^^^^^^^^^^^^^^^^^^^^^Lunchgroup^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
-	  	console.log(lunchgroup);
-
 	  	res.sendFile(path.join(__dirname, "../public/group.html"));
+	  	res.json(lunchgroup);
 	  	// if group does not exist
 	  }).catch(function(err) {
 	  	res.redirect("/");
@@ -42,16 +61,9 @@ module.exports = {
 	},
 
 	// create/POST new group 
-	groupNew: function(req, res, next) {
-		db.Lunchgroup.findOrCreate({
-			where: {
-				groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
-			}
-		}).spread(function(lunchgroup, created) {
-			res.sendFile(path.join(__dirname, "../public/editgroup.html"));
+	createNewGroup: function(req, res) {
+		db.Lunchgroup.create(req.body).then(function(results, created) {
+			res.json(results);
 		});
 	},
 
@@ -59,20 +71,13 @@ module.exports = {
 	groupEdit: function(req, res, next) {
 		db.Lunchgroup.update({
 			where: {
-				groupName: groupName,
-				groupSize: groupSize,
-				admin: admin,
-				groupRules: groupRules
-			}
-		},{
-			where: {
 				groupName: req.body.groupName,
 				groupSize: req.body.groupSize, 
 				admin: req.body.admin,
 				groupRules: req.body.groupRules
 			}
 		}).then(function(lunchgroup) {
-			res.sendFile(path.join(__dirname, "../public/group.html"));
+			res.json(lunchgroup);
 		});
 	},
 
@@ -86,8 +91,8 @@ module.exports = {
 				admin: req.body.admin,
 				groupRules: req.body.groupRules
 		    }
-    	}).then(function() {
-    		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
+    	}).then(function(results) {
+    		res.json(results);
     	});		
 	},
 
@@ -99,6 +104,14 @@ module.exports = {
 
     // calendar route
     // calendar = function() {
+
+	getCalendarInfo: function(req, res) {
+		// not complete
+	},
+
+	calendarEdit: function(req, res) {
+		// Not complete
+	}
 
     // }
 }
