@@ -38,16 +38,9 @@ module.exports = {
 	},
 
 	// create/POST new group 
-	createNewGroup: function(req, res, next) {
-		db.Lunchgroup.findOrCreate({
-			where: {
-				groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
-			}
-		}).spread(function(lunchgroup, created) {
-			res.json(lunchgroup);
+	createNewGroup: function(req, res) {
+		db.Lunchgroup.create(req.body).then(function(results, created) {
+			res.json(results);
 		});
 	},
 
