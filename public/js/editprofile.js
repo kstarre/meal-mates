@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	let userID;
 	// Add event listener for the form submit
-	$("#edit-profile").on("submit", handleSubmit);
+	$("#form-edit-profile").on("submit", handleSubmit);
 	getID();
 
 	// Function for getting user ID

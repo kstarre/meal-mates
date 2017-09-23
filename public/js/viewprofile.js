@@ -22,6 +22,7 @@ $(document).ready(function() {
 			$("#profile-dietary").html(data.dietaryRestrictions);
 			$("#profile-allergies").html(data.foodAllergies);
 		});
+		console.log(data);
 	}
 
 });
