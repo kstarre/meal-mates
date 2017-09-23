@@ -12,6 +12,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- font awesome -->
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
@@ -20,11 +23,51 @@
     <script type="text/javascript" src="/js/viewprofile.js"></script>
 </head>
 <header>
-    <!-- navbar -->
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <a class="navbar-brand" href="/">Meal Mates</a>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            ☰
+        </button>
+        <div class="navbar-collapse collapse">
             <ul class="navbar-nav">
+                <li class="nav-item dropdown text-center">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Profile
+      </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Edit Your Profile</a>
+                        <a class="dropdown-item" href="#">View Your Profile</a>
+                        <a class="dropdown-item" href="#">Search For User Profile</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown text-center">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Group
+      </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Your Group</a>
+                        <a class="dropdown-item" href="#">Group Calendar</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown text-center">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Admin
+      </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Edit Group</a>
+                        <a class="dropdown-item" href="#">Edit Calendar</a>
+                    </div>
+                </li>
+            </ul>
+            </ul>
+        </div>
+        <a class="navbar-brand mx-auto" href="#">Meal Mates</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text" id = "signed-in">
+                        Signed in as User   
+                    </span>
+                </li>
                 <li class="nav-item">
                     <a class="btn btn-secondary" role="button" id="logout" href="/logout">Logout</a>
                 </li>
@@ -42,9 +85,7 @@
                     <div class="card-block">
                         <h4 class="card-title"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Profile Information</h4>
                         <br>
-                        <div class ="row">
                         <h6 class="card-subtitle mb-2 text-muted">First Name:</h6>
-                        <div class = "col-10"
                         <p class="card-text" id="profile-first-name">a first name</p>
                         <h6 class="card-subtitle mb-2 text-muted">Last Name:</h6>
                         <p class="card-text" id="profile-last-name">a last name</p>
@@ -58,13 +99,17 @@
                         <p class="card-text" id="profile-allergies">No known allergies</p>
                     </div>
                 </div>
-                   </div> <!-- end col-md-8 -->
-                        <div class="col-md-2"></div>
-                    </div> <!-- end row -->
-                </div><!-- end container -->
+            </div>
+            <!-- end col-md-8 -->
+            <div class="col-md-2"></div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
 </body>
-    <!-- footer -->
-    <nav class="navbar fixed-bottom navbar-light bg-faded" id="footer">
-        <p> Copyright &copy; 2017 Meal Mates </p>
-    </nav>
+<!-- footer -->
+<nav class="navbar fixed-bottom navbar-light bg-faded" id="footer">
+    <p> Copyright &copy; 2017 Meal Mates </p>
+</nav>
+
 </html>
