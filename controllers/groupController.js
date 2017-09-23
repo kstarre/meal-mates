@@ -75,6 +75,11 @@ module.exports = {
 
 	getCalendarInfo: function(req, res) {
 		// not complete
+		db.Eventdate.findOne({
+			where: {
+				g
+			}
+		})
 	},
 
 	calendarEdit: function(req, res) {
