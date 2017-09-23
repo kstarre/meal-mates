@@ -83,7 +83,7 @@ module.exports = {
 				model: db.Lunchgroup,
 				model: db.User
 			}
-		}).then(function(calendar))
+		}).then(function(calendar) {
 		res.json(calendar);
 	  	// if group does not exist
 		}).catch(function(err) {
