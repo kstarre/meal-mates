@@ -39,7 +39,7 @@ module.exports = {
 		console.log("\nreq.params.id");
 		console.log(req.params.id);
 		
-
+},
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  

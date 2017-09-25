@@ -6,7 +6,7 @@ module.exports = function(app) {
 //======html Routes
 
 app.get("/group", groupController.groupView),
-app.get("/groupAdmin", groupController.groupAdmin),
+// app.get("/groupAdmin", groupController.groupAdmin),
 app.get("/calendar", groupController.groupCalendar),
 app.get("/calendarAdmin", groupController.groupAdminCal)
 
@@ -20,7 +20,7 @@ app.get("/calendarAdmin", groupController.groupAdminCal)
 	// app.get("/group/view", groupController.group),
 
 	// create new group page
-	app.post("/group/new", groupController.groupNew),
+	// app.post("/group/new", groupController.groupNew),
 	// HTML Routes
 	app.get("/group", indexController.isLoggedIn, groupController.groupView),
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
