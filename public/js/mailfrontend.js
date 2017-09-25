@@ -13,7 +13,7 @@ $(document).ready(function(){
         $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
         if(data=="sent")
         {
-            $("#message").empty().html("Email is been sent at "+to+" !");
+            $("#message").empty().html("An invite has been sent to "+to+" !");
         }
 
 });
