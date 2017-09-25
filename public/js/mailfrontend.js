@@ -7,13 +7,13 @@ $(document).ready(function(){
 
         subject="You've received an invitation to join Meal-Mates";
 
-        text="A friend wants you to join their Meal-Mates meal-share group. Follow the link if you'd like to join";
+        text="A friend wants you to join their Meal-Mates meal-share group. Follow the link if you'd like to join.";
 
         $("#message").text("Sending E-mail...Please wait");
         $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
         if(data=="sent")
         {
-            $("#message").empty().html("An invite has been sent to "+to+" !");
+            $("#message").empty().html("An invite has been sent to "+to+"!");
         }
 
 });
