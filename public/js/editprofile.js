@@ -1,14 +1,17 @@
 $(document).ready(function() {
 
 	let userID;
+	let groupID;
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
+	//$("#").on("submit", handleDelete);
 	getID();
 
 	// Function for getting user ID
 	function getID() {
 		$.get("/api/user", function(data) {
 			userID = data.id;
+			groupID = data.LunchgroupId;
 		}).done(function() {
 			getUser(userID);
 		});
@@ -48,8 +51,47 @@ $(document).ready(function() {
 			url: "/api/user/edit",
 			data: data
 		}).done(function() {
-			window.location.href = "/viewprofile?_?user_id=" + data.id;
+			window.location.href = "/viewprofile";
 		})
+	}
+
+	// WIP
+	function handleDelete(event) {
+		event.preventDefault();
+
+		// some type of pop-up or model that asks are you sure?
+		// only if they click "no, i want to delete"
+		// can't delete if admin of group
+
+		deleteUser();
+	}
+
+	function deleteUser() {
+		$.ajax({
+			method: "DELETE",
+			url: "/api/user/delete",
+			data: {
+				id: userID
+			}
+		}).done(function() {
+			window.location.href = "/";
+		});
+	}
+
+	// WIP, needs event listener
+	function leaveGroup(event) {
+		event.preventDefault();
+
+		// some type of pop-up or model that asks are you sure?
+		// only if they click "yes, i want to leave"
+		// can't leave if admin of group
+
+		var userData = {
+			id: userID,
+			LunchgroupId: groupID
+		};
+
+		updateUser(userData);
 	}
 
 });

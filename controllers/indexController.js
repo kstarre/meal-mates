@@ -45,6 +45,15 @@ module.exports = {
 				res.json(results);
 			});
 	},
+	deleteUser: function(req, res) {
+		db.User.destroy({
+			where: {
+				id: req.body.id
+			}
+		}).then(function(results) {
+			res.json(results);
+		});
+	},
 	getPassportInfo: function(req, res) {
 		res.json(req.user);
 	}
