@@ -35,7 +35,6 @@ module.exports = {
 	// create/POST new group 
 	createNewGroup: function(req, res) {
 		db.Lunchgroup.create(req.body).then(function(results, created) {
-			console.log(results);
 			db.User.update({
 				admin: true,
 				LunchgroupId: results.id
@@ -43,22 +42,18 @@ module.exports = {
 				where: {
 					id: req.body.admin
 				}
-			}).then(function() {
-				// Switch to get group page
-				res.redirect("/group");
 			});
 		});
 	},
 
 	// edit/POST group
 	groupEdit: function(req, res, next) {
-		db.Lunchgroup.update({
-			where: {
-				groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
-			}
+		db.Lunchgroup.update(
+			req.body,
+			{
+				where: {
+					id: req.body.id
+				}
 		}).then(function(lunchgroup) {
 			res.json(lunchgroup);
 		});
@@ -67,12 +62,9 @@ module.exports = {
 	
 	// DELETE group
 	groupDelete: function(req, res) {
-		db.Lunchgroup.Destroy({
+		db.Lunchgroup.destroy({
 			where: {
-		      groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
+				id: req.body.id
 		    }
     	}).then(function(results) {
     		res.json(results);
