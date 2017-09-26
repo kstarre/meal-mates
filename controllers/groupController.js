@@ -1,6 +1,7 @@
 const path = require("path");
 const db = require("../models");
 
+
 module.exports = {
 	// HTML Routes
 	createGroupView: function(req, res) {
@@ -19,9 +20,30 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 
+
+	groupView: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/group.html"));
+	},
+	groupAdmin: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/group.html"));
+	},
+	groupCalendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	},
+	groupAdminCal: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	},
+  
+	// GET group
+	group: function(req, res) {
+		console.log("\nreq.params.id");
+		console.log(req.params.id);
+		
+},
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
+
 		db.Lunchgroup.findOne({
 	  		where: {
 	  			id: req.params.id
@@ -79,6 +101,15 @@ module.exports = {
     	});		
 	},
 
+	// GET calendar route
+	// calendar: function(req, res) {
+	// 	res.sendFile(path.join(__dirname, "../public/calendar.html"));
+	// }
+
+
+    // calendar route
+    // calendar = function() {
+
 	getCalendarInfo: function(req, res) {
 		// not complete
 		db.Eventdate.findOne({
@@ -101,4 +132,5 @@ module.exports = {
 		// Not complete
 	}
 
-};
+    // }
+}

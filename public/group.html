@@ -15,7 +15,12 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
+<<<<<<< HEAD
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/mailfrontend.js"></script>
+=======
     <script type="text/javascript" src="/js/group.js"></script>
+>>>>>>> 3b168a1e53f3f57db2beeaad305253f34bd438e2
 </head>
 
 <body>
@@ -43,21 +48,29 @@
                         <div class="card-block">
                             <h4 class="card-title">Group Information</h4>
                             <h6 class="card-subtitle mb-2 text-muted">Group Name</h6>
-                            <p class="card-text" id="group-name"></p>
-                            <h6 class="card-subtitle mb-2 text-muted">Group Admin</h6>
-                            <p class="card-text" id="group-admin"></p>
+                            <p class="card-text" id="group-name">a group name</p>
+                            <h6 class="card-subtitle mb-2 text-muted" id="admin">Group Admin</h6>
+                            <p class="card-text" id="group-admin">an admin's name</p>
                             <h6 class="card-subtitle mb-2 text-muted">Group Members</h6>
                             <ul class="card-text" id="group-members"></ul>
                             <h6 class="card-subtitle mb-2 text-muted">Group Information</h6>
                             <p class="card-text" id="group-info"></p>
                         </div>
+                        <input id="to" type="text" placeholder="Enter E-mail address of friend to invite" />
+                        <button id="send_email">Send Email</button>                        
+                        
+                        <span id="message"></span>
+                        <div><p></p></div>
                     </div>
-                </div> <!-- end col-md-8 -->
-                        <div class="col-md-2"></div>
-                    </div> <!-- end row -->
-                </div><!-- end container -->
+                </div>
+                <!-- end col-md-8 -->
+                <div class="col-md-2"></div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
     </body>
     <!-- footer -->
     <nav class="navbar fixed-bottom navbar-light bg-faded" id="footer">
         <p> Copyright &copy; 2017 Meal Mates </p>
-    </nav>
+        </nav

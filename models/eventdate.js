@@ -1,10 +1,11 @@
 // export player sequelizer
 module.exports = function(sequelize, DataTypes) {
 
+
     var Eventdate = sequelize.define("Eventdate", {
 
         date: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATEONLY,
             isDate: true
         }
     });
@@ -18,6 +19,12 @@ module.exports = function(sequelize, DataTypes) {
         Eventdate.belongsTo(models.Lunchgroup, {
             targetKey: "id"
         });
+
+       
     };
     return Eventdate;
 };
+
+
+
+
