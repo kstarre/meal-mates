@@ -49,10 +49,3 @@ module.exports = {
 		res.json(req.user);
 	}
 };
-
-/*	signin: function(req, res) {
-	  passport.authenticate('local-signin',  {
-	  	successRedirect: '/viewprofile?user_id=' + req.user.id,
-	  	failureRedirect: '/'
-	  })
-	}*/
