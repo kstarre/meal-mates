@@ -43,27 +43,32 @@ module.exports = {
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
-	  db.Lunchgroup.findOne({
 
-	  	where: {
-	  		// groupName: req.param.name,
-	  		//added id search in case of groups sharing names
-	  		id: req.param.id
-	  	}
-	  }).then(function(lunchgroup) {
-
-	  	res.sendFile(path.join(__dirname, "../public/group.html"));
-	  	res.json(lunchgroup);
-	  	// if group does not exist
-	  }).catch(function(err) {
-	  	res.redirect("/");
-	  });
+		db.Lunchgroup.findOne({
+	  		where: {
+	  			id: req.params.id
+	  		},
+	  		include: [ { model: db.User} ]
+	  	}).then(function(lunchgroup) {
+	  		res.json(lunchgroup);
+	  	});
 	},
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
 		db.Lunchgroup.create(req.body).then(function(results, created) {
-			res.json(results);
+			console.log(results);
+			db.User.update({
+				admin: true,
+				LunchgroupId: results.id
+			}, {
+				where: {
+					id: req.body.admin
+				}
+			}).then(function() {
+				// Switch to get group page
+				res.redirect("/group");
+			});
 		});
 	},
 
@@ -107,6 +112,20 @@ module.exports = {
 
 	getCalendarInfo: function(req, res) {
 		// not complete
+		db.Eventdate.findOne({
+			where: {
+				groupName: req.body.name
+			}, 
+			include: {
+				model: db.Lunchgroup,
+				model: db.User
+			}
+		}).then(function(calendar) {
+		res.json(calendar);
+	  	// if group does not exist
+		}).catch(function(err) {
+			res.redirect("/");
+		});
 	},
 
 	calendarEdit: function(req, res) {

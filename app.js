@@ -72,11 +72,19 @@ app.use(function(err, req, res, next) {
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-// db.sequelize.sync({/*force: true*/}).then(function() {
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-        console.log("App is listening on PORT " + PORT);
-    });
+// <<<<<<< HEAD
+// // db.sequelize.sync({/*force: true*/}).then(function() {
+// db.sequelize.sync().then(function() {
+//     app.listen(PORT, function() {
+//         console.log("App is listening on PORT " + PORT);
+//     });
+// =======
+db.sequelize.sync(
+	//{force:true}
+	).then(function() {
+	app.listen(PORT, function() {
+		console.log("App is listening on PORT " + PORT);
+	});
 });
 
 // What are we exporting app for?
