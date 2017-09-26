@@ -1,3 +1,5 @@
+//routes/group.js
+
 let groupController = require("../controllers/groupController");
 let indexController = require("../controllers/indexController");
 

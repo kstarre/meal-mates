@@ -15,8 +15,6 @@ module.exports = {
 
 	// API Routes
 	isLoggedIn: function(req, res, next) {
-		console.log("loook here!!!");
-		console.log(req.user);
 		if ( req.isAuthenticated() ) {
 			return next();
 		}
