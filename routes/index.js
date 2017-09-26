@@ -1,6 +1,6 @@
 let indexController = require("../controllers/indexController");
-
-
+console.log("indexController!");
+console.log(indexController);
 module.exports = function(app, passport) {
 	// HTML routes
 	app.get("/", indexController.home),
@@ -29,7 +29,10 @@ module.exports = function(app, passport) {
     		});
   		})(req, res, next);
 	}),
+
+  // do we need isLoggedIn for API routes?
 	app.get("/api/user", indexController.isLoggedIn, indexController.getPassportInfo),
   app.get("/api/user/:id", indexController.getUserInfo),
-  app.put("/api/user/edit", indexController.updateUserInfo)
+  app.put("/api/user/edit", indexController.updateUserInfo),
+  app.delete("/api/user/delete", indexController.deleteUser)
 };

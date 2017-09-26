@@ -25,6 +25,7 @@ $(document).ready(function() {
 
 	function createGroup(data) {
 		$.post("/api/group/new", data, function() {
+			window.location.href = "/group";
 		});
 	}
 });
