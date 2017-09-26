@@ -73,8 +73,9 @@ $(document).ready(function() {
 
 
 		/*
-		 * Render the above component into the div#app
+		 * Render the above component into the div#calendar
 		 */
-		React.render(<Application />, document.getElementById('app'));
+		React.render(<Application />, 
+		document.getElementById('calendar'));
 	})
 });
