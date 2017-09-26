@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataType) {
 			allowNull: false
 		},
 		admin: {
-			type: DataType.STRING,
+			type: DataType.INTEGER,
 			allowNull: false,
 			len: [1]
 		},

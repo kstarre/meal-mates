@@ -16,7 +16,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var groupData = {
 			groupName: $("#group-name").val().trim(),
-			groupSize: parseInt( $("#group-size-select").val() ),
+			groupSize: $("#group-size-select").val(),
 			groupRules: $("#group-info").val().trim(),
 			admin: userID
 		};
@@ -25,8 +25,6 @@ $(document).ready(function() {
 
 	function createGroup(data) {
 		$.post("/api/group/new", data, function() {
-			// Change this to be the admin view of group page
-			window.location.href = "/"
-		})
+		});
 	}
 });
