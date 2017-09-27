@@ -12,7 +12,7 @@ module.exports = function(app) {
 
 	// API Routes
 	// get group info
-	app.get("/api/group/:id", groupController.getGroup),
+	app.get("/api/group", groupController.getGroup),
 
 	// create new group
 	app.post("/api/group/new", groupController.createNewGroup),

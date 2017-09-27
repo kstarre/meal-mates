@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	let groupID;
 	$("#some-form-id").on("submit", handleSubmit);
-	$("#some-delete-button").on("submit", handleDelete);
+	//$("#some-delete-button").on("submit", handleDelete);
 	getID();
 
 	// Function for getting user ID

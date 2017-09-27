@@ -24,7 +24,7 @@ module.exports = {
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.params.id
+	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
