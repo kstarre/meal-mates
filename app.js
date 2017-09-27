@@ -9,7 +9,6 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-
 require('dotenv').config();
 
 // Initialize Express
@@ -26,8 +25,8 @@ app.use(favicon(path.join(__dirname, './public/img', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// user morgan for developement
 app.use(logger('dev'));
-
 // Override with POST 
 app.use(methodOverride("_method"));
 
