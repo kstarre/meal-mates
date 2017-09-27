@@ -24,7 +24,7 @@ module.exports = {
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.params.id
+	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
@@ -34,31 +34,33 @@ module.exports = {
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
-		db.Lunchgroup.create(req.body).then(function(results, created) {
-			console.log(results);
+		db.Lunchgroup.create({
+			groupName: req.body.groupName,
+			groupSize: req.body.groupSize,
+			groupRules: req.body.groupRules,
+			admin: req.user.id
+		}).then(function(results, created) {
 			db.User.update({
 				admin: true,
 				LunchgroupId: results.id
 			}, {
 				where: {
-					id: req.body.admin
+					id: req.user.id
 				}
-			}).then(function() {
-				// Switch to get group page
-				res.redirect("/group");
+			}).then(function(results) {
+				res.json(results);
 			});
 		});
 	},
 
 	// edit/POST group
 	groupEdit: function(req, res, next) {
-		db.Lunchgroup.update({
-			where: {
-				groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
-			}
+		db.Lunchgroup.update(
+			req.body,
+			{
+				where: {
+					id: req.user.LunchgroupId
+				}
 		}).then(function(lunchgroup) {
 			res.json(lunchgroup);
 		});
@@ -67,12 +69,9 @@ module.exports = {
 	
 	// DELETE group
 	groupDelete: function(req, res) {
-		db.Lunchgroup.Destroy({
+		db.Lunchgroup.destroy({
 			where: {
-		      groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
+				id: req.body.id
 		    }
     	}).then(function(results) {
     		res.json(results);
