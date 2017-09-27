@@ -1,6 +1,8 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
 
+var userIdRetrnVar = {};
+
 
 module.exports = function(passport, user) {
     var User = user;
@@ -14,7 +16,7 @@ module.exports = function(passport, user) {
 
     // deserialize user which saves user id to session
     passport.deserializeUser(function(id, done) {
-        User.findById(id).then(function(user) {
+        User.findById(id).then(function(user) {           
             if (user) {
                 done(null, user.get());
             } else {
@@ -79,7 +81,7 @@ module.exports = function(passport, user) {
             passReqToCallback: true // allows us to pass back the entire request to the callback 
         },
         function(req, email, password, done) {
-            var User = user;
+            var User = user;           
             var isValidPassword = function(userpass, password) {
                 return bCrypt.compareSync(password, userpass);
             }
@@ -88,6 +90,7 @@ module.exports = function(passport, user) {
                     email: email
                 }
             }).then(function(user) {
+
                 if (!user) {
                     return done(null, false, {
                         message: 'E-mail does not exist.'
@@ -110,3 +113,4 @@ module.exports = function(passport, user) {
         }
     ));
 };
+

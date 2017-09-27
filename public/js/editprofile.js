@@ -1,23 +1,13 @@
 $(document).ready(function() {
 
-	let userID;
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
-	getID();
-
-	// Function for getting user ID
-	function getID() {
-		$.get("/api/user", function(data) {
-			userID = data.id;
-		}).done(function() {
-			getUser(userID);
-		});
-	}
+	//$("#").on("submit", handleDelete);
+	getUser();
 
 	// Function for retrieving user info
-	function getUser(id) {
-		$.get("/api/user/" + id, function(data) {
-			console.log(data);
+	function getUser() {
+		$.get("/api/user", function(data) {
 			$("#first-name").val(data.firstName);
 			$("#last-name").val(data.lastName);
 			$("#phone-number").val(data.phoneNumber);
@@ -35,8 +25,7 @@ $(document).ready(function() {
 			lastName: $("#last-name").val().trim(),
 			phoneNumber: $("#phone-number").val().trim(),
 			foodAllergies: $("#food-allergies").val().trim(),
-			dietaryRestrictions: $("#dietary-restrictions").val().trim(),
-			id: userID
+			dietaryRestrictions: $("#dietary-restrictions").val().trim()
 		};
 
 		updateUser(userData);
@@ -48,8 +37,47 @@ $(document).ready(function() {
 			url: "/api/user/edit",
 			data: data
 		}).done(function() {
-			window.location.href = "/viewprofile?_?user_id=" + data.id;
+			window.location.href = "/viewprofile";
 		})
 	}
+
+	// WIP
+/*	function handleDelete(event) {
+		event.preventDefault();
+
+		// some type of pop-up or model that asks are you sure?
+		// only if they click "no, i want to delete"
+		// can't delete if admin of group
+
+		deleteUser();
+	}
+
+	function deleteUser() {
+		$.ajax({
+			method: "DELETE",
+			url: "/api/user/delete",
+			data: {
+				id: userID
+			}
+		}).done(function() {
+			window.location.href = "/";
+		});
+	}
+
+	// WIP, needs event listener
+	function leaveGroup(event) {
+		event.preventDefault();
+
+		// some type of pop-up or model that asks are you sure?
+		// only if they click "yes, i want to leave"
+		// can't leave if admin of group
+
+		var userData = {
+			id: userID,
+			LunchgroupId: groupID
+		};
+
+		updateUser(userData);
+	}*/
 
 });

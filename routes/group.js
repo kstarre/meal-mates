@@ -12,7 +12,7 @@ module.exports = function(app) {
 
 	// API Routes
 	// get group info
-	app.get("/api/group/:id", groupController.getGroup),
+	app.get("/api/group", groupController.getGroup),
 
 	// create new group
 	app.post("/api/group/new", groupController.createNewGroup),
@@ -24,5 +24,5 @@ module.exports = function(app) {
 	app.delete("/api/group/delete", groupController.groupDelete),
 
 	// calendar route
-	app.get("/group/calendar", groupController.getCalendarInfo)
+	app.get("/api/group/calendar", groupController.getCalendarInfo)
 };

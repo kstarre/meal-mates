@@ -9,9 +9,7 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
-
 require('dotenv').config();
-
 
 // Initialize Express
 var PORT = process.env.PORT || 3000;
@@ -27,16 +25,16 @@ app.use(favicon(path.join(__dirname, './public/img', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// user morgan for developement
 app.use(logger('dev'));
-
 // Override with POST 
 app.use(methodOverride("_method"));
 
-// Passport Authentication
+// Passport 
 app.use(session({
-	secret: process.env.SECRET,
-	resave: true,
-	saveUninitialized: true
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,13 +43,12 @@ require('./config/passport/passport.js')(passport, db.User);
 // Route files
 let index = require('./routes/index.js')(app, passport);
 let group = require('./routes/group.js')(app);
-let invite = require('./routes/invite.js');
+let mail = require('./routes/mail.js')(app);
 
 
 //-----------------------------------------------------------------------------------------------------
 
-// Sync sequelize for database
-db.sequelize.sync({}
+db.sequelize.sync(
 	//{force:true}
 	).then(function() {
 	app.listen(PORT, function() {

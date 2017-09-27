@@ -4,13 +4,16 @@ const db = require("../models");
 module.exports = {
 	// HTML Routes
 	home: function(req, res) {
-		res.sendFile(path.join(__dirname, "/public/index.html"));
+		res.sendFile(path.join(__dirname, "../public/index.html"));
 	},
 	viewProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/viewprofile.html"));
 	},
 	editProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
+	},
+	welcome: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/welcome.html"));
 	},
 
 	// API Routes
@@ -28,7 +31,7 @@ module.exports = {
 	getUserInfo: function(req, res) {
 		db.User.findOne({
 			where: {
-				id: req.params.id
+				id: req.user.id
 			}
 		}).then( results => {
 			res.json(results);
@@ -39,13 +42,19 @@ module.exports = {
 			req.body, 
 			{
 				where: {
-					id: req.body.id
+					id: req.user.id
 				}
 			}).then(function(results) {
 				res.json(results);
 			});
 	},
-	getPassportInfo: function(req, res) {
-		res.json(req.user);
+	deleteUser: function(req, res) {
+		db.User.destroy({
+			where: {
+				id: req.user.id
+			}
+		}).then(function(results) {
+			res.json(results);
+		});
 	}
 };

@@ -17,13 +17,11 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
-    <script type="text/javascript" src="js/app.js"></script>
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
 </head>
 
-<body>
-    <header>
-        <!-- navbar -->
-            <div class="jumbotron">
+<header>
+<!-- <div class="jumbotron"> -->
     <nav class="navbar navbar-toggleable-md" id="top-nav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             ☰
@@ -35,8 +33,8 @@
         USER 
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Your Profile</a>
-                        <a class="dropdown-item" href="#">View Your Profile</a>
+                        <a class="dropdown-item" href="/editprofile">Edit Your Profile</a>
+                        <a class="dropdown-item" href="/viewprofile">View Your Profile</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -44,8 +42,8 @@
        GROUP
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Your Group</a>
-                        <a class="dropdown-item" href="#">Group Calendar</a>
+                        <a class="dropdown-item" href="/group">Your Group</a>
+                        <a class="dropdown-item" href="/group/calendar">Group Calendar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -53,13 +51,13 @@
         ADMIN
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Group</a>
-                        <a class="dropdown-item" href="#">Edit Calendar</a>
+                        <a class="dropdown-item" href="/group/admin">Edit Group</a>
+                        <a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a>
                     </div>
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
+        <a class="navbar-brand mx-auto" href="/">MEAL MATES</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
@@ -73,48 +71,48 @@
             </ul>
         </div>
     </nav>
-    </div>
-    </header>
-
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="card" id="welcome-card">
-                        <div class="card-block">
-                            <h1 class="card-title">Welcome To Meal Mates!</h1>
-                            <p class="card-text">You've successfully registered</p>
-                            <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/creategroup.html"></a>
+    <!-- </div> -->
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card" id="welcome-card">
+                <div class="card-block">
+                    <h1 class="card-title">Welcome To Meal Mates!</h1>
+                    <p class="card-text">You've successfully registered</p>
+                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/group/create"></a>
                     <button type="button" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i> 
                         Create Group</button></h6>
-                            <p class="card-text">Create a group to begin sharing meals with friends, instructions etcetc etc</p>
-                            <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/editprofile.html"></a>
+                    <p class="card-text">Create a group to begin sharing meals with friends, instructions etcetc etc</p>
+                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/editprofile"></a>
                     <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
                             Edit Profile</button></h6>
-                            <p class="card-text" id="group-info">Edit your profile information regarding your contact information and et etc instructions</p>
-                        </div>
-                    </div>
-                </div><!-- end col-md-8 -->
-                <div class="col-md-2"></div>
-            </div>  <!-- end row -->
-        </div> <!-- end container -->
-    </body>
-    <!-- footer -->
+                    <p class="card-text" id="group-info">Edit your profile information regarding your contact information and et etc instructions</p>
+                </div>
+            </div>
+        </div>
+        <!-- end col-md-8 -->
+        <div class="col-md-2"></div>
+    </div>
+    <!-- end row -->
+</div>
+<!-- end container -->
+<!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
     <div class="container">
         <!-- Footer links -->
         <div class="row text-center text-md-left mt-3 pb-3">
             <!--First column-->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
                 <h2>Meal Mates</h2>
                 <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
             </div>
             <!--/.First column-->
             <hr class="w-100 clearfix d-md-none">
             <!--Second column-->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 footer-nav">
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 footer-nav animated fadeInUp">
                 <h6 class="title mb-4 font-bold">Menu</h6>
                 <div class="col-md-6">
                     <ul class="pages">
@@ -129,7 +127,7 @@
             <!--/.Third column-->
             <hr class="w-100 clearfix d-md-none">
             <!--Fourth column-->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns">
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
                 <h6 class="title mb-4 font-bold">Contact</h6>
                 <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
                 <p><i class="fa fa-envelope mr-3"></i> MealMates@gmail.com</p>
