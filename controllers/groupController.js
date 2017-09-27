@@ -80,20 +80,17 @@ module.exports = {
 
 	getCalendarInfo: function(req, res) {
 		// not complete
-		db.Eventdate.findOne({
-			where: {
-				groupName: req.body.name
-			}, 
-			include: {
-				model: db.Lunchgroup,
-				model: db.User
+		let events = [
+			{
+				title: 'Jane',
+				start: '2017-09-13'
+			},
+			{
+				title: "Mary",
+				start: '2017-09-12'
 			}
-		}).then(function(calendar) {
-		res.json(calendar);
-	  	// if group does not exist
-		}).catch(function(err) {
-			res.redirect("/");
-		});
+		]
+		res.json(events);
 	},
 
 	calendarEdit: function(req, res) {

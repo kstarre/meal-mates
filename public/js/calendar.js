@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
-    // page is now ready, initialize the calendar...
-    $('#calendar').fullCalendar({
-
-		
+	$.get("/api/group/calendar", function(data) {
+	    $('#calendar').fullCalendar({
+	    	events: data
+		});
 	});
+
 });
