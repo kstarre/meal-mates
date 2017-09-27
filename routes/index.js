@@ -1,5 +1,4 @@
 let indexController = require("../controllers/indexController");
-console.log("indexController!");
 
 module.exports = function(app, passport) {
 	// HTML routes
