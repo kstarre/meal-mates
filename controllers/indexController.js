@@ -28,7 +28,7 @@ module.exports = {
 	getUserInfo: function(req, res) {
 		db.User.findOne({
 			where: {
-				id: req.params.id
+				id: req.user.id
 			}
 		}).then( results => {
 			res.json(results);
@@ -39,7 +39,7 @@ module.exports = {
 			req.body, 
 			{
 				where: {
-					id: req.body.id
+					id: req.user.id
 				}
 			}).then(function(results) {
 				res.json(results);
@@ -48,7 +48,7 @@ module.exports = {
 	deleteUser: function(req, res) {
 		db.User.destroy({
 			where: {
-				id: req.body.id
+				id: req.user.id
 			}
 		}).then(function(results) {
 			res.json(results);

@@ -1,26 +1,13 @@
 $(document).ready(function() {
 
-	let userID;
-	let groupID;
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
 	//$("#").on("submit", handleDelete);
-	getID();
-
-	// Function for getting user ID
-	function getID() {
-		$.get("/api/user", function(data) {
-			userID = data.id;
-			groupID = data.LunchgroupId;
-		}).done(function() {
-			getUser(userID);
-		});
-	}
+	getUser();
 
 	// Function for retrieving user info
-	function getUser(id) {
-		$.get("/api/user/" + id, function(data) {
-			console.log(data);
+	function getUser() {
+		$.get("/api/user", function(data) {
 			$("#first-name").val(data.firstName);
 			$("#last-name").val(data.lastName);
 			$("#phone-number").val(data.phoneNumber);
@@ -38,8 +25,7 @@ $(document).ready(function() {
 			lastName: $("#last-name").val().trim(),
 			phoneNumber: $("#phone-number").val().trim(),
 			foodAllergies: $("#food-allergies").val().trim(),
-			dietaryRestrictions: $("#dietary-restrictions").val().trim(),
-			id: userID
+			dietaryRestrictions: $("#dietary-restrictions").val().trim()
 		};
 
 		updateUser(userData);
@@ -56,7 +42,7 @@ $(document).ready(function() {
 	}
 
 	// WIP
-	function handleDelete(event) {
+/*	function handleDelete(event) {
 		event.preventDefault();
 
 		// some type of pop-up or model that asks are you sure?
@@ -92,6 +78,6 @@ $(document).ready(function() {
 		};
 
 		updateUser(userData);
-	}
+	}*/
 
 });

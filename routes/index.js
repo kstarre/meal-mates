@@ -14,7 +14,7 @@ module.exports = function(app, passport) {
     		if (!user) { return res.redirect('/'); }
     		req.logIn(user, function(err) {
       			if (err) { return next(err); }
-      			return res.redirect('/editprofile?user_id=' + user.id);
+      			return res.redirect('/editprofile');
     		});
   		})(req, res, next);
 	}),
@@ -24,14 +24,14 @@ module.exports = function(app, passport) {
     		if (!user) { return res.redirect('/'); }
     		req.logIn(user, function(err) {
       			if (err) { return next(err); }
-      			return res.redirect('/viewprofile?user_id=' + user.id);
+      			return res.redirect('/viewprofile');
     		});
   		})(req, res, next);
 	}),
 
   // do we need isLoggedIn for API routes?
 	app.get("/api/user", indexController.isLoggedIn, indexController.getPassportInfo),
-  app.get("/api/user/:id", indexController.getUserInfo),
+  app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
   app.delete("/api/user/delete", indexController.deleteUser)
 };

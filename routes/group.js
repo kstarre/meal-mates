@@ -24,5 +24,5 @@ module.exports = function(app) {
 	app.delete("/api/group/delete", groupController.groupDelete),
 
 	// calendar route
-	app.get("/group/calendar", groupController.getCalendarInfo)
+	app.get("/api/group/calendar", groupController.getCalendarInfo)
 };

@@ -34,14 +34,21 @@ module.exports = {
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
-		db.Lunchgroup.create(req.body).then(function(results, created) {
+		db.Lunchgroup.create({
+			groupName: req.body.groupName,
+			groupSize: req.body.groupSize,
+			groupRules: req.body.groupRules,
+			admin: req.user.id
+		}).then(function(results, created) {
 			db.User.update({
 				admin: true,
 				LunchgroupId: results.id
 			}, {
 				where: {
-					id: req.body.admin
+					id: req.user.id
 				}
+			}).then(function(results) {
+				res.json(results);
 			});
 		});
 	},
