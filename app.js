@@ -51,7 +51,7 @@ let invite = require('./routes/invite.js');
 //-----------------------------------------------------------------------------------------------------
 
 // Sync sequelize for database
-db.sequelize.sync(
+db.sequelize.sync({}
 	//{force:true}
 	).then(function() {
 	app.listen(PORT, function() {

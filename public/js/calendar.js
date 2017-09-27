@@ -1,19 +1,47 @@
 $(document).ready(function() {
+	// javascript to initialize the calendar
+	var date  = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+
+	$('#calendar').fullCalendar({
+		header: 	
+			{
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+		editable: true,
+		weekMode: 'liquid',
+		url: '#', 
+		events: [
+			{
+				title: "this is a test",
+				start: new Date(y, m, 1, 9, 18),
+				end: new Date(y, m, 1, 10, 18),
+				allDay: false
+			},
+
+			]
+	});
 
     // page is now ready, initialize the calendar...
-    $('#calendar').fullCalendar({
+    /*$('#app').fullCalendar({
 
 		class Application extends React.Component {
+		//var Application = React.createClass({
 		  render() {
 		    return <div><External />
 		      <Calendar /></div>;
 		  }
 		}
+		//)
 
 		/*
 		 * A simple React component
 		 */
-		class Calendar extends React.Component {
+		/*class Calendar extends React.Component {
 		  render() {
 		    return <div id="calendar"></div>;
 		  }
@@ -69,13 +97,12 @@ $(document).ready(function() {
 					});
 				});
 		  }
-		}
+		}*/
 
 
 		/*
-		 * Render the above component into the div#calendar
+		 * Render the above component into the div#app
 		 */
-		React.render(<Application />, 
-		document.getElementById('calendar'));
-	})
+		/*React.render(<Application />, document.getElementById('app'));
+	});*/
 });
