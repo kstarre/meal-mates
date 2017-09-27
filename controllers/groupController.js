@@ -59,7 +59,7 @@ module.exports = {
 			req.body,
 			{
 				where: {
-					id: req.body.id
+					id: req.user.LunchgroupId
 				}
 		}).then(function(lunchgroup) {
 			res.json(lunchgroup);

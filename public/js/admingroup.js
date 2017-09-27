@@ -1,21 +1,11 @@
 $(document).ready(function() {
 
-	let groupID;
 	$("#some-form-id").on("submit", handleSubmit);
 	//$("#some-delete-button").on("submit", handleDelete);
-	getID();
+	getGroup();
 
-	// Function for getting user ID
-	function getID() {
-		$.get("/api/user", function(data) {
-			groupID = data.LunchgroupId;
-		}).done(function() {
-			getGroup(groupID);
-		});
-	}
-
-	function getGroup(id) {
-		$.get("/api/group/" + id, function(data) {
+	function getGroup() {
+		$.get("/api/group", function(data) {
 			let adminID = data.admin;
 			for (var i = 0; i < data.Users.length; i++) {
 				$("#group-members").append("<li>" + data.Users[i].email + "</li>");
@@ -36,8 +26,7 @@ $(document).ready(function() {
 		var groupData = {
 			groupName: $("#").val().trim(),
 			groupSize: $("#").val(),
-			groupRules: $("#").val().trim(),
-			id: groupID
+			groupRules: $("#").val().trim()
 		};
 
 		updateGroup(groupData);
@@ -54,7 +43,7 @@ $(document).ready(function() {
 	}
 
 	// WIP
-	function handleDelete(event) {
+/*	function handleDelete(event) {
 		event.preventDefault();
 
 		// some type of pop-up or model that asks are you sure?
@@ -86,13 +75,13 @@ $(document).ready(function() {
 
 		let groupData = {
 			id: groupID,
-			admin: /*eference hidden id from dropdown*/
+			admin:
 			// also need to change user's admin boolean from true to false
 			// and new admin's from false to true
 		};
 
 		// might need a new function to handle group and user changes
 		updateGroup(groupData);
-	}
+	}*/
 
 });

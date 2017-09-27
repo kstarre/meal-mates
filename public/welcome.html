@@ -33,8 +33,8 @@
         USER 
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Your Profile</a>
-                        <a class="dropdown-item" href="#">View Your Profile</a>
+                        <a class="dropdown-item" href="/editprofile">Edit Your Profile</a>
+                        <a class="dropdown-item" href="/viewprofile">View Your Profile</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -42,8 +42,8 @@
        GROUP
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Your Group</a>
-                        <a class="dropdown-item" href="#">Group Calendar</a>
+                        <a class="dropdown-item" href="/group">Your Group</a>
+                        <a class="dropdown-item" href="/group/calendar">Group Calendar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -51,13 +51,13 @@
         ADMIN
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Group</a>
-                        <a class="dropdown-item" href="#">Edit Calendar</a>
+                        <a class="dropdown-item" href="/group/admin">Edit Group</a>
+                        <a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a>
                     </div>
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
+        <a class="navbar-brand mx-auto" href="/">MEAL MATES</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
@@ -81,11 +81,11 @@
                 <div class="card-block">
                     <h1 class="card-title">Welcome To Meal Mates!</h1>
                     <p class="card-text">You've successfully registered</p>
-                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/creategroup.html"></a>
+                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/group/create"></a>
                     <button type="button" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i> 
                         Create Group</button></h6>
                     <p class="card-text">Create a group to begin sharing meals with friends, instructions etcetc etc</p>
-                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/editprofile.html"></a>
+                    <h6 class="card-subtitle mb-2 text-muted"><a class="nav-link" id="create-group" href="/editprofile"></a>
                     <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
                             Edit Profile</button></h6>
                     <p class="card-text" id="group-info">Edit your profile information regarding your contact information and et etc instructions</p>

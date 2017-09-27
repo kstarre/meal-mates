@@ -12,6 +12,9 @@ module.exports = {
 	editProfile: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/editprofile.html"));
 	},
+	welcome: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/welcome.html"));
+	},
 
 	// API Routes
 	isLoggedIn: function(req, res, next) {
@@ -53,8 +56,5 @@ module.exports = {
 		}).then(function(results) {
 			res.json(results);
 		});
-	},
-	getPassportInfo: function(req, res) {
-		res.json(req.user);
 	}
 };
