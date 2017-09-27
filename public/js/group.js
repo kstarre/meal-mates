@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 			$("#group-name").html(data.groupName);
 			$("#group-info").html(data.groupRules);
-			//console.log(data);
+			console.log(data);
 		});
 	}
 

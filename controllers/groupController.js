@@ -34,19 +34,19 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/calendar.html"));
 	},
   
-	// GET group
-	group: function(req, res) {
-		console.log("\nreq.params.id");
-		console.log(req.params.id);
+// 	// GET group
+// 	group: function(req, res) {
+// 		console.log("\nreq.params.id");
+// 		console.log(req.params.id);
 		
-},
+// },
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
 
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.params.id
+	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {

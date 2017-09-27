@@ -33,7 +33,7 @@ app.get("/calendarAdmin", groupController.groupAdminCal)
 
 	// API Routes
 	// get group info
-	app.get("/api/group/:id", groupController.getGroup),
+	app.get("/api/group", groupController.getGroup),
 
 	// create new group
 	app.post("/api/group/new", groupController.createNewGroup),
@@ -49,6 +49,6 @@ app.get("/calendarAdmin", groupController.groupAdminCal)
 
 	//=======================================
 
-	app.get("/api/group/view/:id", groupController.group)
+	// app.get("/api/group/view/:id", groupController.group)
 	app.get("/group/calendar", groupController.getCalendarInfo)
 };
