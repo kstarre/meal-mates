@@ -1,12 +1,16 @@
 // export player sequelizer
-module.exports = function(sequelize, DataTypes) {
-
-
+module.exports = function(sequelize, DataType) {
     var Eventdate = sequelize.define("Eventdate", {
-
-        date: {
-            type: DataTypes.DATEONLY,
+        title: {
+            type: DataType.STRING
+        },
+        start: {
+            type: DataType.DATEONLY,
             isDate: true
+        },
+        startEditable: {
+            type: DataType.BOOLEAN,
+            default: true
         }
     });
 
