@@ -13,8 +13,17 @@
     <!-- fullcalendar stylesheet -->
     <link rel='stylesheet' href='/css/fullcalendar/fullcalendar.css' />
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+
+    <!-- jquery ui -->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"></script>
 
     <!-- moment -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
@@ -27,6 +36,11 @@
 </head>
 <body>
     <h1>Welcome to the group calendar!</h1>
+    <div id="external-events">
+        <h4>Draggable Events</h4>
+        <div class="my-draggable" style="z-index: auto; left: 0px; top: 0px;">Nick</div>
+        <div class="my-draggable" style="z-index: auto; left: 0px; top: 0px;">Greg</div>
+    </div>
     <div id="calendar"></div>
 </body>
 </html>

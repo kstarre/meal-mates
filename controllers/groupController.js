@@ -79,25 +79,35 @@ module.exports = {
 	},
 
 	getCalendarInfo: function(req, res) {
-		// not complete
-		db.Eventdate.findOne({
+		db.Eventdate.findAll({
 			where: {
-				groupName: req.body.name
-			}, 
-			include: {
-				model: db.Lunchgroup,
-				model: db.User
+				LunchgroupId: req.user.LunchgroupId
 			}
-		}).then(function(calendar) {
-		res.json(calendar);
-	  	// if group does not exist
-		}).catch(function(err) {
-			res.redirect("/");
+		}).then(function(events) {
+			res.json(events);
 		});
 	},
 
 	calendarEdit: function(req, res) {
-		// Not complete
+		db.Eventdate.update(
+			req.body,
+			{
+				where: {
+					id: req.body.id
+				}
+			}).then(function(results) {
+				res.json(results);
+			});
+	},
+
+	eventCreate: function(req, res) {
+		db.Eventdate.create({
+			start: req.body.start,
+			title: req.body.title,
+			LunchgroupId: req.user.LunchgroupId
+		}).then(function(results) {
+			res.json(results);
+		})
 	}
 
 };
