@@ -176,13 +176,20 @@ body {
     display: none;
 }
 
+#card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  /*color: ;*/
+}
+
 #profile-info h6, #profile-info p {
     display: inline;
     vertical-align: top;
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    line-height: 28px;    
+    line-height: 200%; 
+    font-family: 'Oswald', sans-serif;   
 }
+
 .headline h1 {
     font-weight: bold;
 }
@@ -192,10 +199,6 @@ body {
 
 #welcome-card {
 /*margin-top: -50px;*/
-}
-
-.card-title {
-  text: center;
 }
 
 /*#footer {
