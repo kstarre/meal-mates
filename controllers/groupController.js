@@ -79,22 +79,35 @@ module.exports = {
 	},
 
 	getCalendarInfo: function(req, res) {
-		// not complete
-		let events = [
-			{
-				title: 'Jane',
-				start: '2017-09-13'
-			},
-			{
-				title: "Mary",
-				start: '2017-09-12'
+		db.Eventdate.findAll({
+			where: {
+				LunchgroupId: req.user.LunchgroupId
 			}
-		]
-		res.json(events);
+		}).then(function(events) {
+			res.json(events);
+		});
 	},
 
 	calendarEdit: function(req, res) {
-		// Not complete
+		db.Eventdate.update(
+			req.body,
+			{
+				where: {
+					id: req.body.id
+				}
+			}).then(function(results) {
+				res.json(results);
+			});
+	},
+
+	eventCreate: function(req, res) {
+		db.Eventdate.create({
+			start: req.body.start,
+			title: req.body.title,
+			LunchgroupId: req.user.LunchgroupId
+		}).then(function(results) {
+			res.json(results);
+		})
 	}
 
 };

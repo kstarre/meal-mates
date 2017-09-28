@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataType) {
             type: DataType.DATEONLY,
             isDate: true
         },
+        startEditable: {
+            type: DataType.BOOLEAN,
+            default: true
+        }
     });
 
     Eventdate.associate = function(models) {
