@@ -7,7 +7,6 @@ module.exports = function(app) {
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
 	app.get("/group/admin", indexController.isLoggedIn, groupController.adminGroupView),
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
-	app.get("/group/calendar/admin", indexController.isLoggedIn, groupController.adminCalendarView),
 
 
 	// API Routes

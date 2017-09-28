@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataType) {
         },
         startEditable: {
             type: DataType.BOOLEAN,
-            default: true
+            defaultValue: true
         }
     });
 
