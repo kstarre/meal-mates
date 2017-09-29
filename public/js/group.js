@@ -1,18 +1,9 @@
 $(document).ready(function() {
-	let groupID;
-	getID();
+	
+	getGroup();
 
-	// Function for getting user ID
-	function getID() {
-		$.get("/api/user", function(data) {
-			groupID = data.LunchgroupId;
-		}).done(function() {
-			getGroup(groupID);
-		});
-	}
-
-	function getGroup(id) {
-		$.get("/api/group/" + id, function(data) {
+	function getGroup() {
+		$.get("/api/group", function(data) {
 			let adminID = data.admin;
 			for (var i = 0; i < data.Users.length; i++) {
 				$("#group-members").append("<li>" + data.Users[i].email + "</li>");

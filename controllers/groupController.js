@@ -1,7 +1,6 @@
 const path = require("path");
 const db = require("../models");
 
-
 module.exports = {
 	// HTML Routes
 	createGroupView: function(req, res) {
@@ -15,9 +14,6 @@ module.exports = {
 	},
 	viewCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	},
-	adminCalendarView: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 
 
@@ -40,13 +36,14 @@ module.exports = {
 // 		console.log(req.params.id);
 		
 // },
+
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
-
 		db.Lunchgroup.findOne({
 	  		where: {
 	  			id: req.body.id
+	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
@@ -56,33 +53,39 @@ module.exports = {
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
-		db.Lunchgroup.create(req.body).then(function(results, created) {
-			console.log(results);
+		db.Lunchgroup.create({
+			groupName: req.body.groupName,
+			groupSize: req.body.groupSize,
+			groupRules: req.body.groupRules,
+			admin: req.user.id
+		}).then(function(results, created) {
 			db.User.update({
 				admin: true,
 				LunchgroupId: results.id
 			}, {
 				where: {
-					id: req.body.admin
+					id: req.user.id
 				}
 			}).then(function() {
 				// Switch to get group page
 				res.redirect("/group/admin"); //change string to variable
 
 
+
+			}).then(function(results) {
+				res.json(results);
 			});
 		});
 	},
 
 	// edit/POST group
 	groupEdit: function(req, res, next) {
-		db.Lunchgroup.update({
-			where: {
-				groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
-			}
+		db.Lunchgroup.update(
+			req.body,
+			{
+				where: {
+					id: req.user.LunchgroupId
+				}
 		}).then(function(lunchgroup) {
 			res.json(lunchgroup);
 		});
@@ -91,42 +94,31 @@ module.exports = {
 	
 	// DELETE group
 	groupDelete: function(req, res) {
-		db.Lunchgroup.Destroy({
+		db.Lunchgroup.destroy({
 			where: {
-		      groupName: req.body.groupName,
-				groupSize: req.body.groupSize, 
-				admin: req.body.admin,
-				groupRules: req.body.groupRules
+				id: req.body.id
 		    }
     	}).then(function(results) {
     		res.json(results);
     	});		
 	},
 
-	// GET calendar route
-	// calendar: function(req, res) {
-	// 	res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	// }
-
-
-    // calendar route
-    // calendar = function() {
-
 	getCalendarInfo: function(req, res) {
-		// not complete
-		db.Eventdate.findOne({
+		db.Eventdate.findAll({
 			where: {
-				groupName: req.body.name
-			}, 
-			include: {
-				model: db.Lunchgroup,
-				model: db.User
+				LunchgroupId: req.user.LunchgroupId
 			}
-		}).then(function(calendar) {
-		res.json(calendar);
-	  	// if group does not exist
-		}).catch(function(err) {
-			res.redirect("/");
+		}).then(function(events) {
+			let results = [];
+			results.push(events); 
+			db.User.findAll({
+				where: {
+					LunchgroupId: req.user.LunchgroupId
+				}
+			}).then(function(users) {
+				results.push(users);
+				res.json(results);
+			})
 		});
 	},
 
@@ -144,8 +136,28 @@ module.exports = {
 		}).catch(function(err) {
 
 			console.log(err);
+
+		db.Eventdate.update(
+			req.body,
+			{
+				where: {
+					id: req.body.id
+				}
+			}).then(function(results) {
+				res.json(results);
+			});
+		}
+	},
+
+	eventCreate: function(req, res) {
+		db.Eventdate.create({
+			start: req.body.start,
+			title: req.body.title,
+			LunchgroupId: req.user.LunchgroupId,
+			UserId: req.body.UserId
+		}).then(function(results) {
+			res.json(results);
 		})
 	}
 
-    // }
-}
+};

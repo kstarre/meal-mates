@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Meal Mates</title>
+
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    
-    <!-- external javascript and css for calendar -->
-    <link rel="stylesheet" type="text/css" href="/css/fullcalendar.css" />
-    <script src='lib/jquery.min.js'></script>
-    <script src='lib/moment.min.js'></script>
-    <script src='fullcalendar/fullcalendar.js'></script>
-    
-    <!-- css -->
-    <link rel="stylesheet" type= "text/css" href="/css/style.css">
 
-    <!-- react -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js"></script>"></script>
+    <!-- fullcalendar stylesheet -->
+    <link rel='stylesheet' href='/css/fullcalendar/fullcalendar.css' />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- jquery ui -->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"></script>
+
     <!-- moment -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
-    <!-- fullcalendar -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>
+
+    <!-- fullcalendar javascript -->
+    <script src='/js/fullcalendar/fullcalendar.js'></script>
 
     <!-- javascript -->
     <script type="text/javascript" src="/js/calendar.js"></script>
@@ -35,6 +38,9 @@
 
 <body>
     <h1>Welcome to the group calendar!</h1>
+    <div id="external-events">
+        <h4>Draggable Events</h4>
+    </div>
     <div id="calendar"></div>
 </body>
 </html>

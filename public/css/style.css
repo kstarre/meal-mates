@@ -12,13 +12,15 @@ body {
 }
 
 #top-nav{
+  position: relative;
+  z-index: 1;
   width: 100%;
-  margin: 0px;
+  margin-top: 0px;
     font-weight: bold;
     line-height: 1.42857143 !important;
     padding: 20px;
     font-family: 'Oswald', sans-serif;
-    background-color: black;
+    background-color: #3c3d41;
     opacity: .75;
     border-bottom: white;
 }
@@ -28,8 +30,6 @@ body {
 }
 
 .navbar-brand {
-    /*font-family: 'Pacifico', cursive;*/
-    /*font-family: 'Rochester', cursive;*/
     font-size: 20px;
     letter-spacing: 4px;
     color: white;
@@ -42,25 +42,22 @@ body {
     text-transform: uppercase;
 }
 
-
-
 .jumbotron {
-  padding-left: 0px;
-  padding-right: 0px;
     /*position: relative;*/
-    opacity: 0.9;
+    /*padding-top: 100px;
+  padding-bottom: 50px;*/
+    opacity: 0.75;
     color: #fff;
-  /*  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);*/
-    /*text-align: center;*/
-    /*background: url('food3.jpg') center center no-repeat;*/
-     background: #7EB348;
+    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-align: center;*/
+    background: url('../img/foodshare4.jpg') center center no-repeat;
     background-size: cover;
-   /* padding-top: 20%;
-    padding-bottom: 20%;*/
+    padding-top: 15%;
+    padding-bottom: 15%;
     margin-bottom: 0px;
-    margin-top: -70px;
-    height: 300px;
+  margin-top: -50px;
 }
+
 
 .dropdown-menu {
   opacity: 100%;
@@ -178,6 +175,24 @@ body {
 #card-group {
     display: none;
 }
+
+#card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  /*color: ;*/
+}
+
+#profile-info h6, #profile-info p {
+    display: inline;
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 200%; 
+    font-family: 'Oswald', sans-serif;   
+}
+
+.headline h1 {
+    font-weight: bold;
+}
 #profile-photo {
     margin-right: 0px;
 }
@@ -185,11 +200,6 @@ body {
 #welcome-card {
 /*margin-top: -50px;*/
 }
-
-.card-title {
-  text: center;
-}
-
 
 /*#footer {
     background: #7EB348;
