@@ -14,7 +14,6 @@ $(document).ready(function() {
 
     var url = window.location.href;
     url = url.split("group");
-
     url = url[0];
 
     var from, to, subject, text, url;
