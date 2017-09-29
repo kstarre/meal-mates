@@ -23,6 +23,12 @@ module.exports = {
 		}
 		res.redirect("/");
 	},
+	isAdmin: function(req, res, next) {
+		if (req.user.admin) {
+			return next();
+		}
+		res.redirect("/");
+	},
 	logout: function(req, res) {
 		req.session.destroy(function(err) {
 			res.redirect("/");

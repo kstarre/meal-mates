@@ -15,6 +15,9 @@ module.exports = {
 	viewCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/calendar.html"));
 	},
+	adminCalendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
+	},
 
 	// API Routes
 	// GET group

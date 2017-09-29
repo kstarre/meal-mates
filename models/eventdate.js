@@ -7,10 +7,6 @@ module.exports = function(sequelize, DataType) {
         start: {
             type: DataType.DATEONLY,
             isDate: true
-        },
-        startEditable: {
-            type: DataType.BOOLEAN,
-            defaultValue: true
         }
     });
 
