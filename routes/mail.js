@@ -8,7 +8,6 @@ module.exports = function(app) {
 
 
 //==== 
-app.get('/tempName', mailController.mail);
 
 app.get('/send', function(req, res) {
     //code to send e-mail.

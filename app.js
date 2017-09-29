@@ -49,7 +49,7 @@ let mail = require('./routes/mail.js')(app);
 //-----------------------------------------------------------------------------------------------------
 
 db.sequelize.sync(
-	// {force:true}
+	//{force:true}
 	).then(function() {
 	app.listen(PORT, function() {
 		console.log("App is listening on PORT " + PORT);
