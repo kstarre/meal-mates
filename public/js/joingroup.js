@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	var userID;
+	let userID;
 	// Add event listener for the form submit
 	// $("#create-group").on("submit", handleSubmit);
 	getID();
@@ -9,14 +9,8 @@ $(document).ready(function() {
 	function getID() {
 		$.get("/api/user", function(data) {
 			userID = data.id;
-			$("#admin-id").val(userID);
 		});
 	}
-
-
-
-
-
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -26,10 +20,13 @@ $(document).ready(function() {
 			groupRules: $("#group-info").val().trim(),
 			admin: userID
 		};
-		// createGroup(groupData);
-
-
+		getGroupMembers(groupData);
 	}
 
+	function getGroupMembers(data) {
+		$.get("/api/group", data, function() {
 
+			
+		});
+	}
 });

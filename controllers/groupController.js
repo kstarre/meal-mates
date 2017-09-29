@@ -46,7 +46,7 @@ module.exports = {
 
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.user.LunchgroupId
+	  			id: req.body.id
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
@@ -67,7 +67,9 @@ module.exports = {
 				}
 			}).then(function() {
 				// Switch to get group page
-				res.redirect("/group");
+				res.redirect("/group/admin"); //change string to variable
+
+
 			});
 		});
 	},
@@ -130,6 +132,19 @@ module.exports = {
 
 	calendarEdit: function(req, res) {
 		// Not complete
+	},
+
+	findUserbyId: function(req,res) {
+		db.User.findOne({
+			where: {
+				id: req.body.id
+			}
+		}).then(function(data) {
+			res.json(data);
+		}).catch(function(err) {
+
+			console.log(err);
+		})
 	}
 
     // }
