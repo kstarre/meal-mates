@@ -1,22 +1,19 @@
 $(document).ready(function() {
 
-	$("#some-form-id").on("submit", handleSubmit);
+	$("#form-edit-profile").on("submit", handleSubmit);
 	//$("#some-delete-button").on("submit", handleDelete);
 	getGroup();
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
-			let adminID = data.admin;
+
 			for (var i = 0; i < data.Users.length; i++) {
 				$("#group-members").append("<li>" + data.Users[i].email + "</li>");
-				if (data.Users[i].id === adminID) {
-					$("#group-admin").html(data.Users[i].email);
-				}
 			};
 
-			$("#group-name").html(data.groupName);
-			$("#group-info").html(data.groupRules);
-			//console.log(data);
+			$("#group-name").val(data.groupName);
+			$("#group-info").val(data.groupRules);
+			$("#group-size-select").val(data.groupSize);
 		});
 	}
 
@@ -24,9 +21,10 @@ $(document).ready(function() {
 		event.preventDefault();
 
 		var groupData = {
-			groupName: $("#").val().trim(),
-			groupSize: $("#").val(),
-			groupRules: $("#").val().trim()
+			groupName: $("#group-name").val().trim(),
+			groupSize: $("#group-size-select").val(),
+			groupRules: $("#group-info").val().trim()
+
 		};
 
 		updateGroup(groupData);

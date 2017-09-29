@@ -19,3 +19,22 @@ $(document).ready(function() {
 		});
 	}
 });
+
+/*
+
+$(document).ready(function() {
+
+	var userID;
+	// Add event listener for the form submit
+	// $("#create-group").on("submit", handleSubmit);
+	getID();
+
+	// Function for getting user ID
+	function getID() {
+		$.get("/api/user", function(data) {
+			userID = data.id;
+			$("#admin-id").val(userID);
+		});
+	}
+
+*/

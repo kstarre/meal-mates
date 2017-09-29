@@ -15,16 +15,21 @@ module.exports = {
 	viewCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/calendar.html"));
 	},
+	adminCalendar: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
+	},
 
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
+
 	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
+
 	  		res.json(lunchgroup);
 	  	});
 	},
@@ -44,7 +49,7 @@ module.exports = {
 				where: {
 					id: req.user.id
 				}
-			}).then(function(results) {
+						}).then(function(results) {
 				res.json(results);
 			});
 		});
@@ -104,7 +109,10 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
+
 	},
+
+	
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
