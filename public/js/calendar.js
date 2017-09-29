@@ -13,9 +13,10 @@ $(document).ready(function() {
 	function renderExternalEvents(users) {
 		for (var i = 0; i < users.length; i++) {
 			let externalEvent = $("<div>");
-			externalEvent.addClass("my-draggable").html(users[i].email);
+			//let fullName = users[i].firstName + ' ' + users[i].lastName;// can remove this line
+			externalEvent.addClass("my-draggable").html(users[i].firstName);
 			externalEvent.data('event', {
-				title: users[i].email, 
+				title: users[i].firstName, 
 				UserId: users[i].id,
 				startEditable: true
 			});
