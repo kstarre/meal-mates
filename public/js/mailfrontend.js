@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     
 
-    var from, to, subject, text, url;
+    var to, subject, text, url;
     $("#send_email").click(function() {
         to = $("#to").val();
 

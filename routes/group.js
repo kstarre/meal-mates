@@ -11,12 +11,12 @@ module.exports = function(app) {
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
 	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
 
-        // API Routes
-        // get group info
-        app.get("/api/group", groupController.getGroup),
+    // API Routes
+    // get group info
+    app.get("/api/group", groupController.getGroup),
 
-        // create new group
-        app.post("/api/group/new", groupController.createNewGroup),
+    // create new group
+    app.post("/api/group/new", groupController.createNewGroup),
 		
 	// edit group
 	app.put("/api/group/edit", groupController.groupEdit),
