@@ -19,6 +19,7 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 
+
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
@@ -47,7 +48,7 @@ module.exports = {
 				where: {
 					id: req.user.id
 				}
-			}).then(function(results) {
+						}).then(function(results) {
 				res.json(results);
 			});
 		});
