@@ -4,11 +4,9 @@ $(document).ready(function() {
 
     function getID() {
         $.get("/api/user", function(data) {
-            console.log(data.LunchgroupId);
             id = data.LunchgroupId;
 
             groupId = data.LunchgroupId;
-            console.log(groupId);
         })
     }
 
@@ -17,9 +15,7 @@ $(document).ready(function() {
     var url = window.location.href;
     url = url.split("group");
 
-
-
-    
+    url = url[0];
 
     var from, to, subject, text, url;
     $("#send_email").click(function() {
@@ -27,7 +23,7 @@ $(document).ready(function() {
 
         subject = "You've received an invitation to join Meal-Mates";
 
-        url = url[0] + "/group/join/" + groupId;
+        url = url + "/group/join/" + groupId;
         // url = url.link(url);
 
         console.log(url);

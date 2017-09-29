@@ -48,34 +48,40 @@
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
                                     <div class="col-10">
-                                        <input type="text" id="first-name" name="firstName" class="form-control" placeholder="First Name">
+                                        <input type="text" id="group-name" name="firstName" class="form-control" placeholder="First Name">
                                     </div>
                                 </div>
-                                
-                               
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Group Details</label>
                                     <div class="col-10">
-                                        <input type="text" id="food-allergies" name="foodAllergies" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
+                                        <input type="text" id="group-info" name="foodAllergies" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Group Members</label>
                                     <div class="col-10">
                                         <ul id="group-members"></ul>
                                     </div>
                                 </div>
-                                
+                                <select class="form-control" name="groupSize" id="group-size-select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                </select>
+                                <div><p></div>
                                 <input class="btn btn-primary" id="update-user-btn" type="submit" value="Submit">
                             </form>
                         </div>
-
                         <input id="to" type="text" placeholder="Enter E-mail address of friend to invite" />
-                        <button id="send_email">Send Email</button>                        
-                        
+                        <button id="send_email">Send Email</button>
                         <span id="message"></span>
-                        <div><p></p></div>
+                        <div>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
                 <!-- end col-md-8 -->
@@ -88,6 +94,4 @@
     <!-- footer -->
     <nav class="navbar fixed-bottom navbar-light bg-faded" id="footer">
         <p> Copyright &copy; 2017 Meal Mates </p>
-        </nav>
-
-
+    </nav>

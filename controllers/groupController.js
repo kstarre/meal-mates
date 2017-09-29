@@ -20,36 +20,18 @@ module.exports = {
 	},
 
 
-	groupView: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/group.html"));
-	},
-	groupAdmin: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/group.html"));
-	},
-	groupCalendar: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	},
-	groupAdminCal: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	},
-  
-// 	// GET group
-// 	group: function(req, res) {
-// 		console.log("\nreq.params.id");
-// 		console.log(req.params.id);
-		
-// },
 
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.body.id
+	  			// id: req.body.id
 	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
+
 	  		res.json(lunchgroup);
 	  	});
 	},
@@ -149,8 +131,10 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
-		}
+		});
 	},
+
+	
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
