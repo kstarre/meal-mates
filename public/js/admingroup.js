@@ -6,6 +6,7 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
+
 			for (var i = 0; i < data.Users.length; i++) {
 				$("#group-members").append("<li>" + data.Users[i].email + "</li>");
 			};
@@ -23,6 +24,7 @@ $(document).ready(function() {
 			groupName: $("#group-name").val().trim(),
 			groupSize: $("#group-size-select").val(),
 			groupRules: $("#group-info").val().trim()
+
 		};
 
 		updateGroup(groupData);
