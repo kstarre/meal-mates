@@ -1,13 +1,13 @@
 $(document).ready(function() {
-	// need to render an event for each group member so the event references name and user ID
-	
+
 	getEventsAndUsers();
 
 	function getEventsAndUsers() {
-		$.get("/api/group/calendar", function(data) {
+/*		$.get("/api/group/calendar", function(data) {
 			renderCalendar(data[0]);
 			renderExternalEvents(data[1]);
-		});
+		});*/
+		console.log("Hello");
 	}
 
 	function renderExternalEvents(users) {
