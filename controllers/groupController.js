@@ -20,32 +20,11 @@ module.exports = {
 	},
 
 
-	groupView: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/group.html"));
-	},
-	groupAdmin: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/group.html"));
-	},
-	groupCalendar: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	},
-	groupAdminCal: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/calendar.html"));
-	},
-  
-// 	// GET group
-// 	group: function(req, res) {
-// 		console.log("\nreq.params.id");
-// 		console.log(req.params.id);
-		
-// },
-
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
-	  			id: req.body.id
 	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
@@ -69,13 +48,7 @@ module.exports = {
 				where: {
 					id: req.user.id
 				}
-			}).then(function() {
-				// Switch to get group page
-				res.redirect("/group/admin"); //change string to variable
-
-
-
-			}).then(function(results) {
+						}).then(function(results) {
 				res.json(results);
 			});
 		});
@@ -126,20 +99,6 @@ module.exports = {
 	},
 
 	calendarEdit: function(req, res) {
-		// Not complete
-	},
-
-	findUserbyId: function(req,res) {
-		db.User.findOne({
-			where: {
-				id: req.body.id
-			}
-		}).then(function(data) {
-			res.json(data);
-		}).catch(function(err) {
-
-			console.log(err);
-
 		db.Eventdate.update(
 			req.body,
 			{
@@ -149,7 +108,6 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
-		}
 	},
 
 	eventCreate: function(req, res) {
