@@ -7,8 +7,9 @@ module.exports = function(app) {
 	// HTML Routes
 	app.get("/group", indexController.isLoggedIn, groupController.groupView),
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
-	app.get("/group/admin", indexController.isLoggedIn, groupController.adminGroupView),
+	app.get("/group/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminGroupView),
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
+<<<<<<< HEAD
 
         app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
 
@@ -25,6 +26,9 @@ module.exports = function(app) {
 
         // edit group
         app.put("/api/group/edit", groupController.groupEdit),
+=======
+	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
+>>>>>>> dfd2792efca6f87411c3604c7db7b3da75cfd9ae
 
         // delete group page
         app.delete("/api/group/delete", groupController.groupDelete),
