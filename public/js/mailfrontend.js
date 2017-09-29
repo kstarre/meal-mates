@@ -4,11 +4,9 @@ $(document).ready(function() {
 
     function getID() {
         $.get("/api/user", function(data) {
-            console.log(data.LunchgroupId);
             id = data.LunchgroupId;
 
             groupId = data.LunchgroupId;
-            console.log(groupId);
         })
     }
 

@@ -19,16 +19,17 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 
-
 	// API Routes
 	// GET group
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
+
 	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
+
 	  		res.json(lunchgroup);
 	  	});
 	},
@@ -108,7 +109,10 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
+
 	},
+
+	
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
