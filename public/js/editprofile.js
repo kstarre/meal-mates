@@ -48,7 +48,7 @@ $(document).ready(function() {
 			url: "/api/user/edit",
 			data: data
 		}).done(function() {
-			window.location.href = "/viewprofile?_?user_id=" + data.id;
+			window.location.href = "/viewprofile";
 		})
 	}
 
