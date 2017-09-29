@@ -1,6 +1,8 @@
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
 
+var userIdRetrnVar = {};
+
 
 module.exports = function(passport, user) {
     var User = user;
@@ -14,7 +16,7 @@ module.exports = function(passport, user) {
 
     // deserialize user which saves user id to session
     passport.deserializeUser(function(id, done) {
-        User.findById(id).then(function(user) {
+        User.findById(id).then(function(user) {           
             if (user) {
                 done(null, user.get());
             } else {
@@ -72,41 +74,44 @@ module.exports = function(passport, user) {
 
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy(
-    {
-        // by default, local strategy uses username and password
-        usernameField: 'email', 
-        passwordField: 'password', 
-        passReqToCallback: true // allows us to pass back the entire request to the callback 
-    },
-    function(req, email, password, done) {
-        var User = user;
-        var isValidPassword = function(userpass, password) {
-            return bCrypt.compareSync(password, userpass);
-        }
-        User.findOne({
-            where: {
-                email: email
+        {
+            // by default, local strategy uses username and password
+            usernameField: 'email', 
+            passwordField: 'password', 
+            passReqToCallback: true // allows us to pass back the entire request to the callback 
+        },
+        function(req, email, password, done) {
+            var User = user;           
+            var isValidPassword = function(userpass, password) {
+                return bCrypt.compareSync(password, userpass);
             }
-        }).then(function(user) {
-            if (!user) {
+            User.findOne({
+                where: {
+                    email: email
+                }
+            }).then(function(user) {
+
+                if (!user) {
+                    return done(null, false, {
+                        message: 'E-mail does not exist.'
+                    });
+                }
+                if (!isValidPassword(user.password, password)) {
+                    return done(null, false, {
+                        message: 'Invalid password.'
+                    });
+                }
+                var userinfo = user.get();
+                return done(null, userinfo);
+
+            }).catch(function(err) {
+                console.log("Error:", err);
                 return done(null, false, {
-                    message: 'E-mail does not exist.'
+                    message: 'Something went wrong with your Sign-in.'
                 });
-            }
-            if (!isValidPassword(user.password, password)) {
-                return done(null, false, {
-                    message: 'Invalid password.'
-                });
-            }
-            var userinfo = user.get();
-            return done(null, userinfo);
-            
-        }).catch(function(err) {
-            console.log("Error:", err);
-            return done(null, false, {
-                message: 'Something went wrong with your Sign-in.'
             });
-        });
-    }
-));
+        }
+    ));
 };
+
+

@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataType) {
 			allowNull: false
 		},
 		admin: {
-			type: DataType.STRING,
+			type: DataType.INTEGER,
 			allowNull: false,
 			len: [1]
 		},
@@ -21,12 +21,12 @@ module.exports = function(sequelize, DataType) {
 		}
 	});
 
+
 	//Associations
 	Lunchgroup.associate = function(models) {
-	console.log(typeof models.User);		
-	// assoicates Group with User
 		Lunchgroup.hasMany(models.User);
 	};
+
 
 	return Lunchgroup;
 };

@@ -1,32 +1,37 @@
-let express = require('express');
-let router = express.Router();
 let indexController = require("../controllers/indexController");
-let passport = require('passport');
 
+module.exports = function(app, passport) {
+	// HTML routes
+	app.get("/", indexController.home),
+  app.get("/welcome", indexController.isLoggedIn, indexController.welcome),
+	app.get("/viewprofile", indexController.isLoggedIn, indexController.viewProfile),
+	app.get("/editprofile", indexController.isLoggedIn, indexController.editProfile),
 
-// Get routes
-router.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+	// API routes
+	app.get("/logout", indexController.logout),
+	app.post("/signup", function(req, res, next) {
+  		passport.authenticate('local-signup', function(err, user, info) {
+    		if (err) { return next(err); }
+    		if (!user) { return res.redirect('/'); }
+    		req.logIn(user, function(err) {
+      			if (err) { return next(err); }
+      			return res.redirect('/welcome');
+    		});
+  		})(req, res, next);
+	}),
+	app.post('/signin', function(req, res, next) {
+  		passport.authenticate('local-signin', function(err, user, info) {
+    		if (err) { return next(err); }
+    		if (!user) { return res.redirect('/'); }
+    		req.logIn(user, function(err) {
+      			if (err) { return next(err); }
+      			return res.redirect('/viewprofile');
+    		});
+  		})(req, res, next);
+	}),
 
-router.get("/signup", indexController.signup);
-
-router.get("/signin", indexController.signin);
-
-//router.get("/signout", indexController.signout);
-
-
-// Post routes
-router.post("/signup", passport.authenticate('local-signup', {
-	successRedirect: '/',
-	failureRedirect: '/signup',
-	failureFlash: true
-}));
-
-router.post('/signin', passport.authenticate('local-signin', {
-	successRedirect: '/',
-	failureRedirect: '/signin',
-	failureFlash: true
-}));
-
-module.exports = router;
+  // do we need isLoggedIn for API routes?
+  app.get("/api/user", indexController.getUserInfo),
+  app.put("/api/user/edit", indexController.updateUserInfo),
+  app.delete("/api/user/delete", indexController.deleteUser)
+};
