@@ -9,24 +9,21 @@ module.exports = function(app) {
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
 	app.get("/group/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminGroupView),
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
-    app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
 
-        // app.get("/group/admin/findId", indexController.isLoggedIn, groupController.findUserbyId),
-//===============
+	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
 
-        // API Routes
-        // get group info
-        app.get("/api/group", groupController.getGroup),
+    // API Routes
+    // get group info
+    app.get("/api/group", groupController.getGroup),
 
-        // create new group
-        app.post("/api/group/new", groupController.createNewGroup),
-
-        // edit group
-        app.put("/api/group/edit", groupController.groupEdit),
-
-        // delete group page
-        app.delete("/api/group/delete", groupController.groupDelete),
-
+    // create new group
+    app.post("/api/group/new", groupController.createNewGroup),
+		
+	// edit group
+	app.put("/api/group/edit", groupController.groupEdit),
+		
+	// delete group page
+	app.delete("/api/group/delete", groupController.groupDelete),
 
 	// calendar route
     	app.get("/api/group/calendar", groupController.getCalendarInfo),
@@ -34,6 +31,7 @@ module.exports = function(app) {
     	// edit calendar
     	app.put("/api/group/calendar/edit", groupController.calendarEdit),
 
-    	// create new event
-    	app.post("/api/group/calendar/eventcreate", groupController.eventCreate)
+
+	// create new event
+	app.post("/api/group/calendar/eventcreate", groupController.eventCreate)
 };
