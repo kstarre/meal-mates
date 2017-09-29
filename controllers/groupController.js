@@ -15,7 +15,7 @@ module.exports = {
 	viewCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/calendar.html"));
 	},
-	adminCalendarView: function(req, res) {
+	adminCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 
@@ -24,10 +24,12 @@ module.exports = {
 	getGroup: function(req, res) {  
 		db.Lunchgroup.findOne({
 	  		where: {
+
 	  			id: req.user.LunchgroupId
 	  		},
 	  		include: [ { model: db.User} ]
 	  	}).then(function(lunchgroup) {
+
 	  		res.json(lunchgroup);
 	  	});
 	},
@@ -47,7 +49,7 @@ module.exports = {
 				where: {
 					id: req.user.id
 				}
-			}).then(function(results) {
+						}).then(function(results) {
 				res.json(results);
 			});
 		});
@@ -84,7 +86,16 @@ module.exports = {
 				LunchgroupId: req.user.LunchgroupId
 			}
 		}).then(function(events) {
-			res.json(events);
+			let results = [];
+			results.push(events); 
+			db.User.findAll({
+				where: {
+					LunchgroupId: req.user.LunchgroupId
+				}
+			}).then(function(users) {
+				results.push(users);
+				res.json(results);
+			})
 		});
 	},
 
@@ -98,13 +109,17 @@ module.exports = {
 			}).then(function(results) {
 				res.json(results);
 			});
+
 	},
+
+	
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
 			start: req.body.start,
 			title: req.body.title,
-			LunchgroupId: req.user.LunchgroupId
+			LunchgroupId: req.user.LunchgroupId,
+			UserId: req.body.UserId
 		}).then(function(results) {
 			res.json(results);
 		})

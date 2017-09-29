@@ -1,4 +1,5 @@
 let nodemailer = require('nodemailer');
+let mailController = require('../controllers/mailController');
 require('dotenv').config();
 
 
@@ -7,9 +8,6 @@ module.exports = function(app) {
 
 
 //==== 
-app.get('/tempName', function(req, res) {
-    res.sendfile('./public/mailindex.html');
-});
 
 app.get('/send', function(req, res) {
     //code to send e-mail.
