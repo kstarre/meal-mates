@@ -16,18 +16,15 @@ $(document).ready(function() {
 
     var url = window.location.href;
     url = url.split("group");
+    url = url[0];
 
-
-
-    
-
-    var to, subject, text, url;
+    var from, to, subject, text, url;
     $("#send_email").click(function() {
         to = $("#to").val();
 
         subject = "You've received an invitation to join Meal-Mates";
 
-        url = url[0] + "/group/join/" + groupId;
+        url = url + "/group/join/" + groupId;
         // url = url.link(url);
 
         console.log(url);
