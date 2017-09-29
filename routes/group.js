@@ -9,13 +9,6 @@ module.exports = function(app) {
 	app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
 	app.get("/group/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminGroupView),
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
-<<<<<<< HEAD
-
-        app.get("/group/create", indexController.isLoggedIn, groupController.createGroupView),
-
-
-        app.get("/group/admin/findId", indexController.isLoggedIn, groupController.findUserbyId),
-//===============
 
         // API Routes
         // get group info
@@ -23,22 +16,6 @@ module.exports = function(app) {
 
         // create new group
         app.post("/api/group/new", groupController.createNewGroup),
-
-        // edit group
-        app.put("/api/group/edit", groupController.groupEdit),
-=======
-	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
->>>>>>> dfd2792efca6f87411c3604c7db7b3da75cfd9ae
-
-        // delete group page
-        app.delete("/api/group/delete", groupController.groupDelete),
-
-        // calendar route
-        app.get("/group/calendar", groupController.groupCalendar)
-
-    //=======================================
-
-    app.get("/group/calendar", groupController.getCalendarInfo)
 
 	// calendar route
 	app.get("/api/group/calendar", groupController.getCalendarInfo),
