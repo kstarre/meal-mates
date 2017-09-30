@@ -13,11 +13,11 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
-    <script type="text/javascript" src="/js/editprofile.js"></script>
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
 </head>
 <header>
     <div class="jumbotron" id="nav-jumbotron">
@@ -76,71 +76,63 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-1"></div>
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-block">
-                        <h4 class="card-title"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  Edit Profile Information</h4>
-                        <br>
-                        <form id="form-edit-profile" class="form container">
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">First Name</label>
-                                <div class="col-10">
-                                    <input type="text" id="first-name" name="firstName" class="form-control" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Last Name </label>
-                                <div class="col-10">
-                                    <input type="text" id="last-name" name="lastName" class="form-control" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Phone Number</label>
-                                <div class="col-10">
-                                    <input type="tel" id="phone-number" name="phoneNumber" class="form-control" placeholder="1-(555)-555-5555">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Food Allergies</label>
-                                <div class="col-10">
-                                    <input type="text" id="food-allergies" name="foodAllergies" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Dietary Restrictions</label>
-                                <div class="col-10">
-                                    <input type="text" id="dietary-restrictions" name="dietaryRestrictions" class="form-control" placeholder="e.g. Vegetarian or Kosher">
-                                </div>
-                            </div>
-                            <input class="btn btn-primary" id="update-user-btn" type="submit" value="Submit">
-                        </form>
-                    </div>
+                <h4 class="modal-title" id="myModalLabel">Login form</h4>
+                <div class="modal-body">
+                    <form id="form-login" name="signin" method="post" action="/signin" class="form container">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="pws" placeholder="Password">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- end col-md-8 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-block" id="edit-profile-grouplist">
-                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h4>
-                        <p class="card-text" id="group-name-render">group name rendered here</p>
-                        <p class="card-text" id="leave-group">Would you like to remove this group?</p>
-                        <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-block" id="edit-profile-delete">
-                        <h4 class="card-title"><i class="fa fa-trash-o" aria-hidden="true"></i>   Remove Account</h4>
-                        <!--  <p class="card-text">Deleting your account is permanant, all information and group information will be lost</p> -->
-                        <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Delete Account">
-                    </div>
+            <div class="col-md-6">
+                <h4 class="modal-title" id="myModalLabel">Registration form</h4>
+                <div class="modal-body">
+                    <form id="form-signup" name="signup" method="post" action="/signup" class="form container">
+                        <div class="form-group">
+                            <div id="pb-modalreglog-progressbar"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" name="password" class="form-control" id="inputPws" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="ch" name="chs"> I agree with <a href="#">terms and conditions.</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="register-button" type="submit">Sign Up</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-md-1"></div>
         </div>
-        <!-- end row -->
     </div>
-    <!-- end container -->
 </body>
 <!--Footer-->
 <footer class="page-footer footer-bs">
@@ -173,7 +165,7 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
                 <h6 class="title mb-4 font-bold">Contact</h6>
                 <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
-                <p><i class="fa fa-envelope mr-3"></i> MealMates@gmail.com</p>
+                <p><i class="fa fa-envelope mr-3"></i> MealMatesApp@gmail.com</p>
             </div>
             <!--/.Fourth column-->
         </div>
