@@ -1,29 +1,25 @@
 $(document).ready(function() {
 
     var groupId;
+    var url = window.location.href;
+    url = url.split("group");
+    url = url[0];
+    var from, to, subject, text;
+
+    getID();
 
     function getID() {
         $.get("/api/user", function(data) {
-            id = data.LunchgroupId;
-
             groupId = data.LunchgroupId;
         })
     }
 
-    getID();
-
-    var url = window.location.href;
-    url = url.split("group");
-    url = url[0];
-
-    var from, to, subject, text, url;
     $("#send_email").click(function() {
         to = $("#to").val();
 
         subject = "You've received an invitation to join Meal-Mates";
 
-        url = url + "/group/join/" + groupId;
-        // url = url.link(url);
+        url = url + "group/join/" + groupId + "/" + to;
 
         console.log(url);
 
@@ -32,13 +28,11 @@ $(document).ready(function() {
         text = text + "\n\n" + url;
 
 
-
         $("#message").text("Sending E-mail...Please wait");
         $.get("/send", { to: to, subject: subject, text: text }, function(data) {
             if (data == "sent") {
                 $("#message").empty().html("An invite has been sent to " + to + "!");
             }
-
         });
     });
 });

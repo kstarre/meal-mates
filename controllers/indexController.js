@@ -62,5 +62,15 @@ module.exports = {
 		}).then(function(results) {
 			res.json(results);
 		});
+	},
+	// Search for user by e-mail
+	userSearch: function(req, res) {
+		db.User.findOne({
+			where: {
+				email: req.query.email
+			}
+		}).then( results => {
+			res.json(results);
+		});
 	}
 };
