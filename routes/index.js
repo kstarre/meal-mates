@@ -33,5 +33,6 @@ module.exports = function(app, passport) {
   // do we need isLoggedIn for API routes?
   app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
-  app.delete("/api/user/delete", indexController.deleteUser)
+  app.delete("/api/user/delete", indexController.deleteUser),
+  app.get("/api/user/search", indexController.userSearch)
 };
