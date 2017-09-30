@@ -19,71 +19,179 @@
     <!-- javascript -->
     <!-- <script type="text/javascript" src="js/app.js"></script> -->
 </head>
+<header>
+    <div class="jumbotron" id="nav-jumbotron">
+        <nav class="navbar navbar-toggleable" id="top-nav">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                ☰
+            </button>
+            <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        USER 
+      </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/editprofile">Edit Your Profile</a></li>
+                            <li><a class="dropdown-item" href="/viewprofile">View Your Profile</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       GROUP
+      </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li> <a class="dropdown-item" href="/group">Your Group</a></li>
+                            <li> <a class="dropdown-item" href="/group/calendar">Group Calendar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ADMIN
+      </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/group/admin">Edit Group</a></li>
+                            <li><a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="auth-state-nav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <span class="navbar-text" id="signed-in">
+                        Signed in as User   
+                    </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
 
- <div class = "container">
- 	<div class = "row">
- 		<div class = "col-md-6">
-                            <h4 class="modal-title" id="myModalLabel">Login form</h4>
-                     
-                        <div class="modal-body">
-                            <form id="form-login" name="signin" method="post" action="/signin" class="form container">
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control" id="pws" placeholder="Password">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Log in</button>
-                                </div>
-                            </form>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="modal-title" id="myModalLabel">Login form</h4>
+                <div class="modal-body">
+                    <form id="form-login" name="signin" method="post" action="/signin" class="form container">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
-              
- </div>
- <div class = "col-md-6">
-                            <h4 class="modal-title" id="myModalLabel">Registration form</h4>
-                    
-                        <div class="modal-body">
-                           <form id="form-signup" name="signup" method="post" action="/signup" class="form container">
-                                <div class="form-group">
-                                    <div id="pb-modalreglog-progressbar"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email address</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                        <input type="password" name="password" class="form-control" id="inputPws" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirmpassword">Confirm password</label>
-                                    <div class="input-group pb-modalreglog-input-group">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                        <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirm Password">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="ch" name="chs">
-                                    I agree with <a href="#">terms and conditions.</a>
-                                </div>
-                                <div class="modal-footer">
-       
-                                    <button class="btn btn-primary" id="register-button" type="submit">Sign Up</button>
-                                </div>
-                            </form>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="pws" placeholder="Password">
                         </div>
-             </div>
-
-
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="modal-title" id="myModalLabel">Registration form</h4>
+                <div class="modal-body">
+                    <form id="form-signup" name="signup" method="post" action="/signup" class="form container">
+                        <div class="form-group">
+                            <div id="pb-modalreglog-progressbar"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" name="password" class="form-control" id="inputPws" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="ch" name="chs"> I agree with <a href="#">terms and conditions.</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="register-button" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-            
+    </div>
+</body>
+<!--Footer-->
+<footer class="page-footer footer-bs">
+    <!--Footer Links-->
+    <div class="container">
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+            <!--First column-->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
+                <h2>Meal Mates</h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 footer-nav animated fadeInUp">
+                <h6 class="title mb-4 font-bold">Menu</h6>
+                <div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Group</a></li>
+                        <li><a href="#">Calendar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.Third column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Fourth column-->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
+                <h6 class="title mb-4 font-bold">Contact</h6>
+                <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
+                <p><i class="fa fa-envelope mr-3"></i> MealMatesApp@gmail.com</p>
+            </div>
+            <!--/.Fourth column-->
+        </div>
+        <!-- Footer links -->
+        <hr>
+        <div class="row py-3 d-flex align-items-center">
+            <!--Grid column-->
+            <div class="col-md-8 col-lg-9">
+                <!--Copyright-->
+                <p class="text-center text-md-left grey-text">© 2017 Copyright<strong>  Meal Mates</strong></p>
+                <!--/.Copyright-->
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-4 col-lg-3 ml-lg-0">
+                <!--Social buttons-->
+                <div class="social-section text-center text-md-left">
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-twitter"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-google-plus"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-linkedin"></i></a></div>
+                </div>
+                <!--/.Social buttons-->
+            </div>
+            <!--Grid column-->
+        </div>
+    </div>
+</footer>
+<!--/.Footer-->
