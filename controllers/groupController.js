@@ -18,20 +18,34 @@ module.exports = {
 	adminCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
+	joinGroup: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/joingroup.html"));
+	},
+
 
 	// API Routes
 	// GET group
-	getGroup: function(req, res) {  
-		db.Lunchgroup.findOne({
-	  		where: {
-
-	  			id: req.user.LunchgroupId
-	  		},
-	  		include: [ { model: db.User} ]
-	  	}).then(function(lunchgroup) {
-
-	  		res.json(lunchgroup);
-	  	});
+	getGroup: function(req, res) { 
+		if (req.user) {
+			db.Lunchgroup.findOne({
+				where: {
+					id: req.user.LunchgroupId
+				},
+				include: [ { model: db.User }]
+			}).then(function(lunchgroup) {
+				res.json(lunchgroup);
+			});
+		}
+		else {
+			db.Lunchgroup.findOne({
+		  		where: {
+		  			id: req.query.group
+		  		},
+		  		include: [ { model: db.User} ]
+		  	}).then(function(lunchgroup) {
+		  		res.json(lunchgroup);
+		  	});	
+		}
 	},
 
 	// create/POST new group 
@@ -112,7 +126,6 @@ module.exports = {
 
 	},
 
-	
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
