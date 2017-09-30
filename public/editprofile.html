@@ -20,56 +20,57 @@
     <script type="text/javascript" src="/js/editprofile.js"></script>
 </head>
 <header>
-    <!-- <div class="jumbotron"> -->
-    <nav class="navbar navbar-toggleable-md" id="top-nav">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            ☰
-        </button>
-        <div class="navbar-collapse collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="jumbotron" id="nav-jumbotron">
+        <nav class="navbar navbar-toggleable" id="top-nav">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                ☰
+            </button>
+            <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         USER 
       </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Your Profile</a>
-                        <a class="dropdown-item" href="#">View Your Profile</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/editprofile">Edit Your Profile</a></li>
+                            <li><a class="dropdown-item" href="/viewprofile">View Your Profile</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        GROUP
       </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Your Group</a>
-                        <a class="dropdown-item" href="#">Group Calendar</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li> <a class="dropdown-item" href="/group">Your Group</a></li>
+                            <li> <a class="dropdown-item" href="/group/calendar">Group Calendar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown text-center">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         ADMIN
       </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Group</a>
-                        <a class="dropdown-item" href="#">Edit Calendar</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <span class="navbar-text" id="signed-in">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/group/admin">Edit Group</a></li>
+                            <li><a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="auth-state-nav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <span class="navbar-text" id="signed-in">
                         Signed in as User   
                     </span>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <body>
@@ -120,17 +121,17 @@
             <!-- end col-md-8 -->
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-block" id = "edit-profile-grouplist">
+                    <div class="card-block" id="edit-profile-grouplist">
                         <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h4>
-                        <p class="card-text" id ="group-name-render">group name rendered here</p>
-                        <p class="card-text" id ="leave-group">Would you like to remove this group?</p>
+                        <p class="card-text" id="group-name-render">group name rendered here</p>
+                        <p class="card-text" id="leave-group">Would you like to remove this group?</p>
                         <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group">
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-block" id = "edit-profile-delete">
+                    <div class="card-block" id="edit-profile-delete">
                         <h4 class="card-title"><i class="fa fa-trash-o" aria-hidden="true"></i>   Remove Account</h4>
-                       <!--  <p class="card-text">Deleting your account is permanant, all information and group information will be lost</p> -->
+                        <!--  <p class="card-text">Deleting your account is permanant, all information and group information will be lost</p> -->
                         <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Delete Account">
                     </div>
                 </div>
