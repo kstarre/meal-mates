@@ -9,7 +9,8 @@ module.exports = function(app) {
 	app.get("/group/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminGroupView),
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
 	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
-	app.get("/group/join/:groupId/:email", groupController.joinGroup),
+	app.get("/group/invite/:groupId/:inviteCode", groupController.invite),
+	app.get("/group/join/:groupId", indexController.isLoggedIn, groupController.joinOrCreateGroup),
 
     // API Routes
     // get group info
@@ -31,5 +32,14 @@ module.exports = function(app) {
     app.put("/api/group/calendar/edit", groupController.calendarEdit),
 
 	// create new event
-	app.post("/api/group/calendar/eventcreate", groupController.eventCreate)
+	app.post("/api/group/calendar/eventcreate", groupController.eventCreate),
+
+	// invite code search
+	app.get("/api/invite/search", groupController.inviteSearch),
+
+	// join group
+	app.put("/api/group/join", groupController.joinGroup),
+
+	// save invite info
+	app.post("/api/invite/new", groupController.inviteCreate)
 };

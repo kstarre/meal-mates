@@ -24,7 +24,12 @@ module.exports = function(sequelize, DataType) {
 
 	//Associations
 	Lunchgroup.associate = function(models) {
+
 		Lunchgroup.hasMany(models.User);
+
+		Lunchgroup.hasMany(models.Eventdate);
+
+		Lunchgroup.hasMany(models.Invitation);
 	};
 
 
