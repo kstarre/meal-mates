@@ -21,7 +21,9 @@ body {}
     color: white;
 }
 
-a.navbar-brand-mx-auto:hover { color: #fff !important; }
+.navbar-brand:hover {
+    display: none;
+}
 
 #signed-in {
     margin-right: 30px;
@@ -331,7 +333,17 @@ h2 {
     text-align: center;
 }
 
+/*admin group css*/
+#group-members {
+    list-style: none;
+}
 
+#update-user-btn {
+    text-align: center;
+}
+
+
+/*footer*/
 .footer-bs {
     background-color: #3c3d41;
     padding: 60px 40px;
