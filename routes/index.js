@@ -30,5 +30,5 @@ module.exports = function(app, passport) {
   app.post('/signin/invite', passport.authenticate('local-signin', {
     successRedirect: '/group/join/:groupId',
     failureRedirect: '/group/invite/:groupId/:inviteCode'
-  })),
+  }))
 };
