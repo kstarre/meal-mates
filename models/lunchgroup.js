@@ -24,7 +24,16 @@ module.exports = function(sequelize, DataType) {
 
 	//Associations
 	Lunchgroup.associate = function(models) {
+
 		Lunchgroup.hasMany(models.User);
+
+		Lunchgroup.hasMany(models.Eventdate, {
+			onDelete: "cascade"
+		});
+
+		Lunchgroup.hasMany(models.Invitation, {
+			onDelete: "cascade"
+		});
 	};
 
 

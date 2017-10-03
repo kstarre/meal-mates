@@ -18,7 +18,10 @@ module.exports = {
 	adminCalendar: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
-	joinGroup: function(req, res) {
+	invite: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/invite.html"));
+	},
+	joinOrCreateGroup: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/joingroup.html"));
 	},
 
@@ -26,17 +29,7 @@ module.exports = {
 	// API Routes
 	// GET group
 	getGroup: function(req, res) { 
-		if (req.user) {
-			db.Lunchgroup.findOne({
-				where: {
-					id: req.user.LunchgroupId
-				},
-				include: [ { model: db.User }]
-			}).then(function(lunchgroup) {
-				res.json(lunchgroup);
-			});
-		}
-		else {
+		if (req.query.group) {
 			db.Lunchgroup.findOne({
 		  		where: {
 		  			id: req.query.group
@@ -44,7 +37,17 @@ module.exports = {
 		  		include: [ { model: db.User} ]
 		  	}).then(function(lunchgroup) {
 		  		res.json(lunchgroup);
-		  	});	
+		  	});		
+		}
+		else {
+			db.Lunchgroup.findOne({
+				where: {
+					id: req.user.LunchgroupId
+				},
+				include: [ { model: db.User }]
+			}).then(function(lunchgroup) {
+				res.json(lunchgroup);
+			});	
 		}
 	},
 
@@ -63,7 +66,7 @@ module.exports = {
 				where: {
 					id: req.user.id
 				}
-						}).then(function(results) {
+			}).then(function(results) {
 				res.json(results);
 			});
 		});
@@ -71,12 +74,10 @@ module.exports = {
 
 	// edit/POST group
 	groupEdit: function(req, res, next) {
-		db.Lunchgroup.update(
-			req.body,
-			{
-				where: {
-					id: req.user.LunchgroupId
-				}
+		db.Lunchgroup.update(req.body, {
+			where: {
+				id: req.user.LunchgroupId
+			}
 		}).then(function(lunchgroup) {
 			res.json(lunchgroup);
 		});
@@ -114,18 +115,14 @@ module.exports = {
 	},
 
 	calendarEdit: function(req, res) {
-		db.Eventdate.update(
-			req.body,
-			{
-				where: {
-					id: req.body.id
-				}
-			}).then(function(results) {
-				res.json(results);
-			});
-
+		db.Eventdate.update(req.body, {
+			where: {
+				id: req.body.id
+			}
+		}).then(function(results) {
+			res.json(results);
+		});
 	},
-
 
 	eventCreate: function(req, res) {
 		db.Eventdate.create({
@@ -135,7 +132,37 @@ module.exports = {
 			UserId: req.body.UserId
 		}).then(function(results) {
 			res.json(results);
-		})
+		});
+	},
+
+	inviteSearch: function(req, res) {
+		db.Invitation.findOne({
+			where: {
+				LunchgroupId: req.query.id,
+				inviteCode: req.query.code
+			}
+		}).then(function(results) {
+			res.json(results);
+		});
+	},
+
+	joinGroup: function(req, res) {
+		db.User.update(req.body, {
+			where: {
+				id: req.user.id
+			}
+		}).then(function(results) {
+			res.json(results);
+		});
+	},
+
+	inviteCreate: function(req, res) {
+		db.Invitation.create({
+			inviteCode: req.body.inviteCode,
+			LunchgroupId: req.user.LunchgroupId
+		}).then(function(results) {
+			res.json(results);
+		});
 	}
 
 };

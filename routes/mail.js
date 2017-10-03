@@ -9,13 +9,12 @@ module.exports = function(app) {
 
     app.get('/send', function(req, res) {
         //code to send e-mail.
-        //Will be shown soon.
         var mailOptions = {
             to: req.query.to,
             subject: req.query.subject,
             text: req.query.text
-        }
-        console.log(mailOptions);
+        };
+        //console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response) {
             if (error) {
                 console.log(error);
@@ -30,11 +29,11 @@ module.exports = function(app) {
 
     //==== gmail info for our group ======//
     var smtpTransport = nodemailer.createTransport({
-        service: "gmail",
-        host: "smtp.gmail.com",
+        service: "hotmail",
+        // host: "smtp.gmail.com",
         auth: {
-            user: "mealmatesapp@gmail.com",
-            pass: process.env.GPASS
+            user: "mealmates@hotmail.com",
+            pass: "Kat13Megan"
         }
     });
 

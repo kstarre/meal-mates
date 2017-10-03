@@ -42,36 +42,21 @@ $(document).ready(function() {
 	}
 
 	// WIP
-	$("#edit-profile-delete").on("submit", handleDelete);
-	deleteUser();
+	$("#delete-account-btn").on("click", handleDelete);
 
 	function handleDelete(event) {
 		event.preventDefault();
-
-		// some type of pop-up or model that asks are you sure?
-		function confirmDelete() {
-			var x = confirm("Are you sure you want to delete your account?");
-			if (x) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		};
-		alert("Are you sure you want to delete your account?");
-		
-		if (true) {
+		// confirm delete
+		if (window.confirm("Are you sure you want to delete your account?")) {
 			deleteUser();
-		};
+		}
+
 	}
 
 	function deleteUser() {
 		$.ajax({
 			method: "DELETE",
-			url: "/api/user/delete",
-			data: {
-				id: userID
-			}
+			url: "/api/user/delete"
 		}).done(function() {
 			window.location.href = "/";
 		});
