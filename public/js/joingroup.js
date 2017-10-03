@@ -3,7 +3,8 @@ $(document).ready(function() {
 	var url = window.location.href;
 	url = url.split("/");
 	var i = url.length;
-	var groupId = url[i-1];
+	var inviteCode = url[i-1];
+	var groupId = url[i-2];
 
 	getGroupInfo(groupId);
 	$("#join-group").on("click", joinGroup);

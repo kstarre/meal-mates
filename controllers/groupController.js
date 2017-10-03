@@ -19,7 +19,7 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 	invite: function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/invitepage.html"));
+		res.sendFile(path.join(__dirname, "../public/invite.html"));
 	},
 	joinOrCreateGroup: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/joingroup.html"));

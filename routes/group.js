@@ -10,7 +10,7 @@ module.exports = function(app) {
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
 	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
 	app.get("/group/invite/:groupId/:inviteCode", groupController.invite),
-	app.get("/group/join/:groupId", indexController.isLoggedIn, groupController.joinOrCreateGroup),
+	app.get("/group/join/:groupId/:inviteCode", indexController.isLoggedIn, groupController.joinOrCreateGroup),
 
     // API Routes
     // get group info

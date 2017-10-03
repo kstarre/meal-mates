@@ -13,22 +13,17 @@ module.exports = function(app, passport) {
     successRedirect: '/welcome',
     failureRedirect: '/'
   })),
-	app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/viewprofile',
-    failureRedirect: '/'
-  })),
+	app.post('/signin', passport.authenticate('local-signin'), function(req, res) {
+    if (req.query.token) {
+      //var url = "/group/join/" + req.query.groupId + "/" + req.query.token;
+      res.redirect("/welcome");
+    }
+    else {
+      res.redirect("/viewprofile");
+    }
+  }),
 
   app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
-  app.delete("/api/user/delete", indexController.deleteUser),
-
-  // sign in and sign up routes for invitations
-  app.post("/signup/invite", passport.authenticate('local-signup', {
-    successRedirect: '/group/join/:groupId',
-    failureRedirect: '/group/invite/:groupId/:inviteCode'
-  })),
-  app.post('/signin/invite', passport.authenticate('local-signin', {
-    successRedirect: '/group/join/:groupId',
-    failureRedirect: '/group/invite/:groupId/:inviteCode'
-  }))
+  app.delete("/api/user/delete", indexController.deleteUser)
 };
