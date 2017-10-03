@@ -42,14 +42,27 @@ $(document).ready(function() {
 	}
 
 	// WIP
-/*	function handleDelete(event) {
+	$("#edit-profile-delete").on("submit", handleDelete);
+	deleteUser();
+
+	function handleDelete(event) {
 		event.preventDefault();
 
 		// some type of pop-up or model that asks are you sure?
-		// only if they click "no, i want to delete"
-		// can't delete if admin of group
-
-		deleteUser();
+		function confirmDelete() {
+			var x = confirm("Are you sure you want to delete your account?");
+			if (x) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		};
+		alert("Are you sure you want to delete your account?");
+		
+		if (true) {
+			deleteUser();
+		};
 	}
 
 	function deleteUser() {
@@ -65,6 +78,7 @@ $(document).ready(function() {
 	}
 
 	// WIP, needs event listener
+	$("#edit-profile-grouplist").on("submit", leaveGroup)
 	function leaveGroup(event) {
 		event.preventDefault();
 
@@ -78,6 +92,6 @@ $(document).ready(function() {
 		};
 
 		updateUser(userData);
-	}*/
+	}
 
 });

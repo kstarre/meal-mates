@@ -21,9 +21,9 @@ body {}
     color: white;
 }
 
-
-
-a.navbar-brand-mx-auto:hover { color: #fff !important; }
+.navbar-brand:hover {
+    display: none;
+}
 
 #signed-in {
     margin-right: 30px;
@@ -287,6 +287,26 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 /*card styling*/
 
+
+h2 {
+    /*font-family: 'Francois One', sans-serif;*/
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+}
+
+.dt {
+    font-size: 40px !important;
+    font-weight: bold;
+}
+
+.card-header {
+    background-color: #7EB348 ;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3); 
+/*text-shadow: 4px 3px 0px #7EB348, 9px 8px 0px rgba(0,0,0,0.15);*/
+}
+
 .card {
     padding: 20px;
     margin-top: 50px;
@@ -297,8 +317,8 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     /*background-color: #f3f8ee;*/
 }
 
-#card-group {
-    display: none;
+.card-block {
+    padding-top: 40px;
 }
 
 #profile-photo {
@@ -310,10 +330,20 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 }
 
 .card-title {
-    text: center;
+    text-align: center;
+}
+
+/*admin group css*/
+#group-members {
+    list-style: none;
+}
+
+#update-user-btn {
+    text-align: center;
 }
 
 
+/*footer*/
 .footer-bs {
     background-color: #3c3d41;
     padding: 60px 40px;
