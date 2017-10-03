@@ -42,29 +42,28 @@ $(document).ready(function() {
 	}
 
 	// WIP
-/*	function handleDelete(event) {
+	$("#delete-account-btn").on("click", handleDelete);
+
+	function handleDelete(event) {
 		event.preventDefault();
+		// confirm delete
+		if (window.confirm("Are you sure you want to delete your account?")) {
+			deleteUser();
+		}
 
-		// some type of pop-up or model that asks are you sure?
-		// only if they click "no, i want to delete"
-		// can't delete if admin of group
-
-		deleteUser();
 	}
 
 	function deleteUser() {
 		$.ajax({
 			method: "DELETE",
-			url: "/api/user/delete",
-			data: {
-				id: userID
-			}
+			url: "/api/user/delete"
 		}).done(function() {
 			window.location.href = "/";
 		});
 	}
 
 	// WIP, needs event listener
+	$("#edit-profile-grouplist").on("submit", leaveGroup)
 	function leaveGroup(event) {
 		event.preventDefault();
 
@@ -78,6 +77,6 @@ $(document).ready(function() {
 		};
 
 		updateUser(userData);
-	}*/
+	}
 
 });

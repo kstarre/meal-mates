@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -11,12 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
-    <script type="text/javascript" src="/js/mailfrontend.js"></script>
-    <script type="text/javascript" src="/js/admingroup.js"></script>
+    <script type="text/javascript" src="/js/joingroup.js"></script>
 </head>
 <header>
     <div class="jumbotron" id="nav-jumbotron">
@@ -75,103 +74,39 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-6">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <div class="card" id="group-info-card">
                     <div class="card-block">
-                        <h4 class="card-title">Edit Group</h4>
-                        <br>
-                        <form id="form-edit-profile" class="form container">
-                            <div class="form-group row">
-                                <label for="groupName" class="col-2 col-form-label">Group Name</label>
-                                <div class="col-10">
-                                    <input type="text" id="group-name" name="groupName" class="form-control" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="groupInfo" class="col-2 col-form-label">Group Details</label>
-                                <div class="col-10">
-                                    <input type="text" id="group-info" name="groupInfo" class="form-control" placeholder="e.g. Gluten or Tree Nut Allergy">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="exampleSelect1" class="col-2 col-form-label">Group Size</label>
-                                <div class="col-10">
-                                    <select class="form-control" name="groupSize" id="group-size-select">
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">Group Members</label>
-                                <div class="col-10">
-                                    <ul id="group-members">
-                                        <li>person 1 </li>
-                                        <li>person 2 </li>
-                                        <li>person 3 </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <br>
-                            <input class="btn btn-primary" id="update-user-btn" type="submit" value="Submit">
-                        </form>
+
+                        <head class="invite-head">You have been invited to join a Meal-Mates group!</head>
+                        <h4 class="card-title">Group Information</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Group Name</h6>
+                        <p class="card-text" id="group-name"></p>
+                        <h6 class="card-subtitle mb-2 text-muted" id="admin">Group Admin</h6>
+                        <p class="card-text" id="group-admin"></p>
+                        <h6 class="card-subtitle mb-2 text-muted">Group Information</h6>
+                        <p class="card-text" id="group-info"></p>
+                        <button id="join-group">Join Group!</button>
                     </div>
-                 <!--    <input id="to" type="text" placeholder="Enter E-mail address of friend to invite" />
-                    <button id="send_email">Send Email</button>
                     <span id="message"></span>
                     <div>
                         <p></p>
-                    </div> -->
-                </div>
-            </div> <!-- end col-md-8 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-block" id="edit-profile-grouplist">
-                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>Add Members</h4>
-                        <p class="card-text" id="leave-group">Would you like to add users to this group?</p>
-                      <button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#invitemodal">Invite Friends</button>
                     </div>
+                </div>
+
+                <div class="card" id="group-create-card">
+                    <div class="card-block">
+                        <head class="invite-head">Or you can create your own group!</head>
+                        <a class="btn btn-secondary" role="button" id="create-group" href="/group/create">Create Group!</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-1"></div>
-        </div>
-          
+            <!-- end col-md-8 -->
+            <div class="col-md-2"></div>
         </div>
         <!-- end row -->
     </div>
-    <!-- end container -->
-
-<!-- modals -->
-    <div class="modal fade" id="invitemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Invite Friends</h4>
-                </div>
-                <div class="modal-body">
-                    <p> Enter Your friend's email address to begin sharing meals! </p>
-                    <input id="to" type="text" placeholder="Email Address" />
-                    <span id="message"></span>
-                    <div>
-                        <p></p>
-                    </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button id="send_email" class="btn btn-primary">Send Email</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 <!--Footer-->
 <footer class="page-footer footer-bs">
@@ -204,7 +139,7 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
                 <h6 class="title mb-4 font-bold">Contact</h6>
                 <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
-                <p><i class="fa fa-envelope mr-3"></i> MealMates@gmail.com</p>
+                <p><i class="fa fa-envelope mr-3"></i> MealMatesApp@gmail.com</p>
             </div>
             <!--/.Fourth column-->
         </div>
@@ -234,3 +169,5 @@
     </div>
 </footer>
 <!--/.Footer-->
+
+</html>

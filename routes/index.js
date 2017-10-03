@@ -9,28 +9,20 @@ module.exports = function(app, passport) {
 
 	// API routes
 	app.get("/logout", indexController.logout),
-	app.post("/signup", function(req, res, next) {
-  		passport.authenticate('local-signup', function(err, user, info) {
-    		if (err) { return next(err); }
-    		if (!user) { return res.redirect('/'); }
-    		req.logIn(user, function(err) {
-      			if (err) { return next(err); }
-      			return res.redirect('/welcome');
-    		});
-  		})(req, res, next);
-	}),
-	app.post('/signin', function(req, res, next) {
-  		passport.authenticate('local-signin', function(err, user, info) {
-    		if (err) { return next(err); }
-    		if (!user) { return res.redirect('/'); }
-    		req.logIn(user, function(err) {
-      			if (err) { return next(err); }
-      			return res.redirect('/viewprofile');
-    		});
-  		})(req, res, next);
-	}),
+	app.post("/signup", passport.authenticate('local-signup', {
+    successRedirect: '/welcome',
+    failureRedirect: '/'
+  })),
+	app.post('/signin', passport.authenticate('local-signin'), function(req, res) {
+    if (req.query.token) {
+      //var url = "/group/join/" + req.query.groupId + "/" + req.query.token;
+      res.redirect("/welcome");
+    }
+    else {
+      res.redirect("/viewprofile");
+    }
+  }),
 
-  // do we need isLoggedIn for API routes?
   app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
   app.delete("/api/user/delete", indexController.deleteUser)

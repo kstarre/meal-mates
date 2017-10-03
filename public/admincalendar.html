@@ -9,26 +9,34 @@
 
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-     <!-- font awesome -->
-    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    
-    <!-- css -->
-    <link rel="stylesheet" type= "text/css" href="css/style.css">
+
+    <!-- fullcalendar stylesheet -->
+    <link rel='stylesheet' href='/css/fullcalendar/fullcalendar.css' />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
     <!-- jquery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jquery ui -->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"></script>
 
+    <!-- moment -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
+
+    <!-- fullcalendar javascript -->
+    <script src='/js/fullcalendar/fullcalendar.js'></script>
 
     <!-- javascript -->
-
-    <script type="text/javascript" src="/js/creategroup.js"></script>
+    <script type="text/javascript" src="/js/admincalendar.js"></script>
 
 </head>
 <header>
+    <header>
     <div class="jumbotron" id= "nav-jumbotron">
     <nav class="navbar navbar-toggleable" id="top-nav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -81,54 +89,15 @@
     </nav>
     </div>
 </header>
+</header>
+
 <body>
-<div class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-      <!-- form to create group with group name, member limit size, group rules -->
-          <div class="card">
-
-        <div class="card-block">
-            <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>  Create Group</h4>
-            <form id="create-group" class="form-container">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
-                <div class="col-10">
-                    <input type="text" id="group-name" name="groupName" class="form-control" placeholder="Group Name">
-                </div>
-            </div>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Group Information</label>
-                     <div class = "col-10">
-                    <input type="text" id="group-info" name="groupRules" class="form-control" placeholder="Group Information">
-                </div>
-            </div>
-         <div class="form-group row">
-         <label for="exampleSelect1" class="col-2 col-form-label">Group Size</label>
-         <div class = "col-10">
-    <select class="form-control" name="groupSize" id="group-size-select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-    </select>
-       </div>
-   </div>
-            <input class="btn btn-primary" type="submit" value="Submit">
-        </form>
-        </div>
-        </div>
-         </div> <!-- end col-md-8 -->
-
-         
-                        <div class="col-md-2"></div>
-                    </div> <!-- end row -->
-                </div><!-- end container -->
-
+    <h1>Welcome to the group calendar!</h1>
+    <div id="external-events">
+        <h4>Draggable Events</h4>
+    </div>
+    <div id="calendar"></div>
+</body>
 <!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
@@ -190,3 +159,4 @@
     </div>
 </footer>
 <!--/.Footer-->
+</html>
