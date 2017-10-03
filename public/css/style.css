@@ -6,7 +6,12 @@
     margin: 0;
 }
 
-body {}
+body {
+  /*   background: #466368;
+  background: radial-gradient(#648880, #293f50);
+  border-radius: 6px;
+*/
+}
 
 
 #navbarDropdownMenuLink {
@@ -186,8 +191,20 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 }
 
 .display-3 {
-    font-weight: bold;
-    font-size: 100px;
+   /* font-weight: bold;
+    font-size: 100px;*/
+    font-family: 'Raleway', sans-serif;
+  /*background-color: white;*/
+  /*position: absolute;*/
+  top: 50%;
+  transform: translateY(-85%);
+  text-align: center;
+  color: white;
+  /*mix-blend-mode: difference;*/
+  font-weight: 900;
+  font-size: 10em;
+  letter-spacing: -3px;
+  padding-left: .2em;
 }
 
 /*#logout {
@@ -312,8 +329,8 @@ h2 {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
-    border-width: 0;
-    box-shadow: none;
+    /*border-width: 0;*/
+    /*box-shadow: none;*/
     /*background-color: #f3f8ee;*/
 }
 
@@ -330,7 +347,7 @@ h2 {
 }
 
 .card-title {
-    text-align: center;
+    text-align: left;
 }
 
 /*admin group css*/
@@ -339,7 +356,7 @@ h2 {
 }
 
 #update-user-btn {
-    text-align: center;
+    float: right;
 }
 
 
