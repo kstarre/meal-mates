@@ -4,158 +4,162 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Meal Mates</title>
-
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- fullcalendar stylesheet -->
     <link rel='stylesheet' href='/css/fullcalendar/fullcalendar.css' />
-
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-
     <!-- jquery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
-
     <!-- jquery ui -->
-    <script
-      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-      crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <!-- moment -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
-
     <!-- fullcalendar javascript -->
     <script src='/js/fullcalendar/fullcalendar.js'></script>
-
     <!-- javascript -->
+    <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="text/javascript" src="/js/admincalendar.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
-
 </head>
-<header>
-    <header>
-    <div class="jumbotron" id= "nav-jumbotron">
-    <nav class="navbar navbar-toggleable" id="top-nav">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            ☰
-        </button>
-        <a class="navbar-brand mx-auto" href="/">MEAL MATES</a>
-        <div class="navbar-collapse collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        USER 
-      </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/editprofile">Edit Your Profile</a></li>
-                        <li><a class="dropdown-item" href="/viewprofile">View Your Profile</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       GROUP
-      </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li> <a class="dropdown-item" href="/group">Your Group</a></li>
-                        <li> <a class="dropdown-item" href="/group/calendar">Group Calendar</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        ADMIN
-      </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/group/admin">Edit Group</a></li>
-                        <li><a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="auth-state-nav">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <span class="navbar-text" id="signed-in"></span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    </div>
-</header>
-</header>
 
 <body>
-    <h1>Welcome to the group calendar!</h1>
-    <div id="external-events">
-        <h4>Draggable Events</h4>
-    </div>
-    <div id="calendar"></div>
-</body>
-<!--Footer-->
-<footer class="page-footer footer-bs">
-    <!--Footer Links-->
-    <div class="container">
-        <!-- Footer links -->
-        <div class="row text-center text-md-left mt-3 pb-3">
-            <!--First column-->
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
-                <h2>Meal Mates</h2>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+
+    <body>
+        <div class="container" id="nav-container">
+            <header class="clearfix">
+                <h1>Meal Mates</h1>
+            </header>
+            <div class="main">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li>
+                            <a href="#">User</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <!-- <h4>Learning &amp; Games</h4> -->
+                                        <ul class="dd-menu">
+                                            <li><a href="/viewprofile">View Profile</a></li>
+                                            <li><a href="/editprofile">Edit Profile</a></li>
+                                            <li id="signed-in">Signed in as User</li>
+                                            <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">Group</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <ul class="dd-menu">
+                                            <li><a href="/group">Your Group</a></li>
+                                            <li><a href="/group/calendar">Group Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /inner-submenu -->
+                            </div>
+                            <!-- /submenu -->
+                        </li>
+                        <li>
+                            <a href="#">Admin</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <ul class="dd-menu">
+                                            <li><a href="/group/admin">Edit Group</a></li>
+                                            <li><a href="/group/calendar/admin">Edit Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /inner-submenu -->
+                            </div>
+                            <!-- /submenu -->
+                        </li>
+                </nav>
             </div>
-            <!--/.First column-->
-            <hr class="w-100 clearfix d-md-none">
-            <!--Second column-->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 footer-nav animated fadeInUp">
-                <h6 class="title mb-4 font-bold">Menu</h6>
-                <div class="col-md-6">
-                    <ul class="pages">
-                        <li><a href="/viewprofile">Profile</a></li>
-                        <li><a href="/editprofile">Edit Profile</a></li>
-                        <li><a href="/group">Group</a></li>
-                        <li><a href="/group/calendar">Calendar</a></li>
-                    </ul>
+        </div>
+        <h1>Welcome to the group calendar!</h1>
+        <div id="external-events">
+            <h4>Draggable Events</h4>
+        </div>
+        <div id="calendar"></div>
+        <!--Footer-->
+        <footer class="page-footer footer-bs">
+            <!--Footer Links-->
+            <div class="container">
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+                    <!--First column-->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
+                        <h2>Meal Mates</h2>
+                        <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                    </div>
+                    <!--/.First column-->
+                    <hr class="w-100 clearfix d-md-none">
+                    <!--Second column-->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 footer-nav animated fadeInUp">
+                        <h6 class="title mb-4 font-bold">Menu</h6>
+                        <div class="col-md-6">
+                            <ul class="pages">
+                                <li><a href="/viewprofile">Profile</a></li>
+                                <li><a href="/editprofile">Edit Profile</a></li>
+                                <li><a href="/group">Group</a></li>
+                                <li><a href="/group/calendar">Calendar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/.Third column-->
+                    <hr class="w-100 clearfix d-md-none">
+                    <!--Fourth column-->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
+                        <h6 class="title mb-4 font-bold">Contact</h6>
+                        <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
+                        <p><i class="fa fa-envelope mr-3"></i> MealMates@gmail.com</p>
+                    </div>
+                    <!--/.Fourth column-->
+                </div>
+                <!-- Footer links -->
+                <hr>
+                <div class="row py-3 d-flex align-items-center">
+                    <!--Grid column-->
+                    <div class="col-md-8 col-lg-9">
+                        <!--Copyright-->
+                        <p class="text-center text-md-left grey-text">© 2017 Copyright<strong>  Meal Mates</strong></p>
+                        <!--/.Copyright-->
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-4 col-lg-3 ml-lg-0">
+                        <!--Social buttons-->
+                        <div class="social-section text-center text-md-left">
+                            <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook"></i></a></div>
+                            <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-twitter"></i></a></div>
+                            <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-google-plus"></i></a></div>
+                            <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-linkedin"></i></a></div>
+                        </div>
+                        <!--/.Social buttons-->
+                    </div>
+                    <!--Grid column-->
                 </div>
             </div>
-            <!--/.Third column-->
-            <hr class="w-100 clearfix d-md-none">
-            <!--Fourth column-->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
-                <h6 class="title mb-4 font-bold">Contact</h6>
-                <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
-                <p><i class="fa fa-envelope mr-3"></i> MealMates@gmail.com</p>
-            </div>
-            <!--/.Fourth column-->
-        </div>
-        <!-- Footer links -->
-        <hr>
-        <div class="row py-3 d-flex align-items-center">
-            <!--Grid column-->
-            <div class="col-md-8 col-lg-9">
-                <!--Copyright-->
-                <p class="text-center text-md-left grey-text">© 2017 Copyright<strong>  Meal Mates</strong></p>
-                <!--/.Copyright-->
-            </div>
-            <!--Grid column-->
-            <!--Grid column-->
-            <div class="col-md-4 col-lg-3 ml-lg-0">
-                <!--Social buttons-->
-                <div class="social-section text-center text-md-left">
-                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook"></i></a></div>
-                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-twitter"></i></a></div>
-                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-google-plus"></i></a></div>
-                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-linkedin"></i></a></div>
-                </div>
-                <!--/.Social buttons-->
-            </div>
-            <!--Grid column-->
-        </div>
-    </div>
-</footer>
-<!--/.Footer-->
+        </footer>
+        <!--/.Footer-->
+    </body>
+
 </html>
