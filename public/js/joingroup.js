@@ -1,17 +1,21 @@
 $(document).ready(function() {
 
-	var url = window.location.href;
-	url = url.split("/");
-	var i = url.length;
-	var inviteCode = url[i-1];
-	var groupId = url[i-2];
-
-	getGroupInfo(groupId);
+	getGroupInfo();
 	$("#join-group").on("click", joinGroup);
 
-	function getGroupInfo(groupId) {
-		$.get("/api/group", {group: groupId}).done(function(data) {
-			console.log(data);
+
+	function codeSearch() {
+		$.get("/api/invite/search").done(function(data) {
+			if (data === null) {
+				console.log("Code does not match");
+				window.location.href = "/";
+			}
+			// check if code expired
+		});
+	}
+	
+	function getGroupInfo() {
+		$.get("/api/group").done(function(data) {
 			for (var i = 0; i < data.Users.length; i++) {
 				if (data.Users[i].id === data.admin) {
 					$("#group-admin").html(data.Users[i].email);
@@ -24,12 +28,10 @@ $(document).ready(function() {
 	}
 
 	function joinGroup() {
+		codeSearch();
 		$.ajax({
 			method: "PUT",
-			url: "/api/group/join",
-			data: {
-				LunchgroupId: groupId
-			}
+			url: "/api/group/join"
 		}).done(function() {
 			window.location.href = "/group";
 		});

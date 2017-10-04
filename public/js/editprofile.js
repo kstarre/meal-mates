@@ -2,7 +2,8 @@ $(document).ready(function() {
 
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
-	//$("#").on("submit", handleDelete);
+	$("#delete-account-btn").on("click", handleDelete);
+	$("#leave-group-btn").on("click", handleGroupDelete);
 	getUser();
 
 	// Function for retrieving user info
@@ -41,16 +42,15 @@ $(document).ready(function() {
 		})
 	}
 
-	// WIP
-	$("#delete-account-btn").on("click", handleDelete);
-
 	function handleDelete(event) {
 		event.preventDefault();
+
 		// confirm delete
 		if (window.confirm("Are you sure you want to delete your account?")) {
 			deleteUser();
 		}
 
+		// can't delete if admin of group?
 	}
 
 	function deleteUser() {
@@ -62,21 +62,31 @@ $(document).ready(function() {
 		});
 	}
 
-	// WIP, needs event listener
-	$("#edit-profile-grouplist").on("submit", leaveGroup)
-	function leaveGroup(event) {
+	// leave group
+	function handleGroupDelete(event) {
 		event.preventDefault();
 
-		// some type of pop-up or model that asks are you sure?
-		// only if they click "yes, i want to leave"
-		// can't leave if admin of group
+		// ask when it is ok to have this...
+		if (window.confirm("Are you sure you want to leave?")) {
+			leaveGroup();
+		}
+	}
 
-		var userData = {
-			id: userID,
-			LunchgroupId: groupID
-		};
+	function leaveGroup() {
 
-		updateUser(userData);
+		// can't leave if admin of group?
+
+		$.ajax({
+			method: "PUT",
+			url: "/api/user/edit"
+		}).done(function() {
+			$.ajax({
+				method: "DELETE",
+				url: "/api/group/calendar/eventdelete"
+			}).done(function() {
+				window.location.reload(true);
+			});
+		});
 	}
 
 });
