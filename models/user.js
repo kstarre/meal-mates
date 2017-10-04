@@ -41,7 +41,9 @@ module.exports = function(sequelize, DataTypes) {
         // associates User with Group
         User.belongsTo(models.Lunchgroup, {targetKey: "id"});
 
-        User.hasMany(models.Eventdate);
+        User.hasMany(models.Eventdate, {
+            onDelete: "cascade"
+        });
     }
 
     return User;

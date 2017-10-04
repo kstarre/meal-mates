@@ -42,6 +42,9 @@ $(document).ready(function() {
 		})
 	}
 
+	// WIP
+	$("#delete-account-btn").on("click", handleDelete);
+
 	function handleDelete(event) {
 		event.preventDefault();
 
