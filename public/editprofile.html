@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
     <script type="text/javascript" src="/js/editprofile.js"></script>
+    <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
 <header>
     <!-- <div class="jumbotron"> -->
@@ -120,26 +121,39 @@
             <!-- end col-md-8 -->
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-block" id = "edit-profile-grouplist">
-                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h4>
-                        <p class="card-text" id ="group-name-render">group name rendered here</p>
-                        <p class="card-text" id ="leave-group">Would you like to remove this group?</p>
-                        <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group">
+                    <div class="card-block" id="edit-profile-photo">
+                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Profile Photo </h4>
+                        <!-- EJS stuff -->
+                        <div class="photo-frame" >
+                        <div class="col-md-3 col-lg-3" align="center"> <img alt="No Photo Uploaded" src="/images/upload_images/<%=data[0].image%>" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                        </div>
+                            <!-- EJS stuff end-->
+                            <br>
+                            <input class="btn btn-primary" id="upload-img-btn" type="submit" value="Upload a Photo">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-block" id="edit-profile-grouplist">
+                            <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h4>
+                            <p class="card-text" id="group-name-render">group name rendered here</p>
+                            <p class="card-text" id="leave-group">Would you like to remove this group?</p>
+                            <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-block" id="edit-profile-delete">
+                            <h4 class="card-title"><i class="fa fa-trash-o" aria-hidden="true"></i>   Remove Account</h4>
+                            <!--  <p class="card-text">Deleting your account is permanant, all information and group information will be lost</p> -->
+                            <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Delete Account">
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-block" id = "edit-profile-delete">
-                        <h4 class="card-title"><i class="fa fa-trash-o" aria-hidden="true"></i>   Remove Account</h4>
-                       <!--  <p class="card-text">Deleting your account is permanant, all information and group information will be lost</p> -->
-                        <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Delete Account">
-                    </div>
-                </div>
+                <div class="col-md-1"></div>
             </div>
-            <div class="col-md-1"></div>
+            <!-- end row -->
         </div>
-        <!-- end row -->
-    </div>
-    <!-- end container -->
+        <!-- end container -->
 </body>
 <!--Footer-->
 <footer class="page-footer footer-bs">

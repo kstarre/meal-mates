@@ -23,7 +23,7 @@ $(document).ready(function() {
 
         subject = "You've received an invitation to join Meal-Mates";
 
-        url = url + "/group/join/" + groupId;
+        url = url + "group/join/" + groupId + "/" + to;
         // url = url.link(url);
 
         console.log(url);
@@ -38,7 +38,11 @@ $(document).ready(function() {
         $.get("/send", { to: to, subject: subject, text: text }, function(data) {
             if (data == "sent") {
                 $("#message").empty().html("An invite has been sent to " + to + "!");
+                $("to").val("");
             }
+
+            url = "";
+
 
         });
     });

@@ -41,6 +41,7 @@ $(document).ready(function() {
 		})
 	}
 
+	$("upload-img-button")
 	// WIP
 /*	function handleDelete(event) {
 		event.preventDefault();

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	function renderExternalEvents(users) {
 		for (var i = 0; i < users.length; i++) {
-			let externalEvent = $("<div>");
+			var externalEvent = $("<div>");
 			externalEvent.addClass("my-draggable").html(users[i].email);
 			externalEvent.data('event', {
 				title: users[i].email, 
@@ -31,7 +31,7 @@ $(document).ready(function() {
 			events: events,
 			eventStartEditable: true,
 			eventDrop: function(event, revertFunc) {
-				let eventData = {
+				var eventData = {
 					id: event.id,
 					start: event.start.format()
 				};
@@ -47,7 +47,7 @@ $(document).ready(function() {
 			drop: function(date) {
 			},
 			eventReceive: function( event ) {
-				let eventData = {
+				var eventData = {
 					title: event.title,
 					start: event.start.format(),
 					UserId: event.UserId

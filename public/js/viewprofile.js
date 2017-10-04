@@ -14,4 +14,14 @@ $(document).ready(function() {
 		});
 	}
 
+	function getImage() {
+		$.get("/api/image/get", function(data) {
+			console.log("data");
+		});
+	}
+
+
+
+
+
 });

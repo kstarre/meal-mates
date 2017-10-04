@@ -11,6 +11,7 @@ module.exports = function(app) {
 	app.get("/group/calendar", indexController.isLoggedIn, groupController.viewCalendar),
 
 	app.get("/group/calendar/admin", indexController.isLoggedIn, indexController.isAdmin, groupController.adminCalendar),
+    app.get("/group/join/:groupId/:email", groupController.joinGroup),
 
     // API Routes
     // get group info

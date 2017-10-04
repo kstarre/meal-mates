@@ -1,32 +1,31 @@
 $(document).ready(function() {
 
-	let userID;
-	// Add event listener for the form submit
-	// $("#create-group").on("submit", handleSubmit);
-	getID();
+	var url = window.location.href;
+	url = url.split("/");
 
-	// Function for getting user ID
-	function getID() {
-		$.get("/api/user", function(data) {
-			userID = data.id;
-		});
-	}
+	var i = url.length
 
-	function handleSubmit(event) {
-		event.preventDefault();
-		var groupData = {
-			groupName: $("#group-name").val().trim(),
-			groupSize: $("#group-size-select").val(),
-			groupRules: $("#group-info").val().trim(),
-			admin: userID
-		};
-		getGroupMembers(groupData);
-	}
+	var groupId = url[i-1];
 
-	function getGroupMembers(data) {
+	var emailId = url[i];
+
+	function getGroupInfo(data) {
 		$.get("/api/group", data, function() {
+			console.log("YAY!")
+		})
+	}
 
-			
-		});
+
+	function emailSearch(data) {
+
 	}
 });
+
+
+/*doc .ready, 
+
+
+param grab for email
+param grab for user id
+ajax to check email against db
+

@@ -1,36 +1,28 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Meal Mates</title>
-
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-     <!-- font awesome -->
-    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    
+    <!-- font awesome -->
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- css -->
-    <link rel="stylesheet" type= "text/css" href="/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
     <!-- javascript -->
-
-    <script type="text/javascript" src="/js/creategroup.js"></script>
-            <script type="text/javascript" src="/js/usernote.js"></script>
-
-
+    <script type="text/javascript" src="/js/viewprofile.js"></script>
+    <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
-<body>
 <header>
     <!-- <div class="jumbotron"> -->
     <nav class="navbar navbar-toggleable-md" id="top-nav">
@@ -44,8 +36,8 @@
         USER 
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Your Profile</a>
-                        <a class="dropdown-item" href="#">View Your Profile</a>
+                        <a class="dropdown-item" href="/editprofile">Edit Your Profile</a>
+                        <a class="dropdown-item" href="/viewprofile">View Your Profile</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -53,8 +45,8 @@
        GROUP
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Your Group</a>
-                        <a class="dropdown-item" href="#">Group Calendar</a>
+                        <a class="dropdown-item" href="/group">Your Group</a>
+                        <a class="dropdown-item" href="/group/calendar">Group Calendar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown text-center">
@@ -62,13 +54,13 @@
         ADMIN
       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit Group</a>
-                        <a class="dropdown-item" href="#">Edit Calendar</a>
+                        <a class="dropdown-item" href="/group/admin">Edit Group</a>
+                        <a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a>
                     </div>
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
+        <a class="navbar-brand mx-auto" href="/">MEAL MATES</a>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
@@ -83,53 +75,63 @@
         </div>
     </nav>
 </header>
-<div class="container">
-            <div class="row">
+
+<body>
+    <div class="container">
+        <div class="row no-gutters">
+            <!-- <div class="row"> -->
+            <div class="col-md-2"></div>
+            <!-- <div class="card-group"> -->
+            <!--         <div class="card" id ="profile-photo">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div> -->
+            <div class="col-md-8">
+                <div class="card" id="profile-info">
+                    <div class="card-block">
+                        <h4 class="text-center" id="card-title"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Profile Information</h4>
+                        <br>
+
+    <!-- EJS stuff -->
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/images/upload_images/<%=data[0].image%>" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+
+    <!-- EJS stuff end-->                            
+
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">First Name:</h6>
+                            <p class="card-text" id="profile-first-name">a first name</p>
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">Last Name:</h6>
+                            <p class="card-text" id="profile-last-name">a last name</p>
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">Email:</h6>
+                            <p class="card-text" id="profile-email">Email@email.com</p>
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">Phone Number:</h6>
+                            <p class="card-text" id="profile-phone"> 216-555-5555</p>
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">Dietary Restrictions:</h6>
+                            <p class="card-text" id="profile-dietary">eats everything</p>
+                            <br>
+                            <h6 class="card-subtitle mb-2 text-muted">Food Allergies:</h6>
+                            <p class="card-text" id="profile-allergies">No known allergies</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end col-md-8 -->
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
-      <!-- form to create group with group name, member limit size, group rules -->
-          <div class="card">
-
-        <div class="card-block">
-            <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>  Create Group</h4>
-            <form id="create-group" class="form-container">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
-                <div class="col-10">
-                    <input type="text" id="group-name" name="groupName" class="form-control" placeholder="Group Name">
-                </div>
             </div>
-                <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Group Information</label>
-                     <div class = "col-10">
-                    <input type="text" id="group-info" name="groupRules" class="form-control" placeholder="Group Information">
-                </div>
-            </div>
-         <div class="form-group row">
-         <label for="exampleSelect1" class="col-2 col-form-label">Group Size</label>
-         <div class = "col-10">
-    <select class="form-control" name="groupSize" id="group-size-select">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-    </select>
-       </div>
-   </div>
-            <input class="btn btn-primary" type="submit" value="Submit">
-        </form>
         </div>
-        </div>
-         </div> <!-- end col-md-8 -->
-
-         
-                        <div class="col-md-2"></div>
-                    </div> <!-- end row -->
-                </div><!-- end container -->
-
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</body>
+<!-- footer -->
 <!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
@@ -191,3 +193,5 @@
     </div>
 </footer>
 <!--/.Footer-->
+
+</html>

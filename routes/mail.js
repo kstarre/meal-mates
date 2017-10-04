@@ -32,11 +32,11 @@ app.get('/send', function(req, res) {
 
 //==== gmail info for our group ======//
 var smtpTransport = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
+    service: "hotmail",
+    // host: "smtp.gmail.com",
     auth: {
-        user: "mealmatesapp@gmail.com",
-        pass: process.env.GPASS
+        user: "mealmates@hotmail.com",
+        pass: "Kat13Megan"
     }
 });
 
