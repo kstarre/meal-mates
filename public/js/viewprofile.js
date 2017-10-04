@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 	getUser();
 
 	// Function for retrieving user info
