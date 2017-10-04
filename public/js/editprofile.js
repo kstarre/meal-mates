@@ -63,20 +63,30 @@ $(document).ready(function() {
 	}
 
 	// WIP, needs event listener
-	$("#edit-profile-grouplist").on("submit", leaveGroup)
+	$("#leave-group-btn").on("click", leaveGroup)
 	function leaveGroup(event) {
 		event.preventDefault();
-
-		// some type of pop-up or model that asks are you sure?
-		// only if they click "yes, i want to leave"
-		// can't leave if admin of group
-
-		var userData = {
-			id: userID,
-			LunchgroupId: groupID
-		};
-
-		updateUser(userData);
+		// confirm leave
+		if (window.confirm("Are you the group's admin?")) {
+			alert("Sorry, you can't leave the group.");
+			window.location.href = "/";
+		}
+		else {
+			if (window.confirm("OK.  Are you sure you want to leave this group?")) {
+				$.ajax({
+					method: "PUT",
+					url: "/api/user/edit",
+					LunchgroupId: null
+				}).done(function() {
+					$.ajax({
+		                method: "DELETE",
+		                url: "/api/group/calendar/eventdelete"
+		            }).done(function() {
+		                window.location.reload(true);
+		            });
+				});
+			}
+		}
 	}
 
 });
