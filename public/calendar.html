@@ -7,6 +7,12 @@
     <title>Meal Mates</title>
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- fullcalendar stylesheet -->
     <link rel='stylesheet' href='/css/fullcalendar/fullcalendar.css' />
     <!-- Custom CSS -->
@@ -18,65 +24,69 @@
     <!-- fullcalendar javascript -->
     <script src='/js/fullcalendar/fullcalendar.js'></script>
     <!-- javascript -->
+    <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="text/javascript" src="/js/calendar.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
-<header>
-    <div class="jumbotron" id="nav-jumbotron">
-        <nav class="navbar navbar-toggleable" id="top-nav">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                ☰
-            </button>
-            <a class="navbar-brand mx-auto" href="/">MEAL MATES</a>
-            <div class="navbar-collapse collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        USER 
-      </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/editprofile">Edit Your Profile</a></li>
-                            <li><a class="dropdown-item" href="/viewprofile">View Your Profile</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       GROUP
-      </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li> <a class="dropdown-item" href="/group">Your Group</a></li>
-                            <li> <a class="dropdown-item" href="/group/calendar">Group Calendar</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        ADMIN
-      </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/group/admin">Edit Group</a></li>
-                            <li><a class="dropdown-item" href="/group/calendar/admin">Edit Calendar</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="auth-state-nav">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <span class="navbar-text" id="signed-in"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div> <!-- end jumbotron-nav -->
-</header>
 
-<body>
+    <body>
+        <div class="container" id = "nav-container">
+            <header class="clearfix">
+                <h1>Meal Mates</h1>
+            </header>   
+            <div class="main">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li>
+                            <a href="#">User</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <!-- <h4>Learning &amp; Games</h4> -->
+                                        <ul class = "dd-menu">
+                                            <li><a href="/viewprofile">View Profile</a></li>
+                                            <li><a href="/editprofile">Edit Profile</a></li>
+                                            <li id= "signed-in">Signed in as User</li>
+                                            <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                        </li> 
+                        <li>
+                            <a href="#">Group</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group">Your Group</a></li>
+                                            <li><a href="/group/calendar">Group Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                        <li>
+                            <a href="#">Admin</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group/admin">Edit Group</a></li>
+                                            <li><a href="/group/calendar/admin">Edit Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                   </nav>
+            </div>
+        </div>
+
+
     <h1>Welcome to the group calendar!</h1>
     <div id="calendar"></div>
-</body>
 <!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
@@ -138,5 +148,6 @@
     </div>
 </footer>
 <!--/.Footer-->
+</body>
 
 </html>

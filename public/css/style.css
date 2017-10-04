@@ -16,135 +16,250 @@ body {
 
 /*navbar*/
 
-#nav-item {
-    color: white;
-     margin-right: 30px;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
+body, html { font-size: 100%;   padding: 0; margin: 0;}
+
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
 }
 
-.navbar-brand {
-    font-size: 30px;
-    letter-spacing: 4px;
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    /*font-family: 'Lato', Calibri, Arial, sans-serif;*/
+    
+}
+/*
+a {
     color: white;
+    text-decoration: none;
+}*/
+
+a:hover {
+    color: #000;
+}
+
+#nav-container {
+    width: 100%;
+    background-image: url("../img/foodbackground3edit.jpg");
+    background-repeat: no-repeat;
+    /*background-position: right top;*/
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+#nav-container > header {
+    width: 90%;
+    max-width: 70em;
+    margin: 0 auto;
+    padding: 0 1.875em 3.125em 1.875em;
+}
+
+#nav-container > header {
+    padding: 2.875em 1.875em 1.875em;
+}
+
+#nav-container > header h1 {
+    color: white;
+    font-size: 5em;
+    line-height: 1.3;
+    margin: 0;
+    /*margin-left: -200px;*/
+    float: left;
+    font-weight: 700;
+      font-family: 'Raleway', sans-serif;
+    line-height: 50px;
+    color: white;
+    /*font-weight: 900;*/
+    /*font-size: 10em;*/
+    letter-spacing: -3px;
+    /*padding-left: .2em;*/
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+.navmenu {
+    width: 100%;
+    margin-top: 2em;
+    border-bottom: 4px solid #3c3d41;
+}
+
+/* general ul style */
+.navmenu ul {
+    margin: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* first level ul style */
+.navmenu > ul,
+.navmenu .inner-submenu {
+    width: 100%;
+    /*max-width: 70em;*/
+    margin: 0 auto;
+    padding: 0 1.875em;
+}
+
+.navmenu > ul > li {
+    display: inline-block;
+}
+
+.navmenu > ul > li > a {
+    font-weight: 700;
+    padding: 1em 2em;
+    color: #999;
+    display: inline-block;
+}
+
+.navmenu > ul > li > a:hover {
+    color: #3c3d41;
+}
+
+.navmenu > ul > li.menu-open a,
+.navmenu > ul > li.menu-open > a:hover {
+    color: #fff;
+    background: #3c3d41;
+    opacity: .75;
+}
+
+/* sub-menu */
+.navmenu .submenu {
+    display: none;
     position: absolute;
+    background: #3c3d41;
+    opacity: .75;
     width: 100%;
     left: 0;
-    vertical-align: baseline;
-    text-align: center;
-    margin: 0 auto;
+    right: 0;
 }
 
-.navbar-brand:hover {
-    display: none;
+.menu-open .submenu {
+    display: block;
+    padding-bottom: 2em;
+    height: 60px;
+}
+
+.navmenu .inner-submenu > div {
+    width: 33%;
+    float: left;
+    padding: 0 2em 0;
+}
+
+.navmenu .inner-submenu:before,
+.navmenu .inner-submenu:after {
+    content: " ";
+    display: table;
+}
+
+.navmenu .inner-submenu:after {
+    clear: both;
+}
+
+.navmenu .inner-submenu > div a {
+    line-height: 2em;
+}
+
+
+ /*edits*/
+
+ .dd-menu {
+    position: absolute;
+ }
+
+.dd-menu>li {
+    display: inline-block;
+    font-size: 15px;
+    /*height: 50px;*/
+    /*line-height: 50px;*/
+    /*vertical-align: middle;*/
+    /*text-align: center;*/
+}
+
+
+.dd-menu>li>a {
+   margin-left: 10px;
+
 }
 
 #signed-in {
-    margin-right: 30px;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-}
-
-
-.navbar {
-    border: 1px solid transparent;
+    display: inline-block;
+    margin-left: 800px;
     position: relative;
-    width: 100%;
-    margin: 0 auto;
-    font-weight: bold;
-    line-height: 1.42857143 !important;
-    padding: 20px;
-    font-family: 'Oswald', sans-serif;
-    background-color: #3c3d41;
-    opacity: .75;
-    /*border-bottom: white;*/
-    height: 100px;
-}
-
-
-a.dropdown-item {
-    padding-bottom: 15px;
-    padding-top: 50px;
-    width: 100%;
-}
-
-ul.dropdown-menu {
-    width: 100%;
-    min-width: initial;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 100px;
-    z-index: 1000;
-    padding: 0;
-    margin: 0 auto;
-    margin-top: -10px;
-    border-radius: 0 !important;
-    -moz-border-radius: 0 !important;
-    border: none;
-}
-
-.dropdown-menu>li {
-    display: table-cell;
-    height: 50px;
-    line-height: 50px;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.auth-state-nav {
-    position: absolute;
-    right: 50px;
-    float: right;
-    display: inline-block;
-}
-
-#logout {
-    font-size: 15px;
+    color: white;
     font-weight: bold;
 }
 
 
-a.dropdown-item {
-    font-weight: bold;
-    line-height: 1.42857143 !important;
-    padding: 20px;
-    font-family: 'Oswald', sans-serif;
-    color: black;
+
+/* Examples for media queries */
+
+@media screen and (max-width: 52.75em) { 
+
+    .navmenu {
+        font-size: 80%;
+    }
+
+}
+
+@media screen and (max-width: 43em) { 
+
+    .navmenu {
+        font-size: 120%;
+        border: none;
+    }
+
+    .navmenu > ul,
+    .navmenu .inner-submenu {
+        width: 100%;
+        padding: 0;
+    }
+
+    .navmenu .inner-submenu {
+        padding: 0 2em;
+        font-size: 75%;
+    }
+
+    .navmenu > ul > li {
+        display: block;
+        border-bottom: 4px solid #3c3d41;
+    }
+
+    .navmenu > ul > li > a { 
+        display: block;
+        padding: 1em 3em;
+    }
+
+    .navmenu .submenu { 
+        position: relative;
+    }
+
+    .submenu h4 {
+        padding-top: 0.6em;
+    }
+
+}
+
+@media screen and (max-width: 36em) { 
+    .navmenu .inner-submenu > div {
+        width: 100%;
+        float: none;
+        padding: 0 2em;
+    }
 }
 
 
-.navbar .dropdown-menu>a.dropdown-item {
-    display: inline-block;
-}
 
-
-
-ul.nav li.dropdown:hover>ul.dropdown-menu {
-    display: block;
-}
-
-
-
-#nav-jumbotron {
-    padding-left: 0px;
-    padding-right: 0px;
-    /*position: relative;*/
-    opacity: 0.9;
-    color: #fff;
-    /*  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);*/
-    /*text-align: center;*/
-    background: url('../img/food3.jpg') center center no-repeat;
-    /*background: #7EB348;*/
-    background-size: cover;
-    /* padding-top: 20%;
-    padding-bottom: 20%;*/
-    margin-bottom: 0px;
-    margin-top: -70px;
-    height: 300px;
-}
 
 
 
@@ -526,8 +641,8 @@ button.navbar-toggler.navbar-toggler-right {
 }
 
 
-@media (max-width: 768px) {
-    .dropdown-menu>li {
+/*@media (max-width: 768px) {
+    .dd-menu>li {
         display: block;
         vertical-align: baseline;
         width: 100%;
@@ -559,4 +674,4 @@ button.navbar-toggler.navbar-toggler-right {
         text-align: center;
         margin: 0 auto;
     }
-}
+}*/
