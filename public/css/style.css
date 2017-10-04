@@ -1,4 +1,3 @@
-
 * {
 
     box-sizing: border-box;
@@ -7,23 +6,34 @@
 }
 
 body {
-  /*   background: #466368;
+    /*    background: #466368;
   background: radial-gradient(#648880, #293f50);
   border-radius: 6px;
 */
 }
 
 
-#navbarDropdownMenuLink {
+
+/*navbar*/
+
+#nav-item {
     color: white;
+     margin-right: 30px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
 }
 
 .navbar-brand {
-    /*font-family: 'Pacifico', cursive;*/
-    /*font-family: 'Rochester', cursive;*/
     font-size: 30px;
     letter-spacing: 4px;
     color: white;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .navbar-brand:hover {
@@ -53,19 +63,16 @@ body {
     height: 100px;
 }
 
- a.dropdown-item {
 
-    font-size: 17px;
-}
-
-.a.dropdown-item {
-  padding-bottom: 15px;
+a.dropdown-item {
+    padding-bottom: 15px;
     padding-top: 50px;
+    width: 100%;
 }
-
 
 ul.dropdown-menu {
     width: 100%;
+    min-width: initial;
     position: fixed;
     left: 0;
     right: 0;
@@ -75,62 +82,30 @@ ul.dropdown-menu {
     margin: 0 auto;
     margin-top: -10px;
     border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border: none;
- 
+    -moz-border-radius: 0 !important;
+    border: none;
 }
 
-.dropdown-menu > li {
-  display: table-cell;
-  height: 50px;
-  line-height: 50px;
-  vertical-align: middle;
-  text-align: center;
+.dropdown-menu>li {
+    display: table-cell;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
 }
-  
+
 .auth-state-nav {
-  position: absolute;
-  right: 50px;
-  float: right;
-  display: inline-block;
+    position: absolute;
+    right: 50px;
+    float: right;
+    display: inline-block;
 }
 
-@media (max-width: 768px) {
-  .dropdown-menu > li {
-    display: block;
-    vertical-align: baseline;
-    width: 100%;
-  }
-
-  .navbar {
-    height: auto;
-  }
-
- .auth-state-nav {
-  float: none;
-  vertical-align: baseline;
- }
-
- #signed-in.navbar-text{
-  text-align: center;
-  margin-right: 0px;
-  float: left;
-  margin-bottom: 0px;
- }
-
+#logout {
+    font-size: 15px;
+    font-weight: bold;
 }
 
-@media (min-width: 768px) {
-.navbar-brand {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        vertical-align: baseline;
-        text-align: center;
-        margin:0 auto;
-    }
-
-}
 
 a.dropdown-item {
     font-weight: bold;
@@ -138,7 +113,6 @@ a.dropdown-item {
     padding: 20px;
     font-family: 'Oswald', sans-serif;
     color: black;
-
 }
 
 
@@ -174,11 +148,13 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 
 
+/*index page*/
+
 #jumbotron-main {
     /*position: relative;*/
     /*padding-top: 100px;
   padding-bottom: 50px;*/
-    opacity: 0.75;
+    opacity: 0.85;
     color: #fff;
     /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   text-align: center;*/
@@ -187,29 +163,37 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     padding-top: 15%;
     padding-bottom: 15%;
     margin-bottom: 0px;
-  margin-top: -50px;
+    margin-top: -50px;
 }
 
-.display-3 {
-   /* font-weight: bold;
-    font-size: 100px;*/
+
+
+/*index page*/
+
+h2.display-1 {
+
     font-family: 'Raleway', sans-serif;
-  /*background-color: white;*/
-  /*position: absolute;*/
-  top: 50%;
-  transform: translateY(-85%);
-  text-align: center;
-  color: white;
-  /*mix-blend-mode: difference;*/
-  font-weight: 900;
-  font-size: 10em;
-  letter-spacing: -3px;
-  padding-left: .2em;
+    line-height: 50px;
+    color: white;
+    font-weight: 900;
+    font-size: 10em;
+    letter-spacing: -3px;
+    padding-left: .2em;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
-/*#logout {
-    float: right;
-}*/
+h2.display-2 {
+
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-left: 500px;
+    color: white;
+    font-weight: 900;
+    font-size: 10em;
+    letter-spacing: -3px;
+    padding-left: .2em;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
 
 
 
@@ -265,6 +249,8 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 
 
+
+
 /*main page login/sign up modals*/
 
 #register-modal {
@@ -302,8 +288,9 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 
 
-/*card styling*/
 
+
+/*card styling*/
 
 h2 {
     /*font-family: 'Francois One', sans-serif;*/
@@ -317,11 +304,11 @@ h2 {
 }
 
 .card-header {
-    background-color: #7EB348 ;
+    background-color: #7EB348;
     padding: 20px;
     color: white;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3); 
-/*text-shadow: 4px 3px 0px #7EB348, 9px 8px 0px rgba(0,0,0,0.15);*/
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    /*text-shadow: 4px 3px 0px #7EB348, 9px 8px 0px rgba(0,0,0,0.15);*/
 }
 
 .card {
@@ -329,9 +316,10 @@ h2 {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
-    /*border-width: 0;*/
-    /*box-shadow: none;*/
-    /*background-color: #f3f8ee;*/
+  /*  border-width: 0;
+    box-shadow: none;*/
+    /*background-color: #97C36B;*/
+    /*background-color: #7EB348;*/
 }
 
 .card-block {
@@ -350,7 +338,38 @@ h2 {
     text-align: left;
 }
 
+.group-info-title {
+    text-align: center;
+    color: #31451C;
+     font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: -3px;
+    padding-left: .2em;
+}
+
+hr.cardhr { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #587C32; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.cardhr:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #587C32; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+
+
 /*admin group css*/
+
 #group-members {
     list-style: none;
 }
@@ -359,7 +378,10 @@ h2 {
     float: right;
 }
 
+
+
 /*invitation page*/
+
 #tab-heading {
 
     margin-top: 20px;
@@ -372,7 +394,10 @@ h2 {
     margin-bottom: 20px;
 }
 
+
+
 /*footer*/
+
 .footer-bs {
     background-color: #3c3d41;
     padding: 60px 40px;
@@ -489,6 +514,9 @@ h2 {
 
 footer.page-footer.footer-bs {}
 
+button.navbar-toggler.navbar-toggler-right {
+  border-color: white;
+}
 @media (min-width: 768px) {
     .footer-bs .footer-nav,
     .footer-bs .footer-social,
@@ -497,3 +525,38 @@ footer.page-footer.footer-bs {}
     }
 }
 
+
+@media (max-width: 768px) {
+    .dropdown-menu>li {
+        display: block;
+        vertical-align: baseline;
+        width: 100%;
+    }
+
+    .navbar {
+        height: auto;
+    }
+
+    .auth-state-nav {
+        float: none;
+        vertical-align: baseline;
+    }
+
+    #signed-in.navbar-text {
+        text-align: center;
+        margin-right: 0px;
+        float: left;
+        margin-bottom: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
