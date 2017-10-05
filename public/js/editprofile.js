@@ -66,8 +66,36 @@ $(document).ready(function() {
 		});
 	}
 
+
+	// WIP, needs event listener
+	$("#leave-group-btn").on("click", leaveGroup)
+	function leaveGroup(event) {
+		event.preventDefault();
+		// confirm leave
+		if (window.confirm("Are you the group's admin?")) {
+			alert("Sorry, you can't leave the group.");
+			window.location.href = "/";
+		}
+		else {
+			if (window.confirm("OK.  Are you sure you want to leave this group?")) {
+				$.ajax({
+					method: "PUT",
+					url: "/api/user/edit",
+					LunchgroupId: null
+				}).done(function() {
+					$.ajax({
+		                method: "DELETE",
+		                url: "/api/group/calendar/eventdelete"
+		            }).done(function() {
+		                window.location.reload(true);
+		            });
+				});
+			}
+		}
+
 	// leave group
-	function handleGroupDelete(event) {
+	/*
+  function handleGroupDelete(event) {
 		event.preventDefault();
 
 		// ask when it is ok to have this...
@@ -91,6 +119,8 @@ $(document).ready(function() {
 				window.location.reload(true);
 			});
 		});
+    */
+
 	}
 
 });
