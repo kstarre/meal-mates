@@ -48,7 +48,7 @@ module.exports = {
 				},
 				include: [ { model: db.User }]
 			}).then(function(lunchgroup) {
-				res.json(lunchgroup);
+				res.json({lunchgroup: lunchgroup, isAdmin: req.user.admin});
 			});	
 		}
 	},
@@ -111,6 +111,7 @@ module.exports = {
 				}
 			}).then(function(users) {
 				results.push(users);
+				results.push({isAdmin: req.user.admin});
 				res.json(results);
 			})
 		});

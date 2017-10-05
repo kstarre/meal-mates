@@ -37,6 +37,10 @@ body {
     text-transform: uppercase;
 }
 
+#admin-dropdown {
+    display: none;
+}
+
 
 .navbar {
     border: 1px solid transparent;

@@ -6,6 +6,9 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
+			if (data.isAdmin) {
+				$("#admin-dropdown").show();
+			}
 
 			for (var i = 0; i < data.Users.length; i++) {
 				$("#group-members").append("<li>" + data.Users[i].email + "</li>");
