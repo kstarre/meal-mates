@@ -91,7 +91,8 @@
             <div class="col-md-6">
                 <div class="card" id="group-info-card">
                     <div class="card-block">
-                        <h4 class="card-title">Edit Group</h4>
+                        <h2 class="card-title text-center"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+ Edit Group</h2>
                         <br>
                         <form id="form-edit-profile" class="form container">
                             <div class="form-group row">
@@ -140,11 +141,22 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-block" id="edit-profile-grouplist">
-                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>Add Members</h4>
-                        <p class="card-text" id="leave-group">Would you like to add users to this group?</p>
-                      <button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#invitemodal">Invite Friends</button>
+                        <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i> Add Members</h3>
+                        <p class="card-text text-center" id="leave-group">Would you like to add users to this group?</p>
+                      <h6 class="card-subtitle mb-2 text-muted text-center"><button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#invitemodal">Invite Friends</button></h6>
                     </div>
+                </div>
+            
+            <!-- to delete the group -->         
+                <div class="card">
+                    <div class="card-block" id="delete-group">
+                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>Delete Group</h4>
+                        <p class="card-text" id="delete-group">Would you like to delete this group?</p>
+                      <button class="btn btn-primary pb-modalreglog-submit" id="delete-group-btn" data-toggle="modal" data-target="#deletemodal">Delete Group</button>
+                    </div>
+                </div>
             </div>
+
             <div class="col-md-1"></div>
         </div>
           
