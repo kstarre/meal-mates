@@ -10,85 +10,135 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+     <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
+    <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="text/javascript" src="/js/joingroup.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
-<header>
-    <div class="jumbotron" id="nav-jumbotron">
-        <nav class="navbar navbar-toggleable" id="top-nav">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                ☰
-            </button>
-            <a class="navbar-brand mx-auto" href="#">MEAL MATES</a>
-            <div class="navbar-collapse collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        USER 
-      </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/editprofile">Edit Your Profile</a></li>
-                            <li><a class="dropdown-item" href="/viewprofile">View Your Profile</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown text-center">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       GROUP
-      </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li> <a class="dropdown-item" href="/group">Your Group</a></li>
-                            <li> <a class="dropdown-item" href="/group/calendar">Group Calendar</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="auth-state-nav">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <span class="navbar-text" id="signed-in"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-secondary" role="button" id="logout" href="/logout">LOGOUT</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
 
 <body>
+    <div class="container" id = "nav-container">
+            <header class="clearfix">
+                <h1>Meal Mates</h1>
+            </header>   
+            <div class="main">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li>
+                            <a href="#">User</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <!-- <h4>Learning &amp; Games</h4> -->
+                                        <ul class = "dd-menu">
+                                            <li><a href="/viewprofile">View Profile</a></li>
+                                            <li><a href="/editprofile">Edit Profile</a></li>
+                                            <li id= "signed-in"></li>
+                                            <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                        </li> 
+                        <li>
+                            <a href="#">Group</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group">Your Group</a></li>
+                                            <li><a href="/group/calendar">Group Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                        <li>
+                            <a href="#">Admin</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group/admin">Edit Group</a></li>
+                                            <li><a href="/group/calendar/admin">Edit Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                   </nav>
+            </div>
+        </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class = "col-md-2"></div>
+            <div class = "col-md-8"> 
+           <h3 class = "text-center" id = "invite-h3"> You have been invited to <br>join a Meal-Mates group!</h3>
+       </div>
+       <div class = "col-md-2"></div>
+        </div>
+        <div class = "row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
                 <div class="card" id="group-info-card">
+                    <head class="invite-head">Would you Like to Join This Group?</head>
                     <div class="card-block">
-
-                        <head class="invite-head">You have been invited to join a Meal-Mates group!</head>
-                        <h4 class="card-title">Group Information</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">Group Name</h6>
-                        <p class="card-text" id="group-name"></p>
-                        <h6 class="card-subtitle mb-2 text-muted" id="admin">Group Admin</h6>
-                        <p class="card-text" id="group-admin"></p>
-                        <h6 class="card-subtitle mb-2 text-muted">Group Information</h6>
-                        <p class="card-text" id="group-info"></p>
-                        <button id="join-group">Join Group!</button>
+                    <h4 class="card-title">Group Information</h4>
+                   <br>
+                   <hr>
+                   <br>
+                                <dl class="row">
+                            <dt class="col-sm-3">
+                                <h6>Group Name:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="group-name">name</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Group Admin:</h6></dt>
+                            <dd class="col-sm-9">
+                            <p class="card-text" id="group-admin">admin</p>
+                            </dd>
+                            <br>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Group Information:</h6></dt>
+                            <dd class="col-sm-9">
+                               <p class="card-text" id="group-info">group info</p>
+                            </dd>
+                            <br>
+                        </dl>
+                        <div id = "join-button">
+                        <button class = "btn btn-primary" id="join-group">Join Group!</button>
+                    </div>
                     </div>
                     <span id="message"></span>
                     <div>
                         <p></p>
                     </div>
                 </div>
-
+                 </div>  <!-- end col md 6 -->
+                 <div class = "col-md-4">
                 <div class="card" id="group-create-card">
                     <div class="card-block">
-                        <head class="invite-head">Or you can create your own group!</head>
-                        <a class="btn btn-secondary" role="button" id="create-group" href="/group/create">Create Group!</a>
+                        <h4 class="card-title text-center" id = "join-create-h4">Or you can create your own group!</h4>
+                        <div id = "join-create-button">
+                        <a class="btn btn-primary" role="button" id="create-group" href="/group/create">Create Group!</a>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -97,7 +147,9 @@
         </div>
         <!-- end row -->
     </div>
-</body>
+
+
+
 <!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
@@ -159,5 +211,6 @@
     </div>
 </footer>
 <!--/.Footer-->
+</body>
 
 </html>
