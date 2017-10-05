@@ -92,35 +92,5 @@ $(document).ready(function() {
 				});
 			}
 		}
-
-	// leave group
-	/*
-  function handleGroupDelete(event) {
-		event.preventDefault();
-
-		// ask when it is ok to have this...
-		if (window.confirm("Are you sure you want to leave?")) {
-			leaveGroup();
-		}
 	}
-
-	function leaveGroup() {
-
-		// can't leave if admin of group?
-
-		$.ajax({
-			method: "PUT",
-			url: "/api/user/edit"
-		}).done(function() {
-			$.ajax({
-				method: "DELETE",
-				url: "/api/group/calendar/eventdelete"
-			}).done(function() {
-				window.location.reload(true);
-			});
-		});
-    */
-
-	}
-
 });
