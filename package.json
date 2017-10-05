@@ -4,7 +4,7 @@
   "description": "Meal-mates is an application that lets smaller groups of users (from  work places, apartment complexes, university areas) focus on sharing meals.  Not only will this provide a convienience and a cost savings, it will lead to a greater feeling of camaraderie amongst people living in close proximity to one another.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
