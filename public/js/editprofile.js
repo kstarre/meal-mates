@@ -17,9 +17,15 @@ $(document).ready(function() {
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
-			$("#group-name-render").html(data.Lunchgroup.groupName);
+			getGroup();
 		});
 	} 
+
+	function getGroup() {
+		$.get("/api/group", function(data) {
+			$("#group-name-render").html(data.groupName);
+		});
+	}
 
 	// Function for handling the submit of the form
 	function handleSubmit(event) {
