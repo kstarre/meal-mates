@@ -6,14 +6,17 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
+			if (data.isAdmin) {
+				$("#admin-dropdown").show();
+			}
 
-			for (var i = 0; i < data.Users.length; i++) {
-				$("#group-members").append("<li>" + data.Users[i].email + "</li>");
+			for (var i = 0; i < data.lunchgroup.Users.length; i++) {
+				$("#group-members").append("<li>" + data.lunchgroup.Users[i].email + "</li>");
 			};
 
-			$("#group-name").val(data.groupName);
-			$("#group-info").val(data.groupRules);
-			$("#group-size-select").val(data.groupSize);
+			$("#group-name").val(data.lunchgroup.groupName);
+			$("#group-info").val(data.lunchgroup.groupRules);
+			$("#group-size-select").val(data.lunchgroup.groupSize);
 		});
 	}
 
@@ -24,7 +27,6 @@ $(document).ready(function() {
 			groupName: $("#group-name").val().trim(),
 			groupSize: $("#group-size-select").val(),
 			groupRules: $("#group-info").val().trim()
-
 		};
 
 		updateGroup(groupData);

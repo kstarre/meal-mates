@@ -38,7 +38,10 @@ module.exports = {
 		db.User.findOne({
 			where: {
 				id: req.user.id
-			}
+			},
+			include: [{ model: db.Lunchgroup,
+				where: { id: req.user.LunchgroupId}
+			}]
 		}).then( results => {
 			res.json(results);
 		});

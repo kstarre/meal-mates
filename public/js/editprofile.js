@@ -9,18 +9,15 @@ $(document).ready(function() {
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
+			if(data.admin) {
+				$("#admin-dropdown").show();
+			}
 			$("#first-name").val(data.firstName);
 			$("#last-name").val(data.lastName);
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
-		});
-		getGroup();
-	}
-
-	function getGroup() {
-		$.get("/api/group", function(data) {
-			$("#group-name-render").html(data.groupName);
+			$("#group-name-render").html(data.Lunchgroup.groupName);
 		});
 	} 
 
