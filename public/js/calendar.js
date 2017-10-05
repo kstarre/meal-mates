@@ -5,13 +5,7 @@ $(document).ready(function() {
 	function getEvents() {
 		$.get("/api/group/calendar", function(data) {
 			// doesn't work, not sure why
-			if (data[2].isAdmin) {
-				$("#admin-dropdown").show();
-				renderCalendar(data[0]);
-			}
-			else {
-				renderCalendar(data[0]);
-			}
+			renderCalendar(data[0]);
 		});
 	}
 
