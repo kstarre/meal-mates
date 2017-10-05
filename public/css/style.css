@@ -192,7 +192,7 @@ a:hover {
 
 #signed-in {
     display: inline-block;
-    margin-left: 800px;
+    margin-left: 700px;
     position: relative;
     color: white;
     font-weight: bold;
@@ -559,6 +559,20 @@ text-transform: uppercase;
     float: right;
 }
 
+/*calendar*/
+#external-events {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#calendar{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.calendar-welcome {
+    margin-top: 40px;
+}
 
 /*footer*/
 
