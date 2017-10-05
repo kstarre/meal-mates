@@ -1,0 +1,14 @@
+{
+  "development": {
+    "use_env_variable" : "MYSQL_CONNECTION",
+    "dialect": "mysql"
+  },
+  "test": {
+    "use_env_variable" : "MYSQL_CONNECTION",
+    "dialect" : "mysql"
+  },
+  "production": {
+    "use_env_variable" : "MYSQL_CONNECTION",
+    "dialect" : "mysql"
+  }
+}

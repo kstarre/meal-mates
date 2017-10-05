@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meal Mates</title>
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- javascript -->
+   <!--  <script type="text/javascript" src="/js/editprofile.js"></script>
+    <script type="text/javascript" src="/js/usernote.js"></script> -->
+    <script src="js/navbar.js"></script>
+</head>
+
+
+
+<body>
+		<div class="container" id = "nav-container">
+			<header class="clearfix">
+				<h1>Meal Mates</h1>
+			</header>	
+			<div class="main">
+				<nav id="navmenu" class="navmenu">
+					<ul>
+						<li>
+							<a href="#">User</a>
+							<div class="submenu">
+								<div class="inner-submenu"> 
+									<div>
+										<!-- <h4>Learning &amp; Games</h4> -->
+										<ul class = "dd-menu">
+											<li><a href="/viewprofile">View Profile</a></li>
+											<li><a href="/editprofile">Edit Profile</a></li>
+											<li id= "signed-in">Signed in as User</li>
+                                            <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>	
+						</li> 
+						<li>
+							<a href="#">Group</a>
+							<div class="submenu">
+								<div class="inner-submenu">
+									<div>
+										<ul class = "dd-menu">
+											<li><a href="/group">Your Group</a></li>
+											<li><a href="/group/calendar">Group Calendar</a></li>
+										</ul>
+									</div>
+								
+								</div><!-- /inner-submenu -->
+							</div><!-- /submenu -->
+						</li>
+						<li>
+							<a href="#">Admin</a>
+							<div class="submenu">
+								<div class="inner-submenu"> 
+									<div>
+										<ul class = "dd-menu">
+											<li><a href="/group/admin">Edit Group</a></li>
+											<li><a href="/group/calendar/admin">Edit Calendar</a></li>
+										</ul>
+									</div>
+								</div><!-- /inner-submenu -->
+							</div><!-- /submenu -->
+						</li>
+		           </nav>
+			</div>
+		</div>
+

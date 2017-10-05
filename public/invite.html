@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meal Mates</title>
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+     <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- javascript -->
+    <script type="text/javascript" src="/js/navbar.js"></script>
+    <script type="text/javascript" src="/js/invite.js"></script>
+</head>
+<body>
+        <div id = "nav-container">
+            <header class="clearfix">
+                <h1>Meal Mates</h1>
+            </header>   
+            <div class="main">
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li>
+                            <a href="#">User</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <!-- <h4>Learning &amp; Games</h4> -->
+                                        <ul class = "dd-menu">
+                                            <li><a href="/viewprofile">View Profile</a></li>
+                                            <li><a href="/editprofile">Edit Profile</a></li>
+                                            <li id= "signed-in">Signed in as User</li>
+                                            <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                        </li> 
+                        <li>
+                            <a href="#">Group</a>
+                            <div class="submenu">
+                                <div class="inner-submenu">
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group">Your Group</a></li>
+                                            <li><a href="/group/calendar">Group Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                        <li>
+                            <a href="#">Admin</a>
+                            <div class="submenu">
+                                <div class="inner-submenu"> 
+                                    <div>
+                                        <ul class = "dd-menu">
+                                            <li><a href="/group/admin">Edit Group</a></li>
+                                            <li><a href="/group/calendar/admin">Edit Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
+                        </li>
+                   </nav>
+            </div>
+        </div>
+
+       <div class="container" id = "tab-heading">
+     <div class = "row">
+    <div class = "col-md-2"></div>
+    <div class = "col-md-8">
+        <h3>Welcome!</h3>
+            <p>You've been invited to join a Meal Mates group. Please login or register to accept your invitation</p>
+
+    </div>
+    <div class = "col-md-2"></div>
+</div>
+</div>
+    <div class="container" id = "tab-container">
+    <div class = "row">
+    <div class = "col-md-2"></div>
+    <div class = "col-md-8">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a data-toggle="tab" href="#login" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item"><a data-toggle="tab" href="#signup" class="nav-link">Sign Up</a>
+    </ul>
+    <div class="tab-content">
+        <div id="login" class="tab-pane fade active show">
+            <br>
+                      <h4>Login form</h4>
+                    <form id="form-login" name="signin" class="form container">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                              <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                              <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"></span>
+                            <input type="password" name="password" class="form-control" id="pws" placeholder="Password">
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Log in</button>
+                        </div>
+                    </form>
+                
+        </div>
+        <div id="signup" class="tab-pane fade">
+            <br>
+                 <h4>Registration form</h4>
+               
+                    <form id="form-signup" name="signup" class="form container">
+                        <div class="form-group">
+                            <div id="pb-modalreglog-progressbar"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" name="password" class="form-control" id="inputPws" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm password</label>
+                            <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="ch" name="chs"> I agree with <a href="#">terms and conditions.</a>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="register-button" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                
+         
+        </div><!-- end registration tab -->
+    </div> <!-- end tab content -->
+</div> <!-- end col md 8 -->
+<div class = "col-md-2"></div>
+</div><!-- end row -->
+</div> <!-- end container -->
+
+
+<!--Footer-->
+<footer class="page-footer footer-bs">
+    <!--Footer Links-->
+    <div class="container">
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+            <!--First column-->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
+                <h2>Meal Mates</h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--/.Third column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Fourth column-->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 footer-ns animated fadeInRight">
+                <h6 class="title mb-4 font-bold">Contact</h6>
+                <p><i class="fa fa-home mr-3"></i> Cleveland, OH 44113, US</p>
+                <p><i class="fa fa-envelope mr-3"></i> MealMatesApp@gmail.com</p>
+            </div>
+            <!--/.Fourth column-->
+        </div>
+        <!-- Footer links -->
+        <hr>
+        <div class="row py-3 d-flex align-items-center">
+            <!--Grid column-->
+            <div class="col-md-8 col-lg-9">
+                <!--Copyright-->
+                <p class="text-center text-md-left grey-text">© 2017 Copyright<strong>  Meal Mates</strong></p>
+                <!--/.Copyright-->
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-4 col-lg-3 ml-lg-0">
+                <!--Social buttons-->
+                <div class="social-section text-center text-md-left">
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-twitter"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-google-plus"></i></a></div>
+                    <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-linkedin"></i></a></div>
+                </div>
+                <!--/.Social buttons-->
+            </div>
+            <!--Grid column-->
+        </div>
+    </div>
+</footer>
+<!--/.Footer-->
+</body>
