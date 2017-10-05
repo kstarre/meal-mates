@@ -19,6 +19,8 @@ module.exports = {
 		res.sendFile(path.join(__dirname, "../public/admincalendar.html"));
 	},
 	invite: function(req, res) {
+		req.session.invite_inviteCode = req.params.inviteCode;
+		req.session.invite_groupId = req.params.groupId;
 		res.sendFile(path.join(__dirname, "../public/invite.html"));
 	},
 	joinOrCreateGroup: function(req, res) {
@@ -29,10 +31,10 @@ module.exports = {
 	// API Routes
 	// GET group
 	getGroup: function(req, res) { 
-		if (req.query.group) {
+		if (req.session.invite_inviteCode) {
 			db.Lunchgroup.findOne({
 		  		where: {
-		  			id: req.query.group
+		  			id: req.session.invite_groupId
 		  		},
 		  		include: [ { model: db.User} ]
 		  	}).then(function(lunchgroup) {
@@ -46,7 +48,7 @@ module.exports = {
 				},
 				include: [ { model: db.User }]
 			}).then(function(lunchgroup) {
-				res.json(lunchgroup);
+				res.json({lunchgroup: lunchgroup, isAdmin: req.user.admin});
 			});	
 		}
 	},
@@ -109,6 +111,7 @@ module.exports = {
 				}
 			}).then(function(users) {
 				results.push(users);
+				results.push({isAdmin: req.user.admin});
 				res.json(results);
 			})
 		});
@@ -135,11 +138,21 @@ module.exports = {
 		});
 	},
 
+	eventDelete: function(req, res) {
+		db.Eventdate.destroy({
+			where: {
+				UserId: req.user.id
+			}
+		}).then(function(results) {
+			res.json(results);
+		})
+	},
+
 	inviteSearch: function(req, res) {
 		db.Invitation.findOne({
 			where: {
-				LunchgroupId: req.query.id,
-				inviteCode: req.query.code
+				LunchgroupId: req.session.invite_groupId,
+				inviteCode: req.session.invite_inviteCode
 			}
 		}).then(function(results) {
 			res.json(results);
@@ -147,7 +160,9 @@ module.exports = {
 	},
 
 	joinGroup: function(req, res) {
-		db.User.update(req.body, {
+		db.User.update({
+			LunchgroupId: req.session.invite_groupId
+		}, {
 			where: {
 				id: req.user.id
 			}

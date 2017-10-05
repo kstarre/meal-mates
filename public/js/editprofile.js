@@ -2,19 +2,24 @@ $(document).ready(function() {
 
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
-	//$("#").on("submit", handleDelete);
+	$("#delete-account-btn").on("click", handleDelete);
+	$("#leave-group-btn").on("click", handleGroupDelete);
 	getUser();
 
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
+			if(data.admin) {
+				$("#admin-dropdown").show();
+			}
 			$("#first-name").val(data.firstName);
 			$("#last-name").val(data.lastName);
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
+			$("#group-name-render").html(data.Lunchgroup.groupName);
 		});
-	}
+	} 
 
 	// Function for handling the submit of the form
 	function handleSubmit(event) {
@@ -41,16 +46,15 @@ $(document).ready(function() {
 		})
 	}
 
-	// WIP
-	$("#delete-account-btn").on("click", handleDelete);
-
 	function handleDelete(event) {
 		event.preventDefault();
+
 		// confirm delete
 		if (window.confirm("Are you sure you want to delete your account?")) {
 			deleteUser();
 		}
 
+		// can't delete if admin of group?
 	}
 
 	function deleteUser() {
@@ -61,6 +65,7 @@ $(document).ready(function() {
 			window.location.href = "/";
 		});
 	}
+
 
 	// WIP, needs event listener
 	$("#leave-group-btn").on("click", leaveGroup)
@@ -87,6 +92,35 @@ $(document).ready(function() {
 				});
 			}
 		}
+
+	// leave group
+	/*
+  function handleGroupDelete(event) {
+		event.preventDefault();
+
+		// ask when it is ok to have this...
+		if (window.confirm("Are you sure you want to leave?")) {
+			leaveGroup();
+		}
+	}
+
+	function leaveGroup() {
+
+		// can't leave if admin of group?
+
+		$.ajax({
+			method: "PUT",
+			url: "/api/user/edit"
+		}).done(function() {
+			$.ajax({
+				method: "DELETE",
+				url: "/api/group/calendar/eventdelete"
+			}).done(function() {
+				window.location.reload(true);
+			});
+		});
+    */
+
 	}
 
 });

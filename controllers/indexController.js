@@ -38,21 +38,35 @@ module.exports = {
 		db.User.findOne({
 			where: {
 				id: req.user.id
-			}
+			},
+			include: [{ model: db.Lunchgroup,
+				where: { id: req.user.LunchgroupId}
+			}]
 		}).then( results => {
 			res.json(results);
 		});
 	},
 	updateUserInfo: function(req, res) {
-		db.User.update(
-			req.body, 
-			{
+		if (Object.keys(req.body).length === 0 && req.body.constructor === Object) {
+			db.User.update({
+				LunchgroupId: null
+			}, {
+				where: {
+					id: req.user.id
+				}
+			}).then(function(results) {
+				res.json(results);
+			})
+		}
+		else {
+			db.User.update(req.body, {
 				where: {
 					id: req.user.id
 				}
 			}).then(function(results) {
 				res.json(results);
 			});
+		}
 	},
 	deleteUser: function(req, res) {
 		db.User.destroy({

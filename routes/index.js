@@ -9,18 +9,38 @@ module.exports = function(app, passport) {
 
 	// API routes
 	app.get("/logout", indexController.logout),
-	app.post("/signup", passport.authenticate('local-signup', {
-    successRedirect: '/welcome',
-    failureRedirect: '/'
-  })),
-	app.post('/signin', passport.authenticate('local-signin'), function(req, res) {
-    if (req.query.token) {
-      //var url = "/group/join/" + req.query.groupId + "/" + req.query.token;
-      res.redirect("/welcome");
+	app.post("/signup", passport.authenticate('local-signup'), function(req, res) {
+    if( req.session.invite_inviteCode ){
+
+
+      if( req.xhr ){
+        res.json({ successRedirect: '/group/join/' });
+      }
+      else{
+        res.redirect('/group/join/');
+      }
+
     }
     else {
-      res.redirect("/viewprofile");
+      res.redirect('/welcome');
     }
+  }),
+	app.post('/signin', passport.authenticate('local-signin'), function(req, res) {
+    if( req.session.invite_inviteCode ){
+
+
+      if( req.xhr ){
+        res.json({ successRedirect: '/group/join/' });
+      }
+      else{
+        res.redirect('/group/join/');
+      }
+
+    }
+    else {
+      res.redirect('/viewprofile');
+    }
+
   }),
 
   app.get("/api/user", indexController.getUserInfo),

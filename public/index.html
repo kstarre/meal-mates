@@ -10,61 +10,85 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- font awesome -->
-    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--     javascript
-
-<script type="text/javascript" src="js/app.js"></script> -->
 </head>
 
 <body>
-    <header>
-        <!-- navbar -->
-        <!--     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="/"> Meal Mates</a>
-    </nav> -->
-    </header>
-    <!-- jumbotron -->
-    <div class="jumbotron jumbotron-fluid" id="jumbotron-main">
+<div id = "index-nav-container">
+            <header class="clearfix">
+                <h1>Meal Mates</h1>
+            </header>   
+            <div class="main">
+                <nav id="navmenu-index" class="navmenu-index">
+                </nav>
+            </div>
+        </div>
+    
         <div class="container">
-            <h1 class="display-3">Meal Mates</h1>
-            <p class="lead">This area will probably not be a jumbotron but it's a placeholder for now. It will have an image and information about our application.</p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal">Login</button>
+            <div class="row" id ="main-index-row">
+              <!--   <div class="col-sm-4" id = "main-h2">
+                    <h2 class="display-1">Meal</h2>
+                    <h2 class="display-2"> Mates </h2>
+                </div> -->
+                <div class="col-sm-4"> </div>
+                <div class="col-sm-4">
+                    <p class="lead">This area will probably not be a jumbotron but it's a placeholder for now. It will have an image and information about our application.</p>
+                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal">Login</button>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal2">Register</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal2">Register</button>
-                    </div>
+                </div>
+            <!-- </div> -->
+       
+        <div id ="index-reasons-container">
+            <div class="row" id = "index-reasons-row">
+                <div class="col-md-3">
+                   <img src='img/sust.png' alt="sustainable">
+                   <br>
+                    <h4> content </h4>
+                </div>
+                <div class="col-md-3">
+                     <img src='img/friends.png' alt="make friends">
+                     <br>
+                   <h4> content </h4>
+                </div>
+                <div class="col-md-3">
+                     <img src='img/cooking.png' alt="cooking">
+                     <br>
+                    <h4> content </h4>
+                </div>
+                <div class="col-md-3">
+                     <img src='img/money2.png' alt="save money">
+                     <br>
+                   <h4> content </h4>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- login/signup area -->
-    <!-- <div class="container">
-        <div class="row">
-          <div class = "col-md-4">
-          <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal">Login</button>
-          </div>
-          <div class = "col-md-4">
-          </div>
-          <div class = "col-md-4">
-          <button class="btn btn-primary pb-modalreglog-submit" id ="indexbtn" data-toggle="modal" data-target="#myModal2">Register</button>
-          </div>
-        </div> -->
-    <!-- modals -->
+
+    </div> <!-- end container -->
+
+
+ <!-- modals -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -147,10 +171,7 @@
         </div>
     </div>
     <!-- end modal -->
-    <div>
-        <h1> more content here </h1>
-    </div>
-</body>
+
 <!--Footer-->
 <footer class="page-footer footer-bs">
     <!--Footer Links-->
@@ -212,5 +233,5 @@
     </div>
 </footer>
 <!--/.Footer-->
-
+</body>
 </html>
