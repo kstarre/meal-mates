@@ -13,13 +13,13 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <!-- font awesome -->
-    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
@@ -141,13 +141,19 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-block" id="edit-profile-grouplist">
-                        <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i> Add Members</h3>
+                        <h3 class="card-title text-center"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Members</h3>
                         <p class="card-text text-center" id="leave-group">Would you like to add users to this group?</p>
                       <h6 class="card-subtitle mb-2 text-muted text-center"><button class="btn btn-primary pb-modalreglog-submit" data-toggle="modal" data-target="#invitemodal">Invite Friends</button></h6>
                     </div>
             </div>
-            <div class="col-md-1"></div>
-        </div>
+             <div class="card">
+                    <div class="card-block" id="group-delete">
+                        <h3 class="card-title text-center"><i class="fa fa-trash-o" aria-hidden="true"></i>   Remove Group </h3>
+                         <p class="card-text text-center">Deleting your group is permanant, all group information will be lost</p>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted text-center"><input class="btn btn-primary" id="delete-group-btn" type="submit" value="Delete Group"></h6>
+                    </div>
+
           
         </div>
         <!-- end row -->
