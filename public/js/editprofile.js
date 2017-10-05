@@ -17,8 +17,8 @@ $(document).ready(function() {
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
+			getGroup();
 		});
-		getGroup();
 	} 
 
 	function getGroup() {
