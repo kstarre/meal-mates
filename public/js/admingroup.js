@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	$("#admin-dropdown").show();
 	$("#form-edit-profile").on("submit", handleSubmit);
 	//$("#some-delete-button").on("submit", handleDelete);
 	getGroup();
