@@ -3,14 +3,16 @@ $(document).ready(function() {
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
 	$("#delete-account-btn").on("click", handleDelete);
-	$("#leave-group-btn").on("click", handleGroupDelete);
+	// $("#leave-group-btn").on("click", handleGroupDelete);
+	
 	getUser();
 
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
-			console.log("!!!!!FRONT END!!!!!");
-			console.log("data");
+			console.log("LOOK HERE FOR DATA")
+			console.log(data);
+
 			if(data.admin) {
 				$("#admin-dropdown").show();
 			}
@@ -20,6 +22,7 @@ $(document).ready(function() {
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
 			$("#group-name-render").html(data.Lunchgroup.groupName);
+			$("#user-image").attr('src', data.imageLink);
 		});
 	} 
 
@@ -32,7 +35,8 @@ $(document).ready(function() {
 			lastName: $("#last-name").val().trim(),
 			phoneNumber: $("#phone-number").val().trim(),
 			foodAllergies: $("#food-allergies").val().trim(),
-			dietaryRestrictions: $("#dietary-restrictions").val().trim()
+			dietaryRestrictions: $("#dietary-restrictions").val().trim(),
+
 		};
 
 		updateUser(userData);

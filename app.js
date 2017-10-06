@@ -34,7 +34,7 @@ app.use(fileUpload());
 // user morgan for developement
 app.use(logger('dev'));
 // Override with POST 
-app.use(methodOverride("_method"));
+app.use(methodOverride("_method"));	
 
 // Passport 
 app.use(session({

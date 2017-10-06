@@ -27,19 +27,13 @@ var img_name = file.name;
 			if (err)
 
 				return res.status(500).send(err);
-			$.ajax({
-				method: "PUT",
-				url: "/api/user/imageupload",
-				data: img_name
-			}).done(function() {
-				window.location.href = "/viewprofile";
-			});
+			
 		});
 	} else {
 		message = "This format is not allowed...";
 		res.json(message);
 	} else {
-		window.location.href = "/viewprofile";
+		console.log("else");
 	}
 
 }

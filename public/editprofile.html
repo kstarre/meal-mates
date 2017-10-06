@@ -25,7 +25,6 @@
     <!-- javascript -->
     <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="text/javascript" src="/js/editprofile.js"></script>
-    <script type="text/javascript" src="/js/image.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
 
@@ -137,7 +136,7 @@
                         <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Profile Photo </h4>
                         <form id="form-upload-image" method="POST" action="/api/user/imageupload/" encType="multipart/form-data">
                             <p class="card-text" id="group-name-render"> Upload Your Image</p>
-                            <img id="" class="" src="">
+                            <img id="user-image" class="" src="">
                             <div class="col-sm-9">
                                 <input class="form-control" type="file" name="uploaded_image" accept="" />
                             </div>
