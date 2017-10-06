@@ -17,9 +17,15 @@ $(document).ready(function() {
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
-			$("#group-name-render").html(data.Lunchgroup.groupName);
+			getGroup();
 		});
 	} 
+
+	function getGroup() {
+		$.get("/api/group", function(data) {
+			$("#group-name-render").html(data.groupName);
+		});
+	}
 
 	// Function for handling the submit of the form
 	function handleSubmit(event) {
@@ -66,31 +72,31 @@ $(document).ready(function() {
 		});
 	}
 
-	// leave group
-	function handleGroupDelete(event) {
-		event.preventDefault();
 
-		// ask when it is ok to have this...
-		if (window.confirm("Are you sure you want to leave?")) {
-			leaveGroup();
+	// WIP, needs event listener
+	$("#leave-group-btn").on("click", leaveGroup)
+	function leaveGroup(event) {
+		event.preventDefault();
+		// confirm leave
+		if (window.confirm("Are you the group's admin?")) {
+			alert("Sorry, you can't leave the group.");
+			window.location.href = "/";
+		}
+		else {
+			if (window.confirm("OK.  Are you sure you want to leave this group?")) {
+				$.ajax({
+					method: "PUT",
+					url: "/api/user/edit",
+					LunchgroupId: null
+				}).done(function() {
+					$.ajax({
+		                method: "DELETE",
+		                url: "/api/group/calendar/eventdelete"
+		            }).done(function() {
+		                window.location.reload(true);
+		            });
+				});
+			}
 		}
 	}
-
-	function leaveGroup() {
-
-		// can't leave if admin of group?
-
-		$.ajax({
-			method: "PUT",
-			url: "/api/user/edit"
-		}).done(function() {
-			$.ajax({
-				method: "DELETE",
-				url: "/api/group/calendar/eventdelete"
-			}).done(function() {
-				window.location.reload(true);
-			});
-		});
-	}
-
 });
