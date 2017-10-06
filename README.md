@@ -10,6 +10,8 @@ This program utilizes the following npm packages: express, path, favicon, logger
 
 Upon site load, this is the screen that the user will be greeted with.
 - image
+![Home Page](/images/lartiste02.JPG) 
+Check file to make sure it works.
 
 Login/register page
 - image
@@ -22,3 +24,11 @@ Group calendar
 
 User/admin page - editable
 - image
+
+
+
+
+
+## Heroku Link
+The application can be found [here](https://dry-everglades-45478.herokuapp.com/).
+(the link needs to be updated to the proper one)
