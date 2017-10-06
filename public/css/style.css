@@ -121,10 +121,15 @@ a:hover {
     padding-right: 10px;
     color: #fff;
     display: inline-block;
+    /*padding-bottom: 2px;*/
+}
+
+#admin-dropdown{
+padding-bottom: 2px;
 }
 
 .navmenu > ul > li > a:hover {
-    color: #3c3d41;
+    color: #7EB348;
 }
 
 .navmenu > ul > li.menu-open a,
