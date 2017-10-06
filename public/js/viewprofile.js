@@ -5,7 +5,6 @@ $(document).ready(function() {
 	function getUser() {
 		$.get("/api/user", function(data) {
 			if(!data.admin) {
-				console.log("I'm not an admin!");
 				$("#admin-dropdown").hide();
 			}
 			$("#profile-first-name").html(data.firstName);
