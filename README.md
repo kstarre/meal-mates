@@ -15,13 +15,22 @@ Upon site load, this is the screen that the user will be greeted with.
 
 After logging in, users are then directed to their profile page. ![MM Profile Page](/imagesReadMe/mm02a.JPG)
 
+
 Users can also edit their profiles, including removing themselves from their group.
 ![MM Edit Profile Page](/imagesReadMe/mm03.JPG)
 
+
 Administrators editing pages are like editing user profiles, except now their is the option of actually deleting the group.  Administrators also have the ability to edit the group page.  This includes editing the calendar and inviting new menbers.
-![MM Group Admin Page](/imagesReadMe/mm04.JPG)  ![MM Edit Calendar Page](/imagesReadMe/mm05.JPG)
+
+The group administrator page.
+![MM Group Admin Page](/imagesReadMe/mm04.JPG)  
+
+Group administrator calendar page.
+![MM Edit Calendar Page](/imagesReadMe/mm05.JPG)
+
 
 As you can see, each group gets it's own calendar. ![MM Group Calendar](/imagesReadMe/mm06.JPG)
+
 
 Give Meal-Mates a spin for your office/company.  Sharing meals with your friends is not only good, it's good for you.
 ![MM Final Image](/imagesReadMe/mm07.JPG)
