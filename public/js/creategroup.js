@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	isAdmin();
 	// Add event listener for the form submit
 	$("#create-group").on("submit", handleSubmit);
 
@@ -17,6 +18,14 @@ $(document).ready(function() {
 		$.post("/api/group/new", data, function() {
 			window.location.href = "/group";
 		});
+	}
+
+	function isAdmin() {
+		$.get("/api/user", function(data) {
+			if(data.admin) {
+				$("#admin-dropdown").show();
+			}
+		})
 	}
 });
 

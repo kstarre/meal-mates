@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	$("#admin-dropdown").show();
 	$("#form-edit-profile").on("submit", handleSubmit);
 	//$("#some-delete-button").on("submit", handleDelete);
 	getGroup();
@@ -40,45 +41,22 @@ $(document).ready(function() {
 	}
 
 	// WIP
-/*	function handleDelete(event) {
+	// Delete group
+	$("delete-group-btn").on("click", deleteGroup);
+	function deleteGroup(event) {
 		event.preventDefault();
 
-		// some type of pop-up or model that asks are you sure?
-		// and gives you the option of just making someone else the admin
-		// only if they click "no, i want to delete"
-		// or should we not be able to delete at all if there are other people in group?
-
-		deleteGroup();
+		// confirm delete
+		if (window.confirm("Are you sure you want to delete this group?")) {
+			$.ajax({
+				method: "DELETE",
+				url: "/api/group/delete",
+				data: {
+					id: groupID
+				}
+			}).done(function() {
+				window.location.href = "/";
+			});
+		}
 	}
-
-	function deleteGroup() {
-		$.ajax({
-			method: "DELETE",
-			url: "/api/group/delete",
-			data: {
-				id: groupID
-			}
-		}).done(function() {
-			window.location.href = "/";
-		});
-	}
-
-	// WIP, needs event listener
-	function changeAdmin(event) {
-		event.preventDefault();
-
-		// some type of pop-up or model that asks are you sure?
-		// gives you dropdown of group members (with hidden id to reference)
-
-		let groupData = {
-			id: groupID,
-			admin:
-			// also need to change user's admin boolean from true to false
-			// and new admin's from false to true
-		};
-
-		// might need a new function to handle group and user changes
-		updateGroup(groupData);
-	}*/
-
 });

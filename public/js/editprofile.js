@@ -3,12 +3,13 @@ $(document).ready(function() {
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
 	$("#delete-account-btn").on("click", handleDelete);
-	$("#leave-group-btn").on("click", handleGroupDelete);
+	$("#leave-group-btn").on("click", leaveGroup);
 	getUser();
 
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
+			console.log(data);
 			if(data.admin) {
 				$("#admin-dropdown").show();
 			}
@@ -72,31 +73,28 @@ $(document).ready(function() {
 		});
 	}
 
-	// leave group
-	function handleGroupDelete(event) {
+	function leaveGroup(event) {
 		event.preventDefault();
-
-		// ask when it is ok to have this...
-		if (window.confirm("Are you sure you want to leave?")) {
-			leaveGroup();
+		// confirm leave
+		if (window.confirm("Are you the group's admin?")) {
+			alert("Sorry, you can't leave the group.");
+			window.location.href = "/";
+		}
+		else {
+			if (window.confirm("OK.  Are you sure you want to leave this group?")) {
+				$.ajax({
+					method: "PUT",
+					url: "/api/user/edit",
+					LunchgroupId: null
+				}).done(function() {
+					$.ajax({
+		                method: "DELETE",
+		                url: "/api/group/calendar/eventdelete"
+		            }).done(function() {
+		                window.location.reload(true);
+		            });
+				});
+			}
 		}
 	}
-
-	function leaveGroup() {
-
-		// can't leave if admin of group?
-
-		$.ajax({
-			method: "PUT",
-			url: "/api/user/edit"
-		}).done(function() {
-			$.ajax({
-				method: "DELETE",
-				url: "/api/group/calendar/eventdelete"
-			}).done(function() {
-				window.location.reload(true);
-			});
-		});
-	}
-
 });

@@ -6,10 +6,13 @@
 }
 
 body {
-    /*    background: #466368;
-  background: radial-gradient(#648880, #293f50);
-  border-radius: 6px;
-*/
+   
+/*background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
+
+/*background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);*/
+
+
+/*background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);*/
 }
 
 
@@ -218,8 +221,18 @@ a:hover {
     padding: 0 1.875em 3.125em 1.875em;
 }
 
-/*#index-nav-container > header {
-    padding: 2.875em 1.875em 1.875em;
+.nav-buttons {
+    display: inline-block;
+    float: right;
+    margin-top: -90px;
+}
+/*#index-nav-login {
+    float: right;
+    margin-top: -70px;
+}
+
+#index-reg-button {
+
 }*/
 
 #index-nav-container > header h1 {
@@ -245,30 +258,16 @@ a:hover {
 }
 
 
-div.container{
+/*div.container{
     width: 100%;
-}
+}*/
 
 #main-index-row {
     border-bottom: 5px solid #7EB348;
-    /*margin-top: 20px;*/
-    /*margin-bottom: 20px;*/
     padding: 20px;
     padding-bottom: 40px;
-     /*border-top: 5px solid #7EB348;*/
-    /*position: relative;*/
-    /*padding-top: 100px;
-  padding-bottom: 50px;*/
-   /* opacity: 0.85;
-    color: #fff;*/
-    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  text-align: center;*/
-    /*background: url('../img/foodshareedit.jpg') center center no-repeat;*/
-  /*  background-size: cover;
-    padding-top: 15%;
-    padding-bottom: 15%;
-    margin-bottom: 0px;
-    margin-top: -50px;*/
+    padding-top: 40px;
+
 }
 
 
@@ -287,24 +286,12 @@ div.container{
 }
 
 
-#jumbotron-main {
-    border-bottom: 5px solid #7EB348;
-    height: 500px;
-    /*width: 100%;
-    padding-left: 0px;*/
-     /*border-top: 5px solid #7EB348;*/
-    /*position: relative;*/
-    /*padding-top: 100px;
-  padding-bottom: 50px;*/
-   /* opacity: 0.85;
-    color: #fff;*/
-    /* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  text-align: center;*/
-    background: url('../img/foodshareedit.jpg') center center no-repeat;
-    background-size: cover;
-    margin-bottom: 0px;
-    /*margin-top: -50px;*/
+.card-img-top {
+    margin-left: 50px;
+   height: 200px;
+   width: 200px;
 }
+
 
 /*#main-h2 {
     margin-top: -70px;
@@ -437,10 +424,15 @@ h2.display-2 {
 
 /*card styling*/
 
-h2 {
-    font-family: 'Francois One', sans-serif;
+h2.card-title {
+    /*font-family: 'Francois One', sans-serif;*/
     font-family: 'Oswald', sans-serif;
     font-size: 40px;
+}
+
+h3.card-title {
+    font-family: 'Oswald', sans-serif;
+    margin-top: -20px;
 }
 
 .dt {
@@ -448,13 +440,6 @@ h2 {
     font-weight: bold;
 }
 
-.card-header {
-    background-color: #7EB348;
-    padding: 20px;
-    color: white;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    /*text-shadow: 4px 3px 0px #7EB348, 9px 8px 0px rgba(0,0,0,0.15);*/
-}
 
 .card {
     padding: 20px;
@@ -479,11 +464,12 @@ h2 {
     /*margin-top: -50px;*/
 }
 
-.card-title {
-    text-align: left;
-}
 
-.group-info-title {
+/*.card-title {
+    text-align: left;
+}*/
+
+/*.group-info-title {
     text-align: center;
     color: #31451C;
      font-family: 'Oswald', sans-serif;
@@ -509,7 +495,7 @@ hr.cardhr:before {
   border-color: #587C32; 
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
-}
+}*/
 
 
 
@@ -687,6 +673,10 @@ text-transform: uppercase;
 .footer-bs .footer-ns p {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.70);
+}
+
+#footer-h2 {
+
 }
 
 

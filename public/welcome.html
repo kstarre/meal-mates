@@ -19,7 +19,7 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
@@ -39,7 +39,6 @@
                             <div class="submenu">
                                 <div class="inner-submenu"> 
                                     <div>
-                                        <!-- <h4>Learning &amp; Games</h4> -->
                                         <ul class = "dd-menu">
                                             <li><a href="/viewprofile">View Profile</a></li>
                                             <li><a href="/editprofile">Edit Profile</a></li>
@@ -58,6 +57,7 @@
                                         <ul class = "dd-menu">
                                             <li><a href="/group">Your Group</a></li>
                                             <li><a href="/group/calendar">Group Calendar</a></li>
+                                            <li><a href="/group/create">Create Group</a></li>
                                         </ul>
                                     </div>
                                 
@@ -65,7 +65,7 @@
                             </div><!-- /submenu -->
                         </li>
                         <li>
-                            <a href="#">Admin</a>
+                            <a href="#" id="admin-dropdown">Admin</a>
                             <div class="submenu">
                                 <div class="inner-submenu"> 
                                     <div>
@@ -86,15 +86,17 @@
         <div class="col-md-8">
             <div class="card" id="welcome-card">
                 <div class="card-block">
-                    <h1 class="card-title">Welcome To Meal Mates!</h1>
-                    <p class="card-text">You've successfully registered</p>
-
-                    <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-primary" id="create-group" href="/group/create"><i class="fa fa-users" aria-hidden="true"></i> CREATE GROUP</a></h6>
-
-                    <p class="card-text">Create a group to begin sharing meals with friends, instructions etcetc etc</p>
-
-                    <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-primary" id="create-group" href="/editprofile"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></h6>
-                    <p class="card-text" id="group-info">Edit your profile information regarding your contact information and et etc instructions</p>
+                    <h1 class="text-center">Welcome To Meal Mates!</h1>
+                    <p class="card-text-muted text-center">You've successfully registered</p>
+                     <hr>
+                     <p class="card-text text-center">Create a group to begin sharing meals with friends, instructions etcetc etc</p>
+                     <br>
+                    <h6 class="card-subtitle mb-2 text-muted text-center"><a class="btn btn-primary" id="create-group" href="/group/create"><i class="fa fa-users" aria-hidden="true"></i> CREATE GROUP</a></h6>
+                    <br>
+                      <p class="card-text text-center" id="group-info">Edit your profile information regarding your contact information and et etc instructions</p>
+                      <br>
+                    <h6 class="card-subtitle mb-2 text-muted text-center"><a class="btn btn-primary" id="create-group" href="/editprofile"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></h6>
+                  
                 </div>
             </div>
         </div>
