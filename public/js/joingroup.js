@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	isAdmin();
 	getGroupInfo();
 	$("#join-group").on("click", joinGroup);
 
@@ -34,6 +35,14 @@ $(document).ready(function() {
 			url: "/api/group/join"
 		}).done(function() {
 			window.location.href = "/group";
+		});
+	}
+
+	function isAdmin() {
+		$.get("/api/user", function(data) {
+			if(!data.admin) {
+				$("#admin-dropdown").hide();
+			}
 		});
 	}
 

@@ -4,8 +4,8 @@ $(document).ready(function() {
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
-			if(data.admin) {
-				$("#admin-dropdown").show();
+			if(!data.admin) {
+				$("#admin-dropdown").hide();
 			}
 			$("#profile-first-name").html(data.firstName);
 			$("#profile-last-name").html(data.lastName);
@@ -19,7 +19,6 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
-			console.log(data);
 			$("#group-name-render").html(data.groupName);
 		});
 	}

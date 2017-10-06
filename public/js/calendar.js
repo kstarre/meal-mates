@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	getEvents();
+	isAdmin();
 
 	function getEvents() {
 		$.get("/api/group/calendar", function(data) {
@@ -13,6 +14,14 @@ $(document).ready(function() {
 		$('#calendar').fullCalendar({
 			events: events
 		});
+	}
+
+	function isAdmin() {
+		$.get("/api/user", function(data) {
+			if(!data.admin) {
+				$("#admin-dropdown").hide();
+			}
+		})
 	}
 
 });

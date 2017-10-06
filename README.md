@@ -11,6 +11,7 @@ This program utilizes the following npm packages: express, path, favicon, logger
 ### Here is a quick demonstration.
 
 Upon site load, this is the screen that the user will be greeted with.
+
 ![MM Load Page](/imagesReadMe/mm01.JPG)
 
 __User Profile -__
@@ -34,6 +35,9 @@ Group administrator calendar page.
 __Calendar -__
 As you can see, each group gets it's own calendar. ![MM Group Calendar](/imagesReadMe/mm06.JPG)
 
+## Heroku Link
+The application can be found [here](https://lit-mountain-94726.herokuapp.com/).
 
 Give Meal-Mates a spin for your office/company.  Sharing meals with your friends is not only good, it's good for you.
 ![MM Final Image](/imagesReadMe/mm07.JPG)
+

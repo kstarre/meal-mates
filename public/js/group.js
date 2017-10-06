@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	getGroup();
+	isAdmin();
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
@@ -15,6 +16,14 @@ $(document).ready(function() {
 			$("#group-name").html(data.groupName);
 			$("#group-info").html(data.groupRules);
 		});
+	}
+
+	function isAdmin() {
+		$.get("/api/user", function(data) {
+			if(!data.admin) {
+				$("#admin-dropdown").hide();
+			}
+		})
 	}
 
 });
