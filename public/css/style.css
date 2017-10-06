@@ -7,16 +7,55 @@
 
 body {
    
-/*background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
+background: linear-gradient(45deg,rgba(37,57,20,.8) 0,rgba(85,147,29,.8) 100%);
 
-/*background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);*/
+}
 
-
-/*background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);*/
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
 }
 
 
+/*calendar*/
 
+#calendar
+{
+
+background-color: #fff;
+
+}
+
+.calendar-container {
+margin-top: 30px;
+margin-bottom: 20px;
+
+}
+
+/*forms*/
+
+.col-form-label {
+     font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px;
+    /*margin-right: 5px ;*/
+
+}
+.form-control {
+    line-height: 0px;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+#inputEmail.form-control, #inputPws.form-control, #inputConfirmPws.form-control, #email.form-control, #pws.form-control {
+    margin: auto;
+}
+
+/*#gr-list {
+    padding-right: 50px;
+}*/
 /*navbar*/
 
 body, html { font-size: 100%;   padding: 0; margin: 0;}
@@ -32,10 +71,6 @@ body, html { font-size: 100%;   padding: 0; margin: 0;}
     clear: both;
 }
 
-body {
-    /*font-family: 'Lato', Calibri, Arial, sans-serif;*/
-    
-}
 
 /*navbar */
 
@@ -335,7 +370,7 @@ width: 100%;
     -webkit-transition: all 0.3s ease-in-out 0s;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 100px;
+    margin-left: 105px;
 }
 
 .btn-primary {
@@ -427,11 +462,13 @@ h2.card-title {
     /*font-family: 'Francois One', sans-serif;*/
     font-family: 'Oswald', sans-serif;
     font-size: 40px;
+    color: #5c7645
 }
 
 h3.card-title {
     font-family: 'Oswald', sans-serif;
     margin-top: 10px;
+    color: #5c7645;
 }
 
 .dt {
@@ -562,7 +599,7 @@ text-transform: uppercase;
 /*footer*/
 
 #footer-header-1{
-    color: white;
+    /*color: #7EB348;*/
     font-size: 6em;
     margin-left: -80px;
     font-weight: 700;
@@ -570,12 +607,12 @@ text-transform: uppercase;
     line-height: 30px;
     color: white;
     letter-spacing: -9px;
-    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    /*text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);*/
     
 }
 
 #footer-header-2{
-    color: white;
+    /*color: #7EB348;*/
     font-size: 6em;
     margin-left: 5px;
     font-weight: 700;
@@ -583,7 +620,7 @@ text-transform: uppercase;
     line-height: 75px;
     color: white;
     letter-spacing: -9px;
-    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    /*text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);*/
 }
 
 
@@ -593,7 +630,7 @@ text-transform: uppercase;
     background-color: #3c3d41;
     padding: 60px 40px;
     color: rgba(255, 255, 255, 1.00);
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border-bottom-right-radius: 6px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 6px;
@@ -706,7 +743,7 @@ h6.title {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
-
+    color: #7EB348;
 }
 
 
