@@ -229,7 +229,8 @@ padding-bottom: 2px;
 .nav-buttons {
     display: inline-block;
     float: right;
-    margin-top: -90px;
+    margin-top: -95px;
+    margin-right: -200px;
 }
 /*#index-nav-login {
     float: right;
@@ -384,6 +385,10 @@ h2.display-2 {
 
 
 
+#index-card {
+  box-shadow: none;
+  border-width: 0px;
+}
 
 
 
@@ -437,7 +442,7 @@ h2.card-title {
 
 h3.card-title {
     font-family: 'Oswald', sans-serif;
-    margin-top: -20px;
+    margin-top: 10px;
 }
 
 .dt {
