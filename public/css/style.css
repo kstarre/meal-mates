@@ -150,7 +150,6 @@ padding-bottom: 2px;
     opacity: .95;
     width: 100%;
     left: 0;
-    right: 0;
 }
 
 .menu-open .submenu {
@@ -186,10 +185,6 @@ padding-bottom: 2px;
 .dd-menu>li {
     display: inline-block;
     font-size: 15px;
-    /*height: 50px;*/
-    /*line-height: 50px;*/
-    /*vertical-align: middle;*/
-    /*text-align: center;*/
 }
 
 
@@ -230,7 +225,7 @@ padding-bottom: 2px;
     display: inline-block;
     float: right;
     margin-top: -95px;
-    margin-right: -200px;
+    margin-right: -120px;
 }
 /*#index-nav-login {
     float: right;
@@ -394,6 +389,12 @@ h2.display-2 {
 
 
 /*main page login/sign up modals*/
+
+h4.modal-title{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+
+}
 
 #register-modal {
     width: 500px;
@@ -713,7 +714,10 @@ text-transform: uppercase;
     color: rgba(255, 255, 255, 0.70);
 }
 
-#footer-h2 {
+h6.title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
 
 }
 
@@ -723,6 +727,7 @@ footer.page-footer.footer-bs {}
 button.navbar-toggler.navbar-toggler-right {
   border-color: white;
 }
+
 @media (min-width: 768px) {
     .footer-bs .footer-nav,
     .footer-bs .footer-social,
@@ -731,7 +736,24 @@ button.navbar-toggler.navbar-toggler-right {
     }
 }
 
-@media screen and (max-width: 52.75em) { 
+@media screen and (max-width: 1366px) { 
+  
+#nav-container > header h1 {
+    margin-left: -20px
+  }
+
+}
+
+@media screen and (max-width: 1024px) { 
+  
+#signed-in {
+    margin-left: 170px;
+  }
+}
+
+}
+
+@media screen and (max-width: 768px) { 
 
     .navmenu {
         font-size: 80%;
@@ -739,7 +761,27 @@ button.navbar-toggler.navbar-toggler-right {
 
 }
 
-@media screen and (max-width: 43em) { 
+
+@media screen and (max-width: 688px) { 
+
+     .dd-menu {
+    position: static;
+ }
+
+ .dd-menu>li {
+    display: block;
+    font-size: 12px;
+}
+
+.dd-menu>li>a {
+   margin: auto;
+
+}
+
+#signed-in{
+    margin-left: -20px;
+    margin-bottom: 0px;
+}
 
     .navmenu {
         font-size: 120%;
@@ -763,6 +805,7 @@ button.navbar-toggler.navbar-toggler-right {
     }
 
     .navmenu > ul > li > a { 
+        /*width: 33.33%;*/
         display: block;
         padding: 1em 3em;
     }
@@ -774,13 +817,57 @@ button.navbar-toggler.navbar-toggler-right {
     .submenu h4 {
         padding-top: 0.6em;
     }
+   
+
+    #admin-dropdown {
+    /*margin-left: 100px;*/
+    width: 100%;
+
+}
+.inner-submenu {
+    width: 100%;
+    background: #7EB348;
+}
+
+.ddmenu {
+    position: static;
+   }
+
+  .menu-open .submenu {
+    padding-bottom: 0px;
+  }
+
+  .dd-menu > li > a {
+  margin: 0px;
+  }
+
+
+  .navmenu ul {
+    margin-left: 0px;
+}
+
+#signed-in {
+    margin-left: 10px;
+    width: 200px;
+    background: #7EB348;
+    opacity: .95;
+}
 
 }
 
-@media screen and (max-width: 36em) { 
+
+
+
+
+@media screen and (max-width: 576px) { 
     .navmenu .inner-submenu > div {
         width: 100%;
         float: none;
         padding: 0 2em;
     }
+
+    .ddmenu {
+    position: static;
+   }
+
 }

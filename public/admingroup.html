@@ -45,7 +45,7 @@
                                         <ul class = "dd-menu">
                                             <li><a href="/viewprofile">View Profile</a></li>
                                             <li><a href="/editprofile">Edit Profile</a></li>
-                                            <li id= "signed-in"></li>
+                                            <li><a href id= "signed-in"></a></li>
                                             <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
@@ -160,6 +160,7 @@
         </div>
         <!-- end row -->
     </div>
+</div>
     <!-- end container -->
 
 <!-- modals -->
@@ -174,13 +175,16 @@
                 </div>
                 <div class="modal-body">
                     <p> Enter Your friend's email address to begin sharing meals! </p>
-                    <input id="to" type="text" placeholder="Email Address" />
+                     <div class="input-group pb-modalreglog-input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                    <input id="to" type="text" placeholder=" Email Address" />
+                </div>
                     <span id="message"></span>
                     <div>
                         <p></p>
                     </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                             <button id="send_email" class="btn btn-primary">Send Email</button>
                         </div>
                     </form>
