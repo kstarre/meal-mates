@@ -13,3 +13,12 @@ Upon site load, this is the screen that the user will be greeted with.
 
 Login/register page
 - image
+
+Group page
+- image
+
+Group calendar 
+- image
+
+User/admin page - editable
+- image
