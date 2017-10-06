@@ -1,6 +1,6 @@
 # meal-mates
 
-![Meal-Mates Logo](https://github.com/nickmalakar/meal-mates/imagesReadMe/mmlogo.jpg)
+![Meal-Mates Logo](/imagesReadMe/mmlogo.JPG)
 
 Meal-Mates is a small-scale, food-sharing, social-networking, mobile focused app designed to bring groups of people together for dining convenience.  Currently, the focus is on creating groups at work spaces, but future development hopefully will expand to areas where there are large concentrations of people, such as apartment/condo and university areas.
 
@@ -11,17 +11,17 @@ This program utilizes the following npm packages: express, path, favicon, logger
 ### Here is a quick demonstration.
 
 Upon site load, this is the screen that the user will be greeted with.
-![MM Load Page](/imagesReadMe/mm01.jpg)
+![MM Load Page](/imagesReadMe/mm01.JPG)
 
-After logging in, users are then directed to their profile page. ![MM Profile Page](/imagesReadMe/mm02a.jpg)
+After logging in, users are then directed to their profile page. ![MM Profile Page](/imagesReadMe/mm02a.JPG)
 
 Users can also edit their profiles, including removing themselves from their group.
-![MM Edit Profile Page](/imagesReadMe/mm03.jpg)
+![MM Edit Profile Page](/imagesReadMe/mm03.JPG)
 
 Administrators editing pages are like editing user profiles, except now their is the option of actually deleting the group.  Administrators also have the ability to edit the group page.  This includes editing the calendar and inviting new menbers.
-![MM Group Admin Page](/imagesReadMe/mm04.jpg)  ![MM Edit Calendar Page](/imagesReadMe/mm05.jpg)
+![MM Group Admin Page](/imagesReadMe/mm04.JPG)  ![MM Edit Calendar Page](/imagesReadMe/mm05.JPG)
 
-As you can see, each group gets it's own calendar. ![MM Group Calendar](/imagesReadMe/mm06.jpg)
+As you can see, each group gets it's own calendar. ![MM Group Calendar](/imagesReadMe/mm06.JPG)
 
 Give Meal-Mates a spin for your office/company.  Sharing meals with your friends is not only good, it's good for you.
-![MM Final Image](/imagesReadMe/mm07.jpg)
+![MM Final Image](/imagesReadMe/mm07.JPG)
