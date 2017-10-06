@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	$("#admin-dropdown").show();
 	getEventsAndUsers();
 
 	function getEventsAndUsers() {

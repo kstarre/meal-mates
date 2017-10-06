@@ -19,7 +19,6 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
-			console.log(data);
 			$("#group-name-render").html(data.groupName);
 		});
 	}

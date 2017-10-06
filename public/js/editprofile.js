@@ -3,12 +3,13 @@ $(document).ready(function() {
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
 	$("#delete-account-btn").on("click", handleDelete);
-	$("#leave-group-btn").on("click", handleGroupDelete);
+	$("#leave-group-btn").on("click", leaveGroup);
 	getUser();
 
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
+			console.log(data);
 			if(data.admin) {
 				$("#admin-dropdown").show();
 			}
@@ -72,9 +73,6 @@ $(document).ready(function() {
 		});
 	}
 
-
-	// WIP, needs event listener
-	$("#leave-group-btn").on("click", leaveGroup)
 	function leaveGroup(event) {
 		event.preventDefault();
 		// confirm leave
