@@ -20,8 +20,8 @@ $(document).ready(function() {
 
 	function isAdmin() {
 		$.get("/api/user", function(data) {
-			if(data.admin) {
-				$("#admin-dropdown").show();
+			if(!data.admin) {
+				$("#admin-dropdown").hide();
 			}
 		})
 	}
