@@ -1,6 +1,6 @@
 # meal-mates
 
-![Meal-Mates Logo](/imagesReadMe/mmlogo.jpg)
+![Meal-Mates Logo](https://github.com/nickmalakar/meal-mates/imagesReadMe/mmlogo.jpg)
 
 Meal-Mates is a small-scale, food-sharing, social-networking, mobile focused app designed to bring groups of people together for dining convenience.  Currently, the focus is on creating groups at work spaces, but future development hopefully will expand to areas where there are large concentrations of people, such as apartment/condo and university areas.
 
