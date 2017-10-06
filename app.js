@@ -9,6 +9,10 @@ let session = require('express-session');
 let methodOverride = require('method-override');
 let passport = require('passport');
 let moment = require('moment');
+let fileUpload = require('express-fileupload');
+let busboy = require("then-busboy");
+
+
 require('dotenv').config();
 
 // Initialize Express
@@ -25,6 +29,8 @@ app.use(favicon(path.join(__dirname, './public/img', 'favicon.ico')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(fileUpload());
+
 // user morgan for developement
 app.use(logger('dev'));
 // Override with POST 
@@ -49,7 +55,7 @@ let mail = require('./routes/mail.js')(app);
 //-----------------------------------------------------------------------------------------------------
 
 db.sequelize.sync(
-	//{force:true}
+	// {force:true}
 	).then(function() {
 	app.listen(PORT, function() {
 		console.log("App is listening on PORT " + PORT);

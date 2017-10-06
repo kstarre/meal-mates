@@ -32,8 +32,8 @@ module.exports = function(app) {
         service: "hotmail",
         // host: "smtp.gmail.com",
         auth: {
-            user: "mealmates@hotmail.com",
-            pass: "Kat13Megan"
+            user: "mealmatesapp@gmail.com",
+            pass: process.env.GPASS
         }
     });
 

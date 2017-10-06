@@ -25,6 +25,7 @@
     <!-- javascript -->
     <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="text/javascript" src="/js/editprofile.js"></script>
+    <script type="text/javascript" src="/js/image.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
 
@@ -133,10 +134,21 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-block" id="edit-grouplist">
+                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Profile Photo </h4>
+                        <form id="form-upload-image" method="POST" action="/api/user/imageupload/" encType="multipart/form-data">
+                            <p class="card-text" id="group-name-render"> Upload Your Image</p>
+                            <img id="" class="" src="">
+                            <div class="col-sm-9">
+                                <input class="form-control" type="file" name="uploaded_image" accept="" />
+                            </div>
+                            <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Upload Your Image">
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block" id="edit-grouplist">
                         <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h4>
-
                         <p class="card-text" id="group-name-render">You don't belong to a group yet!</p>
-
                         <input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group">
                     </div>
                 </div>

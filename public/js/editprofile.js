@@ -9,6 +9,8 @@ $(document).ready(function() {
 	// Function for retrieving user info
 	function getUser() {
 		$.get("/api/user", function(data) {
+			console.log("!!!!!FRONT END!!!!!");
+			console.log("data");
 			if(data.admin) {
 				$("#admin-dropdown").show();
 			}
