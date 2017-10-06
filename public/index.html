@@ -26,8 +26,14 @@
 
 <body>
 <div id = "index-nav-container">
-            <header class="clearfix">
+            <header>
                 <h1>Meal Mates</h1>
+
+                <div class = "nav-buttons">
+                 <button class="btn btn-primary pb-modalreglog-submit" id = "index-nav-login" data-toggle="modal" data-target="#myModal">Login</button>
+                  <button class="btn btn-primary pb-modalreglog-submit" id="index-reg-button" data-toggle="modal" data-target="#myModal2">Sign Up</button>
+              </div>
+
             </header>   
             <div class="main">
                 <nav id="navmenu-index" class="navmenu-index">
@@ -36,22 +42,11 @@
         </div>
     
         <div class="container">
-            <div class="row" id ="main-index-row">
-              <!--   <div class="col-sm-4" id = "main-h2">
-                    <h2 class="display-1">Meal</h2>
-                    <h2 class="display-2"> Mates </h2>
-                </div> -->
-                <div class="col-sm-4"> </div>
+            <div class="row" id= "main-index-row">
+                <div class="col-sm-2"> </div>
                 <div class="col-sm-4">
                     <p class="lead">This area will probably not be a jumbotron but it's a placeholder for now. It will have an image and information about our application.</p>
                 </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal">Login</button>
-                            </div>
-                            <div class="col-md-4">
-                            </div>
                             <div class="col-md-4">
                                 <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal2">Register</button>
                             </div>
@@ -59,7 +54,7 @@
                     </div>
                 </div>
             <!-- </div> -->
-       
+ <!--       <div class = "row">
         <div id ="index-reasons-container">
             <div class="row" id = "index-reasons-row">
                 <div class="col-md-3">
@@ -83,9 +78,41 @@
                    <h4> content </h4>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div> <!-- end container -->
+    <div class = "row">
+        <div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src='img/sust.png' alt="sustainable">
+    <div class="card-block">
+      <h4 class="card-title text-center">Promotes Sustainability</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='img/friends.png' alt="make friends">
+    <div class="card-block">
+      <h4 class="card-title text-center">Make Friends</h4>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='img/cooking.png' alt="cooking">
+    <div class="card-block">
+      <h4 class="card-title text-center">Another Benefit!</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+  </div>
+   <div class="card">
+    <img class="card-img-top" src='img/money2.png' alt="save money">
+    <div class="card-block">
+      <h4 class="card-title">Save Money</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+  </div>
+</div>
+    </div>
 
 
  <!-- modals -->
