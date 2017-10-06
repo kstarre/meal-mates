@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -13,126 +13,161 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <!-- font awesome -->
-    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
     <script type="text/javascript" src="/js/navbar.js"></script>
-    <script type="text/javascript" src="/js/creategroup.js"></script>
+    <script type="text/javascript" src="/js/viewprofile.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
-    <script type="text/javascript" src="/js/navbar.js"></script>
 </head>
 
-
-    <body>
-        <div id="nav-container">
+<body>
+          <div id = "nav-container">
             <header class="clearfix">
                 <h1>Meal Mates</h1>
-            </header>
+            </header>   
             <div class="main">
                 <nav id="navmenu" class="navmenu">
                     <ul>
                         <li>
                             <a href="#">User</a>
                             <div class="submenu">
-                                <div class="inner-submenu">
+                                <div class="inner-submenu"> 
                                     <div>
-                                        <ul class="dd-menu">
+                                        <ul class = "dd-menu">
                                             <li><a href="/viewprofile">View Profile</a></li>
                                             <li><a href="/editprofile">Edit Profile</a></li>
-                                            <li id="signed-in"></li>
+                                            <li id= "signed-in"></li>
                                             <li><a id="logout" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </div>  
+                        </li> 
                         <li>
                             <a href="#">Group</a>
                             <div class="submenu">
                                 <div class="inner-submenu">
                                     <div>
-                                        <ul class="dd-menu">
+                                        <ul class = "dd-menu">
                                             <li><a href="/group">Your Group</a></li>
                                             <li><a href="/group/calendar">Group Calendar</a></li>
                                             <li><a href="/group/create">Create Group</a></li>
                                         </ul>
                                     </div>
-                                </div>
-                                <!-- /inner-submenu -->
-                            </div>
-                            <!-- /submenu -->
+                                
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
                         </li>
                         <li>
                             <a href="#" id="admin-dropdown">Admin</a>
                             <div class="submenu">
-                                <div class="inner-submenu">
+                                <div class="inner-submenu"> 
                                     <div>
-                                        <ul class="dd-menu">
+                                        <ul class = "dd-menu">
                                             <li><a href="/group/admin">Edit Group</a></li>
                                             <li><a href="/group/calendar/admin">Edit Calendar</a></li>
                                         </ul>
                                     </div>
-                                </div>
-                                <!-- /inner-submenu -->
-                            </div>
-                            <!-- /submenu -->
+                                </div><!-- /inner-submenu -->
+                            </div><!-- /submenu -->
                         </li>
-                </nav>
+                   </nav>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <!-- form to create group with group name, member limit size, group rules -->
-                    <div class="card">
-                        <div class="card-block">
-                            <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>  Create Group</h4>
-                            <form id="create-group" class="form-container">
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">Group Name</label>
-                                    <div class="col-10">
-                                        <input type="text" id="group-name" name="groupName" class="form-control" placeholder="Group Name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">Group Information</label>
-                                    <div class="col-10">
-                                        <input type="text" id="group-info" name="groupRules" class="form-control" placeholder="Group Information">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="exampleSelect1" class="col-2 col-form-label">Group Size</label>
-                                    <div class="col-10">
-                                        <select class="form-control" name="groupSize" id="group-size-select">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <input class="btn btn-primary" type="submit" value="Submit">
-                            </form>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+                   <div class="col-md-4">
+            <div class="card">
+    <img class="card-img-top" src='http://via.placeholder.com/200X200' id="profile-image" alt="profile photo">
+    <div class="card-block">
+      <!-- <h3 class="card-title text-center" id="profile-first-name">First </h3>
+        <h3 class="card-title text-center" id="profile-first-name"> Last</h3> -->
+        <div class = "d-inline"> 
+            <h3 class="card-title text-center" id="profile-first-name">First </h3>
+            <h3 class="card-title text-center" id="profile-last-name">Last </h3>
+        </div>
+    </div>
+  </div>
+         <div class="card">
+                    <div class="card-block" id="grouplist">
+                        <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h3>
+                        <p class="card-text text-center" id="group-name-render">You don't belong to a group yet!</p>
                     </div>
                 </div>
-                <!-- end col-md-8 -->
-                <div class="col-md-2"></div>
             </div>
-            <!-- end row -->
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-6">
+                <div class="card" id="profile-info">
+                    <div class="card-block">
+                        <h2 class="card-title text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Profile Information</h2>
+                        <br>
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                <h6>First Name:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-first-name">None provided.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Last Name:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-last-name">None provided.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Email:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-email"></p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Phone Number:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-phone">None provided.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Dietary Restrictions:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-dietary">No dietary restrictions.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Food Allergies:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-allergies">No known allergies.</p>
+                            </dd>
+                            <br>
+                        </dl>
+
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-        <!-- end container -->
+            <!-- end col-md-6 -->
+  <!--           <div class="col-md-4">
+                <div class="card">
+                    <div class="card-block" id="grouplist">
+                        <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h3>
+                        <p class="card-text text-center" id="group-name-render">You don't belong to a group yet!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div> -->
+        <!-- </div> -->
+        <!-- end row -->
+ <!--    </div> -->
+    <!-- end container -->
 
 <!--Footer-->
 <footer class="page-footer footer-bs">
@@ -195,4 +230,6 @@
     </div>
 </footer>
 <!--/.Footer-->
-    </body>
+</body>
+
+</html>
