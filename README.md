@@ -4,7 +4,7 @@ Meal-Mates is a small-scale, food-sharing, social-networking, mobile focused app
 
 Our app brings convenience to meal planning for busy people.  Members can join clubs which then alternate food preparation for different days of the work week. Clubs will be limited to seven members or less. By limiting members per group, members can more easily be held accountable for meeting their duties. Users can select their available days for their group, then a schedule is created for upcoming meal preparation.  The schedule can be altered to account for unforeseen events. 
 
-This program utilizes the following npm packages: express, path, favicon, logger, cookieParser, bodyParser, session, methodOverride, passport, moment, fullcandar, plus a few others that we have probably overlooked.  Prior to running the program, through bash, navigate to the folder where you have the files stored and type in "npm install" to install all of the packages.
+This program utilizes the following npm packages: express, path, favicon, logger, cookieParser, bodyParser, session, methodOverride, passport, moment, fullcalendar, plus a few others that we have probably overlooked.  Prior to running the program, through bash, navigate to the folder where you have the files stored and type in "npm install" to install all of the packages.
 
 ### Here is a quick demonstration.
 
