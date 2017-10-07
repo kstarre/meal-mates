@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,27 +10,26 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        <!-- favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
-     <link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto:400,500,700" rel="stylesheet"> 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- font awesome -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
     <script type="text/javascript" src="/js/navbar.js"></script>
-    <script type="text/javascript" src="/js/joingroup.js"></script>
+    <script type="text/javascript" src="/js/viewotheruser.js"></script>
     <script type="text/javascript" src="/js/usernote.js"></script>
 </head>
 
-<body id ="color">
-    <div id = "nav-container">
+<body>
+          <div id = "nav-container">
             <header class="clearfix">
                 <h1>Meal Mates</h1>
             </header>   
@@ -60,6 +59,7 @@
                                         <ul class = "dd-menu">
                                             <li><a href="/group">Your Group</a></li>
                                             <li><a href="/group/calendar">Group Calendar</a></li>
+                                            <li><a href="/group/create">Create Group</a></li>
                                         </ul>
                                     </div>
                                 
@@ -74,7 +74,6 @@
                                         <ul class = "dd-menu">
                                             <li><a href="/group/admin">Edit Group</a></li>
                                             <li><a href="/group/calendar/admin">Edit Calendar</a></li>
-                                            <li><a href="/group/create">Create Group</a></li>
                                         </ul>
                                     </div>
                                 </div><!-- /inner-submenu -->
@@ -83,72 +82,70 @@
                    </nav>
             </div>
         </div>
-
     <div class="container">
         <div class="row">
-            <div class = "col-md-2"></div>
-            <div class = "col-md-8"> 
-           <h3 class = "text-center" id = "invite-h3"> You have been invited to <br>join a Meal-Mates group!</h3>
-       </div>
-       <div class = "col-md-2"></div>
-        </div>
-        <div class = "row">
             <div class="col-md-1"></div>
             <div class="col-md-6">
-                <div class="card" id="group-info-card">
+                <div class="card" id="profile-info">
                     <div class="card-block">
-                    <h4 class="card-title">Would you like to join this group?</h4>
-                   <br>
-                   <hr>
-                   <br>
-                                <dl class="row">
+                        <h2 class="card-title text-center"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  Profile Information</h2>
+                        <br>
+                        <dl class="row">
                             <dt class="col-sm-3">
-                                <h6>Group Name:</h6></dt>
+                                <h6>First Name:</h6></dt>
                             <dd class="col-sm-9">
-                                <p class="card-text" id="group-name">name</p>
+                                <p class="card-text" id="profile-first-name">None provided.</p>
                             </dd>
                             <br>
                             <dt class="col-sm-3">
-                                <h6>Group Admin:</h6></dt>
+                                <h6>Last Name:</h6></dt>
                             <dd class="col-sm-9">
-                            <p class="card-text" id="group-admin">admin</p>
+                                <p class="card-text" id="profile-last-name">None provided.</p>
                             </dd>
                             <br>
+                            <dt class="col-sm-3">
+                                <h6>Email:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-email"></p>
+                            </dd>
                             <br>
                             <dt class="col-sm-3">
-                                <h6>Group Information:</h6></dt>
+                                <h6>Phone Number:</h6></dt>
                             <dd class="col-sm-9">
-                               <p class="card-text" id="group-info">group info</p>
+                                <p class="card-text" id="profile-phone">None provided.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Dietary Restrictions:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-dietary">No dietary restrictions.</p>
+                            </dd>
+                            <br>
+                            <dt class="col-sm-3">
+                                <h6>Food Allergies:</h6></dt>
+                            <dd class="col-sm-9">
+                                <p class="card-text" id="profile-allergies">No known allergies.</p>
                             </dd>
                             <br>
                         </dl>
-                        <div id = "join-button">
-                        <button class = "btn btn-primary" id="join-group">Join Group!</button>
-                    </div>
-                    </div>
-                    <span id="message"></span>
-                    <div>
-                        <p></p>
-                    </div>
-                </div>
-                 </div>  <!-- end col md 6 -->
-                 <div class = "col-md-4">
-                <div class="card" id="group-create-card">
-                    <div class="card-block">
-                        <h4 class="card-title text-center" id = "join-create-h4">Or you can create your own group!</h4>
-                        <div id = "join-create-button">
-                        <a class="btn btn-primary" role="button" id="create-group" href="/group/create">Create Group!</a>
-                    </div>
+
                     </div>
                 </div>
             </div>
-            <!-- end col-md-8 -->
+            <!-- end col-md-6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-block" id="grouplist">
+                        <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h3>
+                        <p class="card-text text-center" id="group-name-render">You don't belong to a group yet!</p>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-2"></div>
         </div>
         <!-- end row -->
     </div>
-
-
+    <!-- end container -->
 
 <!--Footer-->
 <footer class="page-footer footer-bs">

@@ -15,6 +15,9 @@ module.exports = {
 	welcome: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/welcome.html"));
 	},
+	viewOtherProfile: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/viewotheruser.html"));
+	},
 
 	// API Routes
 	isLoggedIn: function(req, res, next) {
@@ -71,6 +74,15 @@ module.exports = {
 				id: req.user.id
 			}
 		}).then(function(results) {
+			res.json(results);
+		});
+	},
+	getOtherUser: function(req, res) {
+		db.User.findOne({
+			where: {
+				id: req.params.userId
+			}
+		}).then( results => {
 			res.json(results);
 		});
 	}

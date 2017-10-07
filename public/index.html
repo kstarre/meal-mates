@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Francois+One|Oswald:700" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto:400,500,700" rel="stylesheet"> 
     <!-- font awesome -->
     <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- css -->
@@ -24,7 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body id ="color">
 <div id = "index-nav-container">
             <header>
                 <h1>Meal Mates</h1>
@@ -41,79 +42,93 @@
             </div>
         </div>
     
-        <div class="container">
+        <div class="container" id = "main-index-container">
             <div class="row" id= "main-index-row">
+                <div class = "col-sm-2"></div>
+                <div class = "col-sm-8">
+                <h2 class = "text-center" id="leading-title">SOMETHING<h2>
+                <hr id = "lead-title-hr">
+            </div>
+        </div>
+            <div class = "col-md-2"></div>
+                <div class = "row">
                 <div class="col-sm-2"> </div>
+                <div class="col-sm-8">
+                    <p class="text-center" id = "leading-p">
+Taking the time and effort to learn to cook regularly can have the single most positive impact on your health and quality of life. People who cook at home more often, rather than eating out, have healthier overall diets with lower food expenses. At Meal Mates we understand the difficulties that come along with our busy and hectic schedules which often prevent people from preparing their own nutritious meals. We aim to fix this. </p>
+
+     </div>
+                <div class = "col-sm-4"></div>
+            </div>
+                      <div class="row" id= "main-index-row">
+                <div class = "col-sm-2"></div>
+                <div class = "col-sm-8">
+                <h2 class = "text-center" id="leading-title">Sharing meals is not only good, it's good for you. </h2>
+                <hr id = "lead-title-hr">
+            </div>
+        </div>
+            <div class = "col-md-2"></div>
+                <div class = "row">
+                <div class="col-sm-2"> </div>
+                <div class="col-sm-8">
+                    <p class="text-center" id = "leading-p">
+Meal Mates is a small-scale, food-sharing, social-networking, mobile focused app designed to bring groups of people together for dining convenience. We bring the accessibility of meal planning, made easy, to busy people. When you sign up you can join clubs and alternate food preparation for different days of the work week with friends and coworkers to strengthen relationships, reduce food waste, save time and money, be healthier, and live your best life. </p>
+
+     </div>
+                <div class = "col-sm-4"></div>
+            </div>
+              <div class = "row">
+                <div class="col-sm-4"> </div>
                 <div class="col-sm-4">
-                    <p class="lead">This area will probably not be a jumbotron but it's a placeholder for now. It will have an image and information about our application.</p>
-                </div>
-                            <div class="col-md-4">
+                              <h3 class ="text-center" id ="start-sharing"> Sign Up Now To Start Sharing </h3>
+                            </div>
+                            <div class ="col-sm-4"></div>
+
+                        </div>
+            <div class = "row">
+                <div class="col-sm-4"> </div>
+                <div class="col-sm-4">
                                 <button class="btn btn-primary pb-modalreglog-submit" id="indexbtn" data-toggle="modal" data-target="#myModal2">Register</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
- <!--       <div class = "row">
-        <div id ="index-reasons-container">
-            <div class="row" id = "index-reasons-row">
-                <div class="col-md-3">
-                   <img src='img/sust.png' alt="sustainable">
-                   <br>
-                    <h4> content </h4>
-                </div>
-                <div class="col-md-3">
-                     <img src='img/friends.png' alt="make friends">
-                     <br>
-                   <h4> content </h4>
-                </div>
-                <div class="col-md-3">
-                     <img src='img/cooking.png' alt="cooking">
-                     <br>
-                    <h4> content </h4>
-                </div>
-                <div class="col-md-3">
-                     <img src='img/money2.png' alt="save money">
-                     <br>
-                   <h4> content </h4>
-                </div>
-            </div>
-        </div> -->
+                            <div class ="col-sm-4"></div>
 
-    </div> <!-- end container -->
+                        </div>
     <div class = "row">
-        <div class="card-group">
-  <div class="card">
+        <div class="card-group" id= "index-card-group">
+  <div class="card" id ="index-card">
     <img class="card-img-top" src='img/sust.png' alt="sustainable">
     <div class="card-block">
-      <h4 class="card-title text-center">Promotes Sustainability</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="card-title text-center" id= "reasons-h4">Eco Friendly</h4>
+      <p class="card-text"> Cooking at home is good for your health and for the environment. Meal Mates eliminates the issue of food waste from leftovers which many individuals cite to be one of the primary reasons they avoid cooking at home. Choosing to cook rather than eat out helps by reducing packaging waste and energy costs.</p>
     </div>
   </div>
-  <div class="card">
-    <img class="card-img-top" src='img/friends.png' alt="make friends">
+  <div class="card" id ="index-card">
+    <img class="card-img-top" id ="friends" src='img/friends.png' alt="friends">
     <div class="card-block">
-      <h4 class="card-title text-center">Make Friends</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="card-title text-center" id= "reasons-h4">Make Friends</h4>
+      <p class="card-text">The sharing of food has always been part of the human story, all over the world, people say they make friends by "breaking bread together."  If social bonds and friendships are key to a positive work environment, then sharing meals simply provide the opportunity for those bonds to form or strengthen.</p>
     </div>
   </div>
-  <div class="card">
-    <img class="card-img-top" src='img/cooking.png' alt="cooking">
+  <div class="card" id ="index-card">
+    <img class="card-img-top"  id ="save-time" src='img/time.png' alt="clock">
     <div class="card-block">
-      <h4 class="card-title text-center">Another Benefit!</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="card-title text-center" id= "reasons-h4" >Save Time</h4>
+      <p class="card-text text-center"><p>Meal Mates brings convenience to meal planning for busy people. We understand the innate desire to want to eat healthier by cooking at home on a regular basis doesn't always line up with a hectic schedule. This quandary can be eliminated through the use of our application.
+      </p>
     </div>
   </div>
-   <div class="card">
-    <img class="card-img-top" src='img/money2.png' alt="save money">
+   <div class="card" id="index-card">
+    <img class="card-img-top" id="save-money" src='img/money2.png' alt="save money">
     <div class="card-block">
-      <h4 class="card-title">Save Money</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="card-title text-center" id= "reasons-h4" >Save Money</h4>
+      <p class="card-text">Just buying lunch instead of packing your own costs $2,000 a year on average, so it’s no secret that making your own meals instead of eating out will save you money. Comparing serving size, weight, or nutritional content, home cooked meals come out ahead in price.</p>
     </div>
   </div>
 </div>
     </div>
 
+
+    </div> <!-- end container -->
 
  <!-- modals -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -130,19 +145,19 @@
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <div class="input-group pb-modalreglog-input-group">
-                                <span class="input-group-addon"></span>
+                                <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <div class="input-group pb-modalreglog-input-group">
-                                <span class="input-group-addon"></span>
+                                <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                                 <input type="password" name="password" class="form-control" id="pws" placeholder="Password">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                             <button type="submit" class="btn btn-primary">Log in</button>
                         </div>
                     </form>
@@ -157,7 +172,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">Registration form</h4>
+                    <h4 class="modal-title text-center" id="myModalLabel">Registration form</h4>
                 </div>
                 <div class="modal-body">
                     <form id="form-signup" name="signup" method="post" action="/signup" class="form container">
@@ -167,21 +182,21 @@
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <div class="input-group pb-modalreglog-input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                                 <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <div class="input-group pb-modalreglog-input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span></span>
                                 <input type="password" name="password" class="form-control" id="inputPws" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="confirmpassword">Confirm password</label>
                             <div class="input-group pb-modalreglog-input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span></span>
                                 <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirm Password">
                             </div>
                         </div>
@@ -189,7 +204,7 @@
                             <input type="checkbox" id="ch" name="chs"> I agree with <a href="#">terms and conditions.</a>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                             <button class="btn btn-primary" id="register-button" type="submit">Sign Up</button>
                         </div>
                     </form>
@@ -207,8 +222,8 @@
         <div class="row text-center text-md-left mt-3 pb-3">
             <!--First column-->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 footer-brand animated fadeInLeft">
-                <h2>Meal Mates</h2>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                <h2 id ="footer-header-1">Meal </h2>
+                 <h2 id = "footer-header-2"> Mates</h2>
             </div>
             <!--/.First column-->
             <hr class="w-100 clearfix d-md-none">
@@ -238,14 +253,14 @@
         <hr>
         <div class="row py-3 d-flex align-items-center">
             <!--Grid column-->
-            <div class="col-md-8 col-lg-9">
+            <div class="col-md-7 col-lg-8">
                 <!--Copyright-->
                 <p class="text-center text-md-left grey-text">© 2017 Copyright<strong>  Meal Mates</strong></p>
                 <!--/.Copyright-->
             </div>
             <!--Grid column-->
             <!--Grid column-->
-            <div class="col-md-4 col-lg-3 ml-lg-0">
+            <div class="col-md-5 col-lg-4 ml-lg-0">
                 <!--Social buttons-->
                 <div class="social-section text-center text-md-left">
                     <div class="d-inline"><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook fa-2x"></i></a></div>
