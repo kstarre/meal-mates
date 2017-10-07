@@ -51,3 +51,4 @@ module.exports = function(app, passport) {
   app.post("/api/user/imageupload", indexController.uploadImage)
 
 };
+
