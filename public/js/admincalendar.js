@@ -22,7 +22,8 @@ $(document).ready(function() {
 		}
 		$(".my-draggable").draggable({
 			revert: true,
-			revertDuration: 0
+			revertDuration: 0,
+			zIndex: 999
 		});
 	}
 

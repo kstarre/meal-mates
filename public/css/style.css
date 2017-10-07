@@ -17,6 +17,14 @@ p {
     font-size: 20px;
 }
 
+h6 { 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+   margin-bottom: 10px;
+
+}
+
 
 /*calendar*/
 
@@ -45,8 +53,9 @@ margin-bottom: 20px;
 }
 .form-control {
     line-height: 0px;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-left: 30px;
+
 }
 
 #inputEmail.form-control, #inputPws.form-control, #inputConfirmPws.form-control, #email.form-control, #pws.form-control {
@@ -184,7 +193,8 @@ padding-bottom: 2px;
 .menu-open .submenu {
     display: block;
     padding-bottom: 2em;
-    min-height: 57px;
+    min-height: 60px;
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
 }
 
 .navmenu .inner-submenu > div {
@@ -209,6 +219,7 @@ padding-bottom: 2px;
 
  .dd-menu {
     position: absolute;
+      /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
  }
 
 .dd-menu>li {
@@ -299,6 +310,29 @@ padding-bottom: 2px;
     padding-top: 40px;
 
 }
+
+#invite-h3 {
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#invite-p {
+     font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#card-invite {
+    background: white;
+}
+
+.nav-tabs .nav-link {
+    font-weight: bold;
+    color: #5c7645;
+}
  
 #main-index-container{
 background: linear-gradient(45deg,rgba(37,57,20,.8) 0,rgba(85,147,29,.8) 100%);
@@ -371,7 +405,7 @@ width: 100%;
     -webkit-transition: all 0.3s ease-in-out 0s;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 150px;
+    margin-left: 100px;
 }
 
 #save-time {
@@ -484,6 +518,7 @@ h2.card-title {
     font-family: 'Oswald', sans-serif;
     font-size: 40px;
     color: #5c7645;
+    margin-bottom: 50px;
 }
 
 h3.card-title {
@@ -503,6 +538,7 @@ h3.card-title {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   /*  border-width: 0;
     box-shadow: none;*/
     /*background-color: #97C36B;*/
@@ -526,15 +562,9 @@ h3.card-title {
     text-align: left;
 }*/
 
-/*.group-info-title {
-    text-align: center;
-    color: #31451C;
-     font-family: 'Oswald', sans-serif;
-    font-size: 40px;
-    line-height: 50px;
-    letter-spacing: -3px;
-    padding-left: .2em;
-}
+/*.group-info-card {
+   margin-top: -20;
+}*/
 
 hr.cardhr { 
   height: 30px; 
@@ -552,7 +582,7 @@ hr.cardhr:before {
   border-color: #587C32; 
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
-}*/
+}
 
 
 
@@ -587,6 +617,13 @@ hr.cardhr:before {
 margin-top: 30px;
 text-transform: uppercase;
 }
+
+ #tab-h3 {
+     font-family: 'Oswald', sans-serif;
+    margin-top: 10px;
+    color: #5c7645;
+
+ }
 
 #join-create-button {
 /*  margin-left: 20px;
@@ -655,6 +692,8 @@ text-transform: uppercase;
     border-bottom-right-radius: 6px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 6px;
+     border-top: 5px solid #7EB348;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .footer-bs .footer-brand,
@@ -805,10 +844,19 @@ button.navbar-toggler.navbar-toggler-right {
         font-size: 80%;
     }
 
+    header {
+        padding-top: 20px;
+    }
+
 }
 
 
 @media screen and (max-width: 688px) { 
+
+    h1{
+        font-size: 30px;
+        margin-left: 400px;
+    }
 
      .dd-menu {
     position: static;
@@ -825,7 +873,9 @@ button.navbar-toggler.navbar-toggler-right {
 }
 
 #signed-in{
-    margin-left: -20px;
+    float: left;
+    margin-right: 30px;
+    padding-left: 0px;
     margin-bottom: 0px;
 }
 
@@ -842,7 +892,7 @@ button.navbar-toggler.navbar-toggler-right {
 
     .navmenu .inner-submenu {
         padding: 0 2em;
-        font-size: 75%;
+        /*font-size: 75%;*/
     }
 
     .navmenu > ul > li {
@@ -854,6 +904,7 @@ button.navbar-toggler.navbar-toggler-right {
         /*width: 33.33%;*/
         display: block;
         padding: 1em 3em;
+        padding-bottom: 0px;
     }
 
     .navmenu .submenu { 
