@@ -13,6 +13,8 @@ $(document).ready(function() {
 			$("#profile-phone").html(data.phoneNumber);
 			$("#profile-dietary").html(data.dietaryRestrictions);
 			$("#profile-allergies").html(data.foodAllergies);
+			$("#profile-image").attr("src", "img/images/upload_images/" + data.imageLink);
+
 			getGroup();
 		});
 	}

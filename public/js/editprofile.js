@@ -19,6 +19,7 @@ $(document).ready(function() {
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
+			$("#user-img").attr("src", "img/images/upload_images/" + data.imageLink);
 			getGroup();
 			$("#user-image").attr('src', data.imageLink);
 		});
