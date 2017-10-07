@@ -17,7 +17,8 @@ p {
     font-size: 20px;
 }
 
-h6{font-family: 'Roboto', sans-serif;
+h6 { 
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 20px;
    margin-bottom: 10px;
@@ -308,6 +309,29 @@ padding-bottom: 2px;
     padding-top: 40px;
 
 }
+
+#invite-h3 {
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#invite-p {
+     font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#card-invite {
+    background: white;
+}
+
+.nav-tabs .nav-link {
+    font-weight: bold;
+    color: #5c7645;
+}
  
 #main-index-container{
 background: linear-gradient(45deg,rgba(37,57,20,.8) 0,rgba(85,147,29,.8) 100%);
@@ -593,6 +617,13 @@ margin-top: 30px;
 text-transform: uppercase;
 }
 
+ #tab-h3 {
+     font-family: 'Oswald', sans-serif;
+    margin-top: 10px;
+    color: #5c7645;
+
+ }
+
 #join-create-button {
 /*  margin-left: 20px;
   margin-right: 20px;*/
@@ -660,6 +691,8 @@ text-transform: uppercase;
     border-bottom-right-radius: 6px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 6px;
+     border-top: 5px solid #7EB348;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .footer-bs .footer-brand,
