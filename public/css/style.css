@@ -194,7 +194,7 @@ padding-bottom: 2px;
     display: block;
     padding-bottom: 2em;
     min-height: 60px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
 }
 
 .navmenu .inner-submenu > div {
@@ -219,6 +219,7 @@ padding-bottom: 2px;
 
  .dd-menu {
     position: absolute;
+      /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
  }
 
 .dd-menu>li {
@@ -404,7 +405,7 @@ width: 100%;
     -webkit-transition: all 0.3s ease-in-out 0s;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 150px;
+    margin-left: 100px;
 }
 
 #save-time {
