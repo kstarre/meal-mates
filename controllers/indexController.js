@@ -114,7 +114,7 @@ module.exports = {
                         return res.status(500).send(err);
                         
                     db.User.update({
-                        imageLink: req.body.data
+                        imageLink: img_name
 
                     }, {
                         where: {

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
 	// Add event listener for the form submit
 	$("#form-edit-profile").on("submit", handleSubmit);
-	$("#form-upload-image").on("submit", handleSubmit);
 	$("#delete-account-btn").on("click", handleDelete);
 	$("#leave-group-btn").on("click", leaveGroup);
 
@@ -61,16 +60,6 @@ $(document).ready(function() {
 		}).done(function() {
 			window.location.href = "/viewprofile";
 		})
-	}
-
-	function handleImageUpload(evet) {
-		event.preventDefault();
-
-		var imgPath = $("#img-form-control").val().trim();
-		console.log("\n\nimgPath");
-		console.log(imgPath);
-
-		return imgPath;
 	}
 
 	function handleDelete(event) {
