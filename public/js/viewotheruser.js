@@ -21,7 +21,7 @@ $(document).ready(function() {
 	// Function for retrieving user info
 	function getOtherUser() {
 		$.get("/api/user/" + userId, function(data) {
-			if ( (groupId !== data.LunchgroupId) || (!data) ) {
+			if ( (!data) || (groupId !== data.LunchgroupId) ) {
 				window.location.href = "/";
 			}
 			$("#profile-first-name").html(data.firstName);
