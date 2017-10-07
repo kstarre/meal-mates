@@ -6,6 +6,7 @@ module.exports = function(app, passport) {
   app.get("/welcome", indexController.isLoggedIn, indexController.welcome),
 	app.get("/viewprofile", indexController.isLoggedIn, indexController.viewProfile),
 	app.get("/editprofile", indexController.isLoggedIn, indexController.editProfile),
+  app.get("/viewprofile/:groupId/:userId", indexController.isLoggedIn, indexController.viewOtherProfile),
 
 	// API routes
 	app.get("/logout", indexController.logout),
@@ -45,5 +46,6 @@ module.exports = function(app, passport) {
 
   app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
-  app.delete("/api/user/delete", indexController.deleteUser)
+  app.delete("/api/user/delete", indexController.deleteUser),
+  app.get("/api/user/:userId", indexController.getOtherUser)
 };

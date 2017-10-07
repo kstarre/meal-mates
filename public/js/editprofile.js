@@ -23,6 +23,9 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
+			if (!data) {
+				$("#leave-group-btn").hide();
+			}
 			$("#group-name-render").html(data.groupName);
 		});
 	}
