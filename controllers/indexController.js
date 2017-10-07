@@ -15,6 +15,9 @@ module.exports = {
 	welcome: function(req, res) {
 		res.sendFile(path.join(__dirname, "../public/welcome.html"));
 	},
+	viewOtherProfile: function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/viewotheruser.html"));
+	},
 
 	// API Routes
 	isLoggedIn: function(req, res, next) {
@@ -25,6 +28,12 @@ module.exports = {
 	},
 	isAdmin: function(req, res, next) {
 		if (req.user.admin) {
+			return next();
+		}
+		res.redirect("/");
+	},
+	checkGroup: function(req, res, next) {
+		if (req.user.LunchgroupId == req.params.groupId) {
 			return next();
 		}
 		res.redirect("/");
@@ -71,6 +80,15 @@ module.exports = {
 				id: req.user.id
 			}
 		}).then(function(results) {
+			res.json(results);
+		});
+	},
+	getOtherUser: function(req, res) {
+		db.User.findOne({
+			where: {
+				id: req.params.userId
+			}
+		}).then( results => {
 			res.json(results);
 		});
 	}
