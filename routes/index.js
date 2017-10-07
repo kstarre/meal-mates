@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
   app.get("/welcome", indexController.isLoggedIn, indexController.welcome),
 	app.get("/viewprofile", indexController.isLoggedIn, indexController.viewProfile),
 	app.get("/editprofile", indexController.isLoggedIn, indexController.editProfile),
-  app.get("/viewprofile/:groupId/:userId", indexController.isLoggedIn, indexController.checkGroup, indexController.viewOtherProfile),
+  app.get("/viewprofile/:groupId/:userId", indexController.isLoggedIn, indexController.viewOtherProfile),
 
 	// API routes
 	app.get("/logout", indexController.logout),

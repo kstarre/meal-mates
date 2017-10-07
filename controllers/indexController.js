@@ -32,12 +32,6 @@ module.exports = {
 		}
 		res.redirect("/");
 	},
-	checkGroup: function(req, res, next) {
-		if (req.user.LunchgroupId == req.params.groupId) {
-			return next();
-		}
-		res.redirect("/");
-	},
 	logout: function(req, res) {
 		req.session.destroy(function(err) {
 			res.redirect("/");
