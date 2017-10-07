@@ -309,6 +309,7 @@ width: 100%;
     font-weight: bold;
     font-size: 50px;
     color: white;
+    text-transform: uppercase;
 }
 
 #lead-title-hr {
@@ -370,7 +371,11 @@ width: 100%;
     -webkit-transition: all 0.3s ease-in-out 0s;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 105px;
+    margin-left: 150px;
+}
+
+#save-time {
+    margin-left: 60px;
 }
 
 .btn-primary {
@@ -409,8 +414,24 @@ width: 100%;
 }
 
 
+#start-sharing{
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
 
+#reasons-h4 {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #5c7645
+}
+#friends{
+    margin-left: 75px;
 
+    }
+}
 /*main page login/sign up modals*/
 
 h4.modal-title{
@@ -462,7 +483,7 @@ h2.card-title {
     /*font-family: 'Francois One', sans-serif;*/
     font-family: 'Oswald', sans-serif;
     font-size: 40px;
-    color: #5c7645
+    color: #5c7645;
 }
 
 h3.card-title {
@@ -743,7 +764,7 @@ h6.title {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
-    color: #7EB348;
+    color: white;
 }
 
 
