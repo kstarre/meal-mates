@@ -4,6 +4,7 @@ $(document).ready(function() {
 	$("#form-edit-profile").on("submit", handleSubmit);
 	$("#delete-account-btn").on("click", handleDelete);
 	$("#leave-group-btn").on("click", leaveGroup);
+
 	getUser();
 
 	// Function for retrieving user info
@@ -17,7 +18,9 @@ $(document).ready(function() {
 			$("#phone-number").val(data.phoneNumber);
 			$("#dietary-restrictions").val(data.dietaryRestrictions);
 			$("#food-allergies").val(data.foodAllergies);
+			$("#user-img").attr("src", "img/images/upload_images/" + data.imageLink);
 			getGroup();
+			$("#user-image").attr('src', data.imageLink);
 		});
 	} 
 
@@ -34,12 +37,16 @@ $(document).ready(function() {
 	function handleSubmit(event) {
 		event.preventDefault();
 
+		// var imageLink = handleImageUpload();
+
 		var userData = {
 			firstName: $("#first-name").val().trim(), 
 			lastName: $("#last-name").val().trim(),
 			phoneNumber: $("#phone-number").val().trim(),
 			foodAllergies: $("#food-allergies").val().trim(),
-			dietaryRestrictions: $("#dietary-restrictions").val().trim()
+			dietaryRestrictions: $("#dietary-restrictions").val().trim(),
+			// imageLink: imageLink
+
 		};
 
 		updateUser(userData);

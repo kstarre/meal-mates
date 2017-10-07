@@ -47,5 +47,8 @@ module.exports = function(app, passport) {
   app.get("/api/user", indexController.getUserInfo),
   app.put("/api/user/edit", indexController.updateUserInfo),
   app.delete("/api/user/delete", indexController.deleteUser),
-  app.get("/api/user/:userId", indexController.getOtherUser)
+  app.get("/api/user/:userId", indexController.getOtherUser),
+  app.post("/api/user/imageupload", indexController.uploadImage)
+
 };
+

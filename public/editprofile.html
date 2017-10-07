@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- font awesome -->
     <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- google fonts -->
@@ -20,7 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>
      <link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto:400,500,700" rel="stylesheet"> 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javascript -->
@@ -137,6 +137,19 @@
                         <h3 class="card-title text-center"><i class="fa fa-users" aria-hidden="true"></i>   Group Info </h3>
                         <p class="card-text text-center" id="group-name-render">You don't belong to a group yet!</p>
                         <h6 class="card-subtitle mb-2 text-muted text-center"><input class="btn btn-primary" id="leave-group-btn" type="submit" value="Leave Group"></h6>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block" id="image">
+                        <h4 class="card-title"><i class="fa fa-users" aria-hidden="true"></i>   Profile Photo </h4>
+                        <form id="form-upload-image" method="POST" action="/api/user/imageupload/" encType="multipart/form-data">
+                            <p class="card-text" id="group-name-render"> Upload Your Image</p>
+                            <img id="user-img" class="img-props" width="200px" src="">
+                            <div class="col-sm-9">
+                                <input class="img-form-control" type="file" name="uploaded_image" accept="" />
+                            </div>
+                            <input class="btn btn-primary" id="submit-image-btn" type="submit" value="Upload Your Image">
+                        </form>
                     </div>
                 </div>
                 <div class="card">

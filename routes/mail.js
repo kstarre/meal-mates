@@ -32,7 +32,7 @@ module.exports = function(app) {
         service: "hotmail",
         // host: "smtp.gmail.com",
         auth: {
-            user: "mealmates@hotmail.com",
+            user: "mealmatesapp@gmail.com",
             pass: "Kat13Megan"
         }
     });
