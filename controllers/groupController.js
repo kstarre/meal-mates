@@ -55,6 +55,8 @@ module.exports = {
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
+		console.log("createNewGroup req.body");
+		console.log(req.body);
 		db.Lunchgroup.create({
 			groupName: req.body.groupName,
 			groupSize: req.body.groupSize,

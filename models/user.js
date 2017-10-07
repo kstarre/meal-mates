@@ -33,6 +33,9 @@ module.exports = function(sequelize, DataTypes) {
         admin: {
             type: DataTypes.BOOLEAN
         },
+        imageLink: {
+            type: DataTypes.STRING
+        }
        
     });
 
