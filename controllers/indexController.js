@@ -35,7 +35,29 @@ module.exports = {
 	logout: function(req, res) {
 		req.session.destroy(function(err) {
 			res.redirect("/");
-		})
+		});
+	},
+	signup: function(req, res) {
+		if( req.session.invite_inviteCode ){
+			if( req.xhr ){
+		    	res.json({ successRedirect: '/group/join' });
+			} else {
+		    	res.redirect('/group/join');
+			}
+		} else {
+			res.redirect('/welcome');
+		}
+	},
+	signin: function(req, res) {
+		if( req.session.invite_inviteCode ){
+			if( req.xhr ){
+		    	res.json({ successRedirect: '/group/join' });
+			} else {
+		    	res.redirect('/group/join');
+			}
+		} else {
+		  res.redirect('/viewprofile');
+		}
 	},
 	getUserInfo: function(req, res) {
 		db.User.findOne({
@@ -87,57 +109,35 @@ module.exports = {
 		});
 	},
     uploadImage: function(req, res) {
-        message = '';
-        if (req.method == "POST") {
-            var post = req.body;
-            var name = post.user_name;
-            var pass = post.password;
-            var fname = post.first_name;
-            var lname = post.last_name;
-            var mob = post.mob_no;
+        var message = '';
+        var file = req.files.uploaded_image;
+        var img_name = file.name;
 
-            if (!req.files)
-                return res.status(400).send('No files were uploaded.');
-
-            var file = req.files.uploaded_image;
-            var img_name = file.name;
-
-            console.log(file.mimetype);
-
-            if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-                console.log(__dirname + '/../public/img/images/upload_images/');
-
-                file.mv(__dirname + '/../public/img/images/upload_images/' + file.name, function(err) {
-
-                    if (err) 
-
-                        return res.status(500).send(err);
-                        
-                    db.User.update({
-                        imageLink: img_name
-
-                    }, {
-                        where: {
-                            id: req.user.id
-                        }
-                    }).then(function(results) {
-
-                        res.redirect("/editprofile");
-                    })
-
-                });
-                
-
-            } else {
-                message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
-                // res.render('index.ejs', { message: message });
-                console.log("message");
-                console.log(message);
-            }
+        if (!req.files) {
+            return res.status(400).send('No files were uploaded.');
         }
-	    else {
-	        // res.render('index');
-	        console.log("ELSE")
-	    }
+
+        if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
+            //console.log(__dirname + '/../public/img/images/upload_images/');
+
+            file.mv(__dirname + '/../public/img/images/upload_images/' + file.name, function(err) {
+
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                db.User.update({
+                	   imageLink: img_name
+                }, {
+                	   where: {
+                	       id: req.user.id
+                	   }
+                }).then(function(results) {
+                	   res.json(results);
+                });
+            });    
+        } else {
+            message = "This format is not allowed, please upload file with '.png','.gif','.jpg'";
+            console.log(message);
+        }
     }
 };

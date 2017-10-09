@@ -40,8 +40,7 @@ module.exports = {
 		  	}).then(function(lunchgroup) {
 		  		res.json(lunchgroup);
 		  	});		
-		}
-		else {
+		} else {
 			db.Lunchgroup.findOne({
 				where: {
 					id: req.user.LunchgroupId
@@ -55,8 +54,6 @@ module.exports = {
 
 	// create/POST new group 
 	createNewGroup: function(req, res) {
-		console.log("createNewGroup req.body");
-		console.log(req.body);
 		db.Lunchgroup.create({
 			groupName: req.body.groupName,
 			groupSize: req.body.groupSize,
@@ -77,7 +74,7 @@ module.exports = {
 	},
 
 	// edit/POST group
-	groupEdit: function(req, res, next) {
+	groupEdit: function(req, res) {
 		db.Lunchgroup.update(req.body, {
 			where: {
 				id: req.user.LunchgroupId
