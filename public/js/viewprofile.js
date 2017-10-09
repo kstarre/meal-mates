@@ -21,7 +21,9 @@ $(document).ready(function() {
 
 	function getGroup() {
 		$.get("/api/group", function(data) {
-			$("#group-name-render").html(data.groupName);
+			if (data) {
+				$("#group-name-render").html(data.groupName);
+			}
 		});
 	}
 
