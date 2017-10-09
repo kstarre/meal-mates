@@ -37,16 +37,12 @@ $(document).ready(function() {
 	function handleSubmit(event) {
 		event.preventDefault();
 
-		// var imageLink = handleImageUpload();
-
 		var userData = {
 			firstName: $("#first-name").val().trim(), 
 			lastName: $("#last-name").val().trim(),
 			phoneNumber: $("#phone-number").val().trim(),
 			foodAllergies: $("#food-allergies").val().trim(),
-			dietaryRestrictions: $("#dietary-restrictions").val().trim(),
-			// imageLink: imageLink
-
+			dietaryRestrictions: $("#dietary-restrictions").val().trim()
 		};
 
 		updateUser(userData);

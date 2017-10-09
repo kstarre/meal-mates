@@ -2,14 +2,15 @@ $(document).ready(function() {
 
 	isAdmin();
 	getGroupInfo();
-	$("#join-group").on("click", joinGroup);
+	$("#join-group").on("click", codeSearch);
 
 
 	function codeSearch() {
 		$.get("/api/invite/search").done(function(data) {
 			if (data === null) {
-				console.log("Code does not match");
 				window.location.href = "/";
+			} else {
+				joinGroup();
 			}
 			// check if code expired
 		});
@@ -29,7 +30,6 @@ $(document).ready(function() {
 	}
 
 	function joinGroup() {
-		codeSearch();
 		$.ajax({
 			method: "PUT",
 			url: "/api/group/join"

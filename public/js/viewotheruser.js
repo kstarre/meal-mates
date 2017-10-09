@@ -23,15 +23,16 @@ $(document).ready(function() {
 		$.get("/api/user/" + userId, function(data) {
 			if ( (!data) || (groupId !== data.LunchgroupId) ) {
 				window.location.href = "/";
+			} else {
+				$("#profile-first-name").html(data.firstName);
+				$("#profile-last-name").html(data.lastName);
+				$("#profile-email").html(data.email);
+				$("#profile-phone").html(data.phoneNumber);
+				$("#profile-dietary").html(data.dietaryRestrictions);
+				$("#profile-allergies").html(data.foodAllergies);
+				$("#profile-image").attr("src", "img/images/upload_images/" + data.imageLink);
+				getGroup();
 			}
-			$("#profile-first-name").html(data.firstName);
-			$("#profile-last-name").html(data.lastName);
-			$("#profile-email").html(data.email);
-			$("#profile-phone").html(data.phoneNumber);
-			$("#profile-dietary").html(data.dietaryRestrictions);
-			$("#profile-allergies").html(data.foodAllergies);
-			$("#profile-image").attr("src", "img/images/upload_images/" + data.imageLink);
-			getGroup();
 		});
 	}
 

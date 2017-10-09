@@ -33,7 +33,7 @@ module.exports = function(app) {
         // host: "smtp.gmail.com",
         auth: {
             user: "mealmates@hotmail.com",
-            pass: "Kat13Megan"
+            pass: process.env.HPASS
         }
     });
 
