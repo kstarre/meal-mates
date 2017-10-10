@@ -405,7 +405,12 @@ width: 100%;
     -webkit-transition: all 0.3s ease-in-out 0s;
     margin-bottom: 30px;
     margin-top: 30px;
-    margin-left: 100px;
+    margin-left: 170px;
+}
+
+#submit-image-btn{
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
 #save-time {
@@ -696,6 +701,9 @@ text-transform: uppercase;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+#invite-footer{
+    margin-top: 100px;
+}
 .footer-bs .footer-brand,
 .footer-bs .footer-nav,
 .footer-bs .footer-social,
@@ -944,12 +952,52 @@ button.navbar-toggler.navbar-toggler-right {
 }
 
 #signed-in {
-    margin-left: 10px;
+    margin-left: 0px;
     width: 200px;
     background: #7EB348;
     opacity: .95;
 }
 
+#index-nav-container{
+    min-height: 600px;
+
+}
+
+#index-nav-container > header h1{
+    /*font-size: 30px;*/
+    margin-top: 30px;
+    margin-left:-40px;
+}
+
+#main-index-container{
+  /*margin-top: 100px;*/
+   /*min-height: 600px;*/
+
+}
+
+.navmenu-index{
+    margin-top: 100px;
+}
+
+#indexbtn {
+    margin-left: -20px;
+}
+
+#index-nav-login , 
+#index-reg-button{
+    margin-top: 200px;
+    margin-right: 90px;
+}
+
+
+#friends,
+#save-time,
+#save-money{
+    margin-left: 190px;
+}
+#eco{
+    margin-left: 190px;
+}
 }
 
 
