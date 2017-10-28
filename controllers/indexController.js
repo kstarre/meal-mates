@@ -119,21 +119,22 @@ module.exports = {
         }
 
         if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-            console.log(__dirname + '/../public/img/images/upload_images/');
 
-            file.mv(__dirname + '/../public/img/images/upload_images/' + file.name, function(err) {
+            //console.log(path.join(__dirname, '../public/img/images/upload_images/'));
+
+            file.mv(path.join(__dirname, '../public/img/images/upload_images/', file.name), function(err) {
 
                 if (err) {
                     return res.status(500).send(err);
                 }
                 db.User.update({
-                	   imageLink: img_name
+                	imageLink: img_name
                 }, {
-                	   where: {
-                	       id: req.user.id
-                	   }
+                	where: {
+                	    id: req.user.id
+                	}
                 }).then(function(results) {
-                	   res.json(results);
+                	res.redirect("/editprofile");
                 });
             });    
         } else {

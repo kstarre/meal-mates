@@ -20,7 +20,6 @@ $(document).ready(function() {
 			$("#food-allergies").val(data.foodAllergies);
 			$("#user-img").attr("src", "img/images/upload_images/" + data.imageLink);
 			getGroup();
-			$("#user-image").attr('src', data.imageLink);
 		});
 	} 
 
@@ -28,8 +27,9 @@ $(document).ready(function() {
 		$.get("/api/group", function(data) {
 			if (!data) {
 				$("#leave-group-btn").hide();
+			} else {
+				$("#group-name-render").html(data.groupName);
 			}
-			$("#group-name-render").html(data.groupName);
 		});
 	}
 
