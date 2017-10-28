@@ -113,11 +113,13 @@ module.exports = {
         var file = req.files.uploaded_image;
         var img_name = file.name;
 
+        console.log(file.mimetype);
         if (!req.files) {
             return res.status(400).send('No files were uploaded.');
         }
 
         if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
+
             //console.log(path.join(__dirname, '../public/img/images/upload_images/'));
 
             file.mv(path.join(__dirname, '../public/img/images/upload_images/', file.name), function(err) {
